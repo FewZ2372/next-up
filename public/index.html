@@ -26,7 +26,9 @@
       }
       /* These styles disable body scrolling if you are using <ScrollView> */
       body {
-        overflow: hidden;
+        overflow-x: hidden;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
       }
       * {
         scrollbar-width: none;

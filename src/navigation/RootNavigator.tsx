@@ -1,9 +1,9 @@
-import { Ionicons } from "@expo/vector-icons";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import { AuthScreen } from "../screens/auth/AuthScreen";
+import { TabIcon } from "../components/TabIcon";
 import { PreferencesScreen } from "../screens/onboarding/PreferencesScreen";
 import { RecapScreen } from "../screens/onboarding/RecapScreen";
 import { HomeScreen } from "../screens/tabs/HomeScreen";
@@ -19,12 +19,12 @@ import { MainTabParamList, RootStackParamList } from "./types";
 const RootStack = createNativeStackNavigator<RootStackParamList>();
 const Tab = createBottomTabNavigator<MainTabParamList>();
 
-const tabIcons: Record<keyof MainTabParamList, keyof typeof Ionicons.glyphMap> = {
-  Home: "sparkles-outline",
-  WatchNow: "play-circle-outline",
-  Watchlist: "bookmark-outline",
-  Alerts: "notifications-outline",
-  Settings: "options-outline",
+const tabIcons: Record<keyof MainTabParamList, "home" | "watch" | "watchlist" | "alerts" | "settings"> = {
+  Home: "home",
+  WatchNow: "watch",
+  Watchlist: "watchlist",
+  Alerts: "alerts",
+  Settings: "settings",
 };
 
 function MainTabs() {
@@ -42,7 +42,7 @@ function MainTabs() {
           paddingBottom: 12,
         },
         tabBarIcon: ({ color, size }) => (
-          <Ionicons name={tabIcons[route.name]} size={size} color={color} />
+          <TabIcon name={tabIcons[route.name]} size={size} color={color} />
         ),
       })}
     >

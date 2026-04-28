@@ -12,7 +12,7 @@ export function AuthScreen() {
   const [name, setName] = useState("");
 
   return (
-    <Screen scroll={false} contentContainerStyle={styles.container}>
+    <Screen contentContainerStyle={styles.container}>
       <KeyboardAvoidingView
         style={styles.keyboard}
         behavior={Platform.OS === "ios" ? "padding" : undefined}
@@ -46,7 +46,7 @@ export function AuthScreen() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flexGrow: 1,
     justifyContent: "center",
   },
   keyboard: {

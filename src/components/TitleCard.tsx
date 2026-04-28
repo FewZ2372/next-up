@@ -4,6 +4,7 @@ import {
   StyleProp,
   StyleSheet,
   Text,
+  useWindowDimensions,
   View,
   ViewStyle,
 } from "react-native";
@@ -20,43 +21,60 @@ interface TitleCardProps {
 
 export function TitleCard({ title, style }: TitleCardProps) {
   const posterUrl = posterUrls[title.id];
+  const { height } = useWindowDimensions();
+  const compact = height < 760;
+  const small = height < 680;
+  const heroHeight = small ? 168 : compact ? 188 : 220;
+  const bodyPadding = small ? spacing.md : spacing.lg;
+  const titleSize = small ? 24 : compact ? 26 : 28;
+  const titleLineHeight = small ? 27 : compact ? 29 : 31;
+  const blurbFontSize = small ? 14 : 15;
+  const blurbLineHeight = small ? 20 : 22;
+  const detailFontSize = small ? 13 : 14;
+  const detailLineHeight = small ? 18 : 20;
 
   return (
     <View style={[styles.card, style]}>
       {posterUrl ? (
         <ImageBackground
           source={{ uri: posterUrl }}
-          style={styles.hero}
+          style={[styles.hero, { minHeight: heroHeight }]}
           imageStyle={styles.heroImage}
           resizeMode="cover"
         >
           <LinearGradient
             colors={["rgba(5, 5, 5, 0.08)", "rgba(5, 5, 5, 0.48)", "rgba(5, 5, 5, 0.94)"]}
-            style={styles.heroOverlay}
+            style={[styles.heroOverlay, { minHeight: heroHeight, padding: bodyPadding }]}
           >
             <View style={styles.heroTag}>
               <Text style={styles.heroTagText}>{title.format}</Text>
             </View>
-            <Text style={styles.name}>{title.name}</Text>
+            <Text style={[styles.name, { fontSize: titleSize, lineHeight: titleLineHeight }]}>
+              {title.name}
+            </Text>
             <Text style={styles.meta}>
               {title.year} / {title.duration}
             </Text>
           </LinearGradient>
         </ImageBackground>
       ) : (
-        <LinearGradient colors={title.gradient} style={styles.hero}>
+        <LinearGradient colors={title.gradient} style={[styles.hero, { minHeight: heroHeight, padding: bodyPadding }]}>
           <View style={styles.heroTag}>
             <Text style={styles.heroTagText}>{title.format}</Text>
           </View>
-          <Text style={styles.name}>{title.name}</Text>
+          <Text style={[styles.name, { fontSize: titleSize, lineHeight: titleLineHeight }]}>
+            {title.name}
+          </Text>
           <Text style={styles.meta}>
             {title.year} / {title.duration}
           </Text>
         </LinearGradient>
       )}
 
-      <View style={styles.body}>
-        <Text style={styles.blurb}>{title.blurb}</Text>
+      <View style={[styles.body, { padding: bodyPadding }]}>
+        <Text style={[styles.blurb, { fontSize: blurbFontSize, lineHeight: blurbLineHeight }]}>
+          {title.blurb}
+        </Text>
 
         <View style={styles.rowWrap}>
           {title.genres.map((genre) => (
@@ -66,8 +84,12 @@ export function TitleCard({ title, style }: TitleCardProps) {
           ))}
         </View>
 
-        <Text style={styles.detail}>Dir. {title.director}</Text>
-        <Text style={styles.detail}>Con {title.cast.join(", ")}</Text>
+        <Text style={[styles.detail, { fontSize: detailFontSize, lineHeight: detailLineHeight }]}>
+          Dir. {title.director}
+        </Text>
+        <Text style={[styles.detail, { fontSize: detailFontSize, lineHeight: detailLineHeight }]}>
+          Con {title.cast.join(", ")}
+        </Text>
 
         <Text style={styles.platformLabel}>Disponible en</Text>
         <View style={styles.platformRow}>
@@ -89,16 +111,13 @@ const styles = StyleSheet.create({
     borderColor: colors.border,
   },
   hero: {
-    minHeight: 220,
     justifyContent: "flex-end",
   },
   heroImage: {
     opacity: 0.96,
   },
   heroOverlay: {
-    minHeight: 220,
     justifyContent: "flex-end",
-    padding: spacing.lg,
   },
   heroTag: {
     alignSelf: "flex-start",
@@ -125,12 +144,9 @@ const styles = StyleSheet.create({
     marginTop: spacing.xs,
   },
   body: {
-    padding: spacing.lg,
   },
   blurb: {
     color: colors.text,
-    fontSize: 15,
-    lineHeight: 22,
     marginBottom: spacing.md,
   },
   rowWrap: {
@@ -153,8 +169,6 @@ const styles = StyleSheet.create({
   },
   detail: {
     color: colors.text,
-    fontSize: 14,
-    lineHeight: 20,
     marginBottom: 4,
   },
   platformLabel: {

@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { ScrollView, StyleProp, StyleSheet, View, ViewStyle } from "react-native";
+import { Platform, ScrollView, StyleProp, StyleSheet, View, ViewStyle } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import { colors, spacing } from "../theme/colors";
@@ -13,8 +13,11 @@ interface ScreenProps {
 export function Screen({ children, scroll = true, contentContainerStyle }: ScreenProps) {
   const content = scroll ? (
     <ScrollView
+      style={styles.scrollView}
       contentContainerStyle={[styles.scrollContent, contentContainerStyle]}
       showsVerticalScrollIndicator={false}
+      keyboardShouldPersistTaps="handled"
+      keyboardDismissMode={Platform.OS === "ios" ? "interactive" : "on-drag"}
     >
       {children}
     </ScrollView>
@@ -30,7 +33,11 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.background,
   },
+  scrollView: {
+    flex: 1,
+  },
   scrollContent: {
+    flexGrow: 1,
     paddingHorizontal: spacing.lg,
     paddingTop: spacing.sm,
     paddingBottom: spacing.xl,
