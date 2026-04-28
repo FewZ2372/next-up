@@ -1,0 +1,135 @@
+
+> next-up@1.0.0 web
+> expo start --web
+
+Starting project at C:\Users\Feli\Desktop\next up
+Starting Metro Bundler
+Waiting on http://localhost:8081
+Logs for your project will appear below.
+Web .\index.ts ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░ 99.9% (1088/1091)
+Web Bundled 2632ms index.ts (1091 modules)
+ LOG  [web] Logs will appear in the browser console
+Unable to resolve "react-native-svg" from "src\components\PlatformBadge.tsx"
+[0m [90m 1 |[39m [36mimport[39m { [33mStyleSheet[39m[33m,[39m [33mText[39m[33m,[39m [33mView[39m } [36mfrom[39m [32m"react-native"[39m[33m;[39m
+[31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m { [33mSvgUri[39m } [36mfrom[39m [32m"react-native-svg"[39m[33m;[39m
+ [90m   |[39m                         [31m[1m^[22m[39m
+ [90m 3 |[39m
+ [90m 4 |[39m [36mimport[39m { platformBranding } [36mfrom[39m [32m"../data/mediaAssets"[39m[33m;[39m
+ [90m 5 |[39m [36mimport[39m { [33mPlatformName[39m } [36mfrom[39m [32m"../types/content"[39m[33m;[39m[0m
+
+Import stack:
+
+ src\components\PlatformBadge.tsx
+ | import "react-native-svg"
+
+ src\components\TitleCard.tsx
+ | import "./PlatformBadge"
+
+ src\screens\onboarding\RecapScreen.tsx
+ | import "../../components/TitleCard"
+
+ src\navigation\RootNavigator.tsx
+ | import "../screens/onboarding/RecapScreen"
+
+ App.tsx
+ | import "./src/navigation/RootNavigator"
+
+ index.ts
+ | import "./App"
+
+ 
+ | import "./index.ts"
+
+Unable to resolve "react-native-svg" from "src\components\PlatformBadge.tsx"
+[0m [90m 1 |[39m [36mimport[39m { [33mStyleSheet[39m[33m,[39m [33mText[39m[33m,[39m [33mView[39m } [36mfrom[39m [32m"react-native"[39m[33m;[39m
+[31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m { [33mSvgUri[39m } [36mfrom[39m [32m"react-native-svg"[39m[33m;[39m
+ [90m   |[39m                         [31m[1m^[22m[39m
+ [90m 3 |[39m
+ [90m 4 |[39m [36mimport[39m { platformBranding } [36mfrom[39m [32m"../data/mediaAssets"[39m[33m;[39m
+ [90m 5 |[39m [36mimport[39m { [33mPlatformName[39m } [36mfrom[39m [32m"../types/content"[39m[33m;[39m[0m
+
+Import stack:
+
+ src\components\PlatformBadge.tsx
+ | import "react-native-svg"
+
+ src\components\TitleCard.tsx
+ | import "./PlatformBadge"
+
+ src\screens\onboarding\RecapScreen.tsx
+ | import "../../components/TitleCard"
+
+ src\navigation\RootNavigator.tsx
+ | import "../screens/onboarding/RecapScreen"
+
+ App.tsx
+ | import "./src/navigation/RootNavigator"
+
+ index.ts
+ | import "./App"
+
+ 
+ | import "./index.ts"
+
+Unable to resolve "react-native-svg" from "src\components\PlatformBadge.tsx"
+[0m [90m 1 |[39m [36mimport[39m { [33mStyleSheet[39m[33m,[39m [33mText[39m[33m,[39m [33mView[39m } [36mfrom[39m [32m"react-native"[39m[33m;[39m
+[31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m { [33mSvgUri[39m } [36mfrom[39m [32m"react-native-svg"[39m[33m;[39m
+ [90m   |[39m                         [31m[1m^[22m[39m
+ [90m 3 |[39m
+ [90m 4 |[39m [36mimport[39m { platformBranding } [36mfrom[39m [32m"../data/mediaAssets"[39m[33m;[39m
+ [90m 5 |[39m [36mimport[39m { [33mPlatformName[39m } [36mfrom[39m [32m"../types/content"[39m[33m;[39m[0m
+
+Import stack:
+
+ src\components\PlatformBadge.tsx
+ | import "react-native-svg"
+
+ src\components\TitleCard.tsx
+ | import "./PlatformBadge"
+
+ src\screens\onboarding\RecapScreen.tsx
+ | import "../../components/TitleCard"
+
+ src\navigation\RootNavigator.tsx
+ | import "../screens/onboarding/RecapScreen"
+
+ App.tsx
+ | import "./src/navigation/RootNavigator"
+
+ index.ts
+ | import "./App"
+
+ 
+ | import "./index.ts"
+
+Unable to resolve "react-native-svg" from "src\components\PlatformBadge.tsx"
+[0m [90m 1 |[39m [36mimport[39m { [33mStyleSheet[39m[33m,[39m [33mText[39m[33m,[39m [33mView[39m } [36mfrom[39m [32m"react-native"[39m[33m;[39m
+[31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m { [33mSvgUri[39m } [36mfrom[39m [32m"react-native-svg"[39m[33m;[39m
+ [90m   |[39m                         [31m[1m^[22m[39m
+ [90m 3 |[39m
+ [90m 4 |[39m [36mimport[39m { platformBranding } [36mfrom[39m [32m"../data/mediaAssets"[39m[33m;[39m
+ [90m 5 |[39m [36mimport[39m { [33mPlatformName[39m } [36mfrom[39m [32m"../types/content"[39m[33m;[39m[0m
+
+Import stack:
+
+ src\components\PlatformBadge.tsx
+ | import "react-native-svg"
+
+ src\components\TitleCard.tsx
+ | import "./PlatformBadge"
+
+ src\screens\onboarding\RecapScreen.tsx
+ | import "../../components/TitleCard"
+
+ src\navigation\RootNavigator.tsx
+ | import "../screens/onboarding/RecapScreen"
+
+ App.tsx
+ | import "./src/navigation/RootNavigator"
+
+ index.ts
+ | import "./App"
+
+ 
+ | import "./index.ts"
+

@@ -1,0 +1,23 @@
+
+> next-up@1.0.0 web
+> expo start --web
+
+Starting project at C:\Users\Feli\Desktop\next up
+Starting Metro Bundler
+Waiting on http://localhost:8081
+Logs for your project will appear below.
+Web .\index.ts ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░ 99.9% (1125/1126)
+Web Bundled 2873ms index.ts (1126 modules)
+ LOG  [web] Logs will appear in the browser console
+Web .\index.ts ░░░░░░░░░░░░░░░░  0.0% (0/1)
+Web Bundled 44ms index.ts (1 module)
+ LOG  [web] Logs will appear in the browser console
+Web .\index.ts ░░░░░░░░░░░░░░░░  0.0% (0/1)
+Web Bundled 44ms index.ts (1 module)
+ LOG  [web] Logs will appear in the browser console
+Web .\index.ts ░░░░░░░░░░░░░░░░  0.0% (0/1)
+Web Bundled 37ms index.ts (1 module)
+ LOG  [web] Logs will appear in the browser console
+Web .\index.ts ░░░░░░░░░░░░░░░░  0.0% (0/1)
+Web Bundled 246ms index.ts (1 module)
+ LOG  [web] Logs will appear in the browser console
