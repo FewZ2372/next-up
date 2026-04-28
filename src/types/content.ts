@@ -34,6 +34,8 @@ export interface MoodOption {
   prompt: string;
 }
 
+export type SelectedMoodId = MoodId | null;
+
 export interface NewsItem {
   id: string;
   category: "Estreno" | "Precio" | "Cambio" | "Renovación";

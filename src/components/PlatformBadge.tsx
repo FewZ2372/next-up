@@ -15,7 +15,7 @@ export function PlatformBadge({ platform }: PlatformBadgeProps) {
   return (
     <View style={styles.badge}>
       <View style={styles.logoSlot}>
-        <SvgUri uri={branding.logoUri} width={branding.logoWidth} height={16} />
+        <SvgUri uri={branding.logoUri} width={branding.logoWidth * 0.82} height={13} />
       </View>
       <Text style={styles.label}>{platform}</Text>
     </View>
@@ -30,25 +30,25 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: colors.border,
     backgroundColor: colors.surface,
-    paddingVertical: 6,
-    paddingLeft: 6,
-    paddingRight: spacing.sm,
-    marginRight: spacing.sm,
-    marginBottom: spacing.sm,
+    paddingVertical: 4,
+    paddingLeft: 5,
+    paddingRight: 10,
+    marginRight: 8,
+    marginBottom: 8,
   },
   logoSlot: {
-    minWidth: 78,
-    height: 30,
+    minWidth: 62,
+    height: 24,
     borderRadius: radii.pill,
     backgroundColor: "#FFFFFF",
     alignItems: "center",
     justifyContent: "center",
-    marginRight: spacing.sm,
-    paddingHorizontal: spacing.sm,
+    marginRight: 8,
+    paddingHorizontal: 8,
   },
   label: {
     color: colors.text,
-    fontSize: 12,
+    fontSize: 11,
     fontWeight: "700",
   },
 });

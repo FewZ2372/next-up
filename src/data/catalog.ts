@@ -1,4 +1,4 @@
-import { MoodId, PlatformName, Title } from "../types/content";
+import { PlatformName, SelectedMoodId, Title } from "../types/content";
 
 export const PLATFORM_OPTIONS: PlatformName[] = [
   "Netflix",
@@ -424,7 +424,7 @@ export const getRecommendedTitles = (filters: {
   selectedDirectors: string[];
   selectedActors: string[];
   hiddenIds: string[];
-  mood: MoodId;
+  mood: SelectedMoodId;
 }) => {
   const hiddenIds = new Set(filters.hiddenIds);
 
@@ -438,12 +438,12 @@ export const getRecommendedTitles = (filters: {
         filters.selectedDirectors,
         filters.selectedActors,
       );
-      const moodScore = title.moods.includes(filters.mood) ? 4 : 0;
+      const moodScore = filters.mood && title.moods.includes(filters.mood) ? 4 : 0;
 
       return {
         title,
         score: baseScore + moodScore,
-        moodMatch: title.moods.includes(filters.mood),
+        moodMatch: filters.mood ? title.moods.includes(filters.mood) : false,
       };
     })
     .sort((a, b) => b.score - a.score);

@@ -2,7 +2,7 @@ import { create } from "zustand";
 
 import { getRecapCandidates } from "../data/catalog";
 import { moods } from "../data/moods";
-import { MoodId, PlatformName } from "../types/content";
+import { PlatformName, SelectedMoodId } from "../types/content";
 
 interface AppState {
   userName: string;
@@ -17,7 +17,7 @@ interface AppState {
   seenIds: string[];
   dismissedIds: string[];
   watchlistIds: string[];
-  currentMood: MoodId;
+  currentMood: SelectedMoodId;
   login: (name: string) => void;
   logout: () => void;
   togglePlatform: (platform: PlatformName) => void;
@@ -26,7 +26,7 @@ interface AppState {
   toggleActor: (actor: string) => void;
   prepareRecap: () => void;
   classifyRecapTitle: (seen: boolean) => void;
-  setMood: (mood: MoodId) => void;
+  setMood: (mood: SelectedMoodId) => void;
   markTitleSeen: (id: string) => void;
   dismissTitle: (id: string) => void;
   addToWatchlist: (id: string) => void;
@@ -49,7 +49,7 @@ const initialState = {
   seenIds: [] as string[],
   dismissedIds: [] as string[],
   watchlistIds: [] as string[],
-  currentMood: moods[0].id,
+  currentMood: null as SelectedMoodId,
 };
 
 const toggleInArray = <T,>(collection: T[], value: T) =>

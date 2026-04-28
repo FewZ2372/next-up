@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { KeyboardAvoidingView, Platform, StyleSheet, Text, TextInput, View } from "react-native";
+import { StyleSheet, Text, TextInput, View } from "react-native";
 
 import { AccentButton } from "../../components/AccentButton";
 import { Screen } from "../../components/Screen";
@@ -13,33 +13,28 @@ export function AuthScreen() {
 
   return (
     <Screen contentContainerStyle={styles.container}>
-      <KeyboardAvoidingView
-        style={styles.keyboard}
-        behavior={Platform.OS === "ios" ? "padding" : undefined}
-      >
-        <View style={styles.hero}>
-          <Text style={styles.brand}>NEXT UP</Text>
-          <SectionHeading
-            eyebrow="Bienvenido"
-            title="Películas y series mejor ordenadas para cada momento."
-            body="Una selección más precisa según tus gustos, tus plataformas y el tipo de historia que te interesa ver hoy."
-          />
-        </View>
+      <View style={styles.hero}>
+        <Text style={styles.brand}>NEXT UP</Text>
+        <SectionHeading
+          eyebrow="Bienvenido"
+          title="Películas y series mejor ordenadas para cada momento."
+          body="Una selección más precisa según tus gustos, tus plataformas y el tipo de historia que te interesa ver hoy."
+        />
+      </View>
 
-        <View style={styles.panel}>
-          <Text style={styles.label}>Nombre</Text>
-          <TextInput
-            value={name}
-            onChangeText={setName}
-            placeholder="Tu nombre"
-            placeholderTextColor={colors.textMuted}
-            style={styles.input}
-            selectionColor={colors.accent}
-          />
+      <View style={styles.panel}>
+        <Text style={styles.label}>Nombre</Text>
+        <TextInput
+          value={name}
+          onChangeText={setName}
+          placeholder="Tu nombre"
+          placeholderTextColor={colors.textMuted}
+          style={styles.input}
+          selectionColor={colors.accent}
+        />
 
-          <AccentButton label="Ingresar" fullWidth onPress={() => login(name)} />
-        </View>
-      </KeyboardAvoidingView>
+        <AccentButton label="Ingresar" fullWidth onPress={() => login(name)} />
+      </View>
     </Screen>
   );
 }
@@ -47,14 +42,11 @@ export function AuthScreen() {
 const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
-    justifyContent: "center",
-  },
-  keyboard: {
-    flex: 1,
-    justifyContent: "space-between",
+    paddingTop: spacing.xl,
+    paddingBottom: spacing.xl,
   },
   hero: {
-    paddingTop: spacing.xl,
+    marginBottom: spacing.xl,
   },
   brand: {
     color: colors.accent,
@@ -69,6 +61,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: colors.border,
     padding: spacing.lg,
+    marginTop: spacing.lg,
   },
   label: {
     color: colors.text,

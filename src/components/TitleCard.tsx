@@ -24,14 +24,18 @@ export function TitleCard({ title, style }: TitleCardProps) {
   const { height } = useWindowDimensions();
   const compact = height < 760;
   const small = height < 680;
-  const heroHeight = small ? 168 : compact ? 188 : 220;
-  const bodyPadding = small ? spacing.md : spacing.lg;
-  const titleSize = small ? 24 : compact ? 26 : 28;
-  const titleLineHeight = small ? 27 : compact ? 29 : 31;
-  const blurbFontSize = small ? 14 : 15;
-  const blurbLineHeight = small ? 20 : 22;
-  const detailFontSize = small ? 13 : 14;
-  const detailLineHeight = small ? 18 : 20;
+  const heroHeight = small ? 122 : compact ? 136 : 150;
+  const bodyPadding = small ? 12 : compact ? 14 : 16;
+  const titleSize = small ? 17 : compact ? 18 : 20;
+  const titleLineHeight = small ? 20 : compact ? 21 : 23;
+  const metaFontSize = small ? 11 : 12;
+  const blurbFontSize = small ? 12 : 13;
+  const blurbLineHeight = small ? 17 : 18;
+  const detailFontSize = small ? 11 : 12;
+  const detailLineHeight = small ? 15 : 16;
+  const tagFontSize = small ? 10 : 11;
+  const pillFontSize = small ? 10 : 11;
+  const platformLabelSize = small ? 11 : 12;
 
   return (
     <View style={[styles.card, style]}>
@@ -47,12 +51,12 @@ export function TitleCard({ title, style }: TitleCardProps) {
             style={[styles.heroOverlay, { minHeight: heroHeight, padding: bodyPadding }]}
           >
             <View style={styles.heroTag}>
-              <Text style={styles.heroTagText}>{title.format}</Text>
+              <Text style={[styles.heroTagText, { fontSize: tagFontSize }]}>{title.format}</Text>
             </View>
             <Text style={[styles.name, { fontSize: titleSize, lineHeight: titleLineHeight }]}>
               {title.name}
             </Text>
-            <Text style={styles.meta}>
+            <Text style={[styles.meta, { fontSize: metaFontSize }]}>
               {title.year} / {title.duration}
             </Text>
           </LinearGradient>
@@ -60,12 +64,12 @@ export function TitleCard({ title, style }: TitleCardProps) {
       ) : (
         <LinearGradient colors={title.gradient} style={[styles.hero, { minHeight: heroHeight, padding: bodyPadding }]}>
           <View style={styles.heroTag}>
-            <Text style={styles.heroTagText}>{title.format}</Text>
+            <Text style={[styles.heroTagText, { fontSize: tagFontSize }]}>{title.format}</Text>
           </View>
           <Text style={[styles.name, { fontSize: titleSize, lineHeight: titleLineHeight }]}>
             {title.name}
           </Text>
-          <Text style={styles.meta}>
+          <Text style={[styles.meta, { fontSize: metaFontSize }]}>
             {title.year} / {title.duration}
           </Text>
         </LinearGradient>
@@ -79,7 +83,7 @@ export function TitleCard({ title, style }: TitleCardProps) {
         <View style={styles.rowWrap}>
           {title.genres.map((genre) => (
             <View key={genre} style={styles.pill}>
-              <Text style={styles.pillText}>{genre}</Text>
+              <Text style={[styles.pillText, { fontSize: pillFontSize }]}>{genre}</Text>
             </View>
           ))}
         </View>
@@ -91,7 +95,7 @@ export function TitleCard({ title, style }: TitleCardProps) {
           Con {title.cast.join(", ")}
         </Text>
 
-        <Text style={styles.platformLabel}>Disponible en</Text>
+        <Text style={[styles.platformLabel, { fontSize: platformLabelSize }]}>Disponible en</Text>
         <View style={styles.platformRow}>
           {title.platforms.map((platform) => (
             <PlatformBadge key={platform} platform={platform} />
@@ -121,15 +125,14 @@ const styles = StyleSheet.create({
   },
   heroTag: {
     alignSelf: "flex-start",
-    paddingHorizontal: spacing.sm,
-    paddingVertical: 6,
+    paddingHorizontal: 10,
+    paddingVertical: 4,
     borderRadius: radii.pill,
     backgroundColor: "rgba(0, 0, 0, 0.35)",
-    marginBottom: spacing.md,
+    marginBottom: spacing.sm,
   },
   heroTagText: {
     color: colors.text,
-    fontSize: 12,
     fontWeight: "700",
   },
   name: {
@@ -140,31 +143,29 @@ const styles = StyleSheet.create({
   },
   meta: {
     color: "rgba(246, 247, 242, 0.86)",
-    fontSize: 14,
-    marginTop: spacing.xs,
+    marginTop: 6,
   },
   body: {
   },
   blurb: {
     color: colors.text,
-    marginBottom: spacing.md,
+    marginBottom: spacing.sm,
   },
   rowWrap: {
     flexDirection: "row",
     flexWrap: "wrap",
-    marginBottom: spacing.md,
+    marginBottom: spacing.sm,
   },
   pill: {
-    paddingHorizontal: spacing.sm,
-    paddingVertical: 7,
+    paddingHorizontal: 10,
+    paddingVertical: 5,
     borderRadius: radii.pill,
     backgroundColor: colors.surface,
-    marginRight: spacing.sm,
-    marginBottom: spacing.sm,
+    marginRight: 8,
+    marginBottom: 8,
   },
   pillText: {
     color: colors.textMuted,
-    fontSize: 12,
     fontWeight: "700",
   },
   detail: {
@@ -173,10 +174,9 @@ const styles = StyleSheet.create({
   },
   platformLabel: {
     color: colors.accent,
-    fontSize: 13,
     fontWeight: "700",
-    marginTop: spacing.sm,
-    marginBottom: spacing.sm,
+    marginTop: 8,
+    marginBottom: 8,
   },
   platformRow: {
     flexDirection: "row",
