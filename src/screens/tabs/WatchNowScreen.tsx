@@ -1,4 +1,4 @@
-import { BottomTabScreenProps, useBottomTabBarHeight } from "@react-navigation/bottom-tabs";
+import { BottomTabScreenProps } from "@react-navigation/bottom-tabs";
 import { useRef, useState } from "react";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 
@@ -14,11 +14,10 @@ import { useAppStore } from "../../store/useAppStore";
 import { colors, radii, spacing } from "../../theme/colors";
 
 type Props = BottomTabScreenProps<MainTabParamList, "WatchNow">;
-const ACTION_BAR_HEIGHT = 112;
+const ACTION_BAR_HEIGHT = 74;
 
 export function WatchNowScreen(_: Props) {
   const state = useAppStore((store) => store);
-  const tabBarHeight = useBottomTabBarHeight();
   const deckRef = useRef<SwipeDeckHandle>(null);
   const [showMoodModal, setShowMoodModal] = useState(true);
 
@@ -83,7 +82,7 @@ export function WatchNowScreen(_: Props) {
         />
       </View>
 
-      <View style={[styles.floatingActions, { bottom: tabBarHeight + spacing.md }]}>
+      <View style={styles.floatingActions}>
         <AccentButton
           label="Pasar"
           variant="secondary"
@@ -196,11 +195,13 @@ const styles = StyleSheet.create({
   deckArea: {
     flex: 1,
     minHeight: 0,
+    paddingBottom: ACTION_BAR_HEIGHT,
   },
   floatingActions: {
     position: "absolute",
     left: spacing.lg,
     right: spacing.lg,
+    bottom: spacing.sm,
     flexDirection: "row",
     gap: spacing.sm,
   },
@@ -212,7 +213,7 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(5, 5, 5, 0.72)",
     justifyContent: "center",
     paddingHorizontal: spacing.lg,
-    paddingBottom: ACTION_BAR_HEIGHT + spacing.xl,
+    paddingBottom: ACTION_BAR_HEIGHT + spacing.lg,
   },
   modalCard: {
     borderRadius: radii.lg,
