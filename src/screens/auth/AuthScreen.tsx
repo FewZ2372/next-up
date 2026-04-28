@@ -31,7 +31,7 @@ export function AuthScreen() {
           <TextInput
             value={name}
             onChangeText={setName}
-            placeholder="Feli"
+            placeholder="Tu nombre"
             placeholderTextColor={colors.textMuted}
             style={styles.input}
             selectionColor={colors.accent}

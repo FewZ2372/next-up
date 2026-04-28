@@ -36,7 +36,7 @@ export function WebFullscreenButton() {
     };
   }, []);
 
-  if (Platform.OS !== "web" || isStandalone) {
+  if (Platform.OS !== "web" || isStandalone || isFullscreen) {
     return null;
   }
 
@@ -45,17 +45,12 @@ export function WebFullscreenButton() {
       return;
     }
 
-    if (document.fullscreenElement) {
-      await document.exitFullscreen?.();
-      return;
-    }
-
     await document.documentElement.requestFullscreen?.();
   };
 
   return (
     <Pressable onPress={handlePress} style={({ pressed }) => [styles.button, pressed && styles.pressed]}>
-      <Text style={styles.label}>{isFullscreen ? "Salir de pantalla completa" : "Pantalla completa"}</Text>
+      <Text style={styles.label}>Pantalla completa</Text>
     </Pressable>
   );
 }
