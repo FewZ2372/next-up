@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { forwardRef, useEffect, useImperativeHandle, useRef, useState } from "react";
 import {
   Animated,
   Dimensions,
@@ -29,6 +29,15 @@ interface SwipeDeckProps {
   downAction?: SwipeAction;
   emptyTitle?: string;
   emptyBody?: string;
+  showActions?: boolean;
+  fillAvailableHeight?: boolean;
+  preferScrollOnVertical?: boolean;
+}
+
+export interface SwipeDeckHandle {
+  swipeLeft: () => void;
+  swipeRight: () => void;
+  swipeDown: () => void;
 }
 
 const HORIZONTAL_SWIPE_THRESHOLD = 110;
@@ -36,16 +45,20 @@ const DOWN_SWIPE_THRESHOLD = 130;
 const SCREEN_WIDTH = Dimensions.get("window").width;
 const SCREEN_HEIGHT = Dimensions.get("window").height;
 
-export function SwipeDeck({
+export const SwipeDeck = forwardRef<SwipeDeckHandle, SwipeDeckProps>(function SwipeDeck({
   cards,
   leftAction,
   rightAction,
   downAction,
   emptyTitle = "No hay más resultados con esta combinación.",
   emptyBody = "Ajustar el estado de ánimo o revisar los filtros puede ampliar la selección.",
-}: SwipeDeckProps) {
+  showActions = true,
+  fillAvailableHeight = true,
+  preferScrollOnVertical = false,
+}: SwipeDeckProps, ref) {
   const position = useRef(new Animated.ValueXY()).current;
   const [isAnimating, setIsAnimating] = useState(false);
+  const [cardHeight, setCardHeight] = useState(0);
 
   const topCard = cards[0];
   const secondCard = cards[1];
@@ -59,6 +72,20 @@ export function SwipeDeck({
     position.setValue({ x: 0, y: 0 });
     setIsAnimating(false);
   }, [position, topCard?.id]);
+
+  useImperativeHandle(
+    ref,
+    () => ({
+      swipeLeft: () => forceSwipe("left"),
+      swipeRight: () => forceSwipe("right"),
+      swipeDown: () => {
+        if (downAction) {
+          forceSwipe("down");
+        }
+      },
+    }),
+    [downAction, topCard, isAnimating],
+  );
 
   const forceSwipe = (direction: SwipeDirection) => {
     if (!topCard || isAnimating || !actionMap[direction]) {
@@ -97,7 +124,13 @@ export function SwipeDeck({
     onMoveShouldSetPanResponder: (_, gestureState) =>
       Boolean(topCard) &&
       !isAnimating &&
-      (Math.abs(gestureState.dx) > 6 || Math.abs(gestureState.dy) > 6),
+      (
+        Math.abs(gestureState.dx) > 6 ||
+        (!preferScrollOnVertical && Math.abs(gestureState.dy) > 6) ||
+        (Boolean(downAction) &&
+          gestureState.dy > 36 &&
+          Math.abs(gestureState.dy) > Math.abs(gestureState.dx) * 1.25)
+      ),
     onPanResponderMove: Animated.event([null, { dx: position.x, dy: position.y }], {
       useNativeDriver: false,
     }),
@@ -146,7 +179,7 @@ export function SwipeDeck({
 
   if (!topCard) {
     return (
-      <View style={styles.root}>
+      <View style={[styles.root, !fillAvailableHeight && styles.rootAuto]}>
         <View style={styles.emptyState}>
           <Text style={styles.emptyTitle}>{emptyTitle}</Text>
           <Text style={styles.emptyBody}>{emptyBody}</Text>
@@ -162,8 +195,14 @@ export function SwipeDeck({
   ];
 
   return (
-    <View style={styles.root}>
-      <View style={styles.stack}>
+    <View style={[styles.root, !fillAvailableHeight && styles.rootAuto]}>
+      <View
+        style={[
+          styles.stack,
+          fillAvailableHeight ? styles.stackFill : styles.stackAuto,
+          cardHeight > 0 && { minHeight: cardHeight + 18 },
+        ]}
+      >
         {secondCard ? (
           <View style={styles.backCard}>
             <TitleCard title={secondCard} />
@@ -172,6 +211,12 @@ export function SwipeDeck({
 
         <Animated.View
           {...panResponder.panHandlers}
+          onLayout={(event) => {
+            const measuredHeight = event.nativeEvent.layout.height;
+            if (measuredHeight > 0 && Math.abs(measuredHeight - cardHeight) > 1) {
+              setCardHeight(measuredHeight);
+            }
+          }}
           style={[
             styles.frontCard,
             {
@@ -197,29 +242,39 @@ export function SwipeDeck({
         </Animated.View>
       </View>
 
-      <View style={styles.actions}>
-        {actions.map(({ key, direction, config }) => (
-          <AccentButton
-            key={key}
-            label={config.label}
-            variant={config.variant}
-            style={styles.actionButton}
-            onPress={() => forceSwipe(direction)}
-          />
-        ))}
-      </View>
+      {showActions ? (
+        <View style={styles.actions}>
+          {actions.map(({ key, direction, config }) => (
+            <AccentButton
+              key={key}
+              label={config.label}
+              variant={config.variant}
+              style={styles.actionButton}
+              onPress={() => forceSwipe(direction)}
+            />
+          ))}
+        </View>
+      ) : null}
     </View>
   );
-}
+});
 
 const styles = StyleSheet.create({
   root: {
     flex: 1,
   },
+  rootAuto: {
+    flex: 0,
+  },
   stack: {
-    flex: 1,
     minHeight: 0,
     justifyContent: "flex-start",
+  },
+  stackFill: {
+    flex: 1,
+  },
+  stackAuto: {
+    flex: 0,
   },
   frontCard: {
     position: "absolute",
