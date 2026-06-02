@@ -12,6 +12,7 @@ import { moods } from "../../data/moods";
 import { MainTabParamList } from "../../navigation/types";
 import { useAppStore } from "../../store/useAppStore";
 import { colors, radii, spacing } from "../../theme/colors";
+import { fontFamilies, typography } from "../../theme/typography";
 
 type Props = BottomTabScreenProps<MainTabParamList, "WatchNow">;
 const ACTION_BAR_HEIGHT = 74;
@@ -175,22 +176,18 @@ const styles = StyleSheet.create({
     opacity: 0.92,
   },
   moodTriggerLabel: {
+    ...typography.smallEyebrow,
     color: colors.textMuted,
-    fontSize: 11,
-    fontWeight: "800",
-    textTransform: "uppercase",
-    letterSpacing: 1,
     marginBottom: 4,
   },
   moodTriggerValue: {
+    ...typography.chipLabel,
     color: colors.text,
-    fontSize: 14,
-    fontWeight: "700",
+    fontFamily: fontFamilies.bold,
   },
   countLabel: {
+    ...typography.captionBold,
     color: colors.textMuted,
-    fontSize: 13,
-    fontWeight: "700",
   },
   deckArea: {
     flex: 1,
@@ -223,23 +220,18 @@ const styles = StyleSheet.create({
     padding: spacing.lg,
   },
   modalEyebrow: {
+    ...typography.eyebrow,
     color: colors.accent,
-    fontSize: 12,
-    fontWeight: "800",
-    textTransform: "uppercase",
-    letterSpacing: 1.1,
     marginBottom: spacing.xs,
   },
   modalTitle: {
+    ...typography.titleMedium,
     color: colors.text,
-    fontSize: 24,
-    lineHeight: 28,
-    fontWeight: "800",
     marginBottom: spacing.sm,
   },
   modalBody: {
+    ...typography.bodySmall,
     color: colors.textMuted,
-    fontSize: 14,
     lineHeight: 20,
     marginBottom: spacing.md,
   },

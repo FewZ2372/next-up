@@ -12,6 +12,7 @@ import {
 import { posterUrls } from "../data/mediaAssets";
 import { Title } from "../types/content";
 import { colors, radii, spacing } from "../theme/colors";
+import { fontFamilies, typography } from "../theme/typography";
 import { PlatformBadge } from "./PlatformBadge";
 
 interface TitleCardProps {
@@ -132,14 +133,14 @@ const styles = StyleSheet.create({
     marginBottom: spacing.sm,
   },
   heroTagText: {
+    ...typography.badgeLabel,
     color: colors.text,
-    fontWeight: "700",
   },
   name: {
     color: colors.text,
     fontSize: 28,
     lineHeight: 31,
-    fontWeight: "800",
+    fontFamily: fontFamilies.extraBold,
   },
   meta: {
     color: "rgba(246, 247, 242, 0.86)",
@@ -165,16 +166,16 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   pillText: {
+    ...typography.badgeLabel,
     color: colors.textMuted,
-    fontWeight: "700",
   },
   detail: {
     color: colors.text,
     marginBottom: 4,
   },
   platformLabel: {
+    ...typography.badgeLabel,
     color: colors.accent,
-    fontWeight: "700",
     marginTop: 8,
     marginBottom: 8,
   },

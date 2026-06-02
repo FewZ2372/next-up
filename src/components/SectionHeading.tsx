@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View } from "react-native";
 
 import { colors, spacing } from "../theme/colors";
+import { typography } from "../theme/typography";
 
 interface SectionHeadingProps {
   eyebrow?: string;
@@ -23,23 +24,17 @@ const styles = StyleSheet.create({
     marginBottom: spacing.lg,
   },
   eyebrow: {
+    ...typography.sectionEyebrow,
     color: colors.accent,
-    fontSize: 12,
-    fontWeight: "700",
-    letterSpacing: 1.1,
-    textTransform: "uppercase",
     marginBottom: spacing.xs,
   },
   title: {
+    ...typography.titleLarge,
     color: colors.text,
-    fontSize: 30,
-    lineHeight: 34,
-    fontWeight: "800",
   },
   body: {
+    ...typography.body,
     color: colors.textMuted,
-    fontSize: 15,
-    lineHeight: 22,
     marginTop: spacing.sm,
   },
 });

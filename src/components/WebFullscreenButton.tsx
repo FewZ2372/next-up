@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Platform, Pressable, StyleSheet, Text } from "react-native";
 
 import { colors, radii, spacing } from "../theme/colors";
+import { typography } from "../theme/typography";
 
 function getStandaloneMode() {
   if (Platform.OS !== "web" || typeof window === "undefined") {
@@ -72,8 +73,7 @@ const styles = StyleSheet.create({
     opacity: 0.88,
   },
   label: {
+    ...typography.captionBold,
     color: colors.text,
-    fontSize: 13,
-    fontWeight: "700",
   },
 });

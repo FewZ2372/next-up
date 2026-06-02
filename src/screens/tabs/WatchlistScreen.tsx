@@ -9,6 +9,7 @@ import { getTitlesByIds } from "../../data/catalog";
 import { MainTabParamList } from "../../navigation/types";
 import { useAppStore } from "../../store/useAppStore";
 import { colors, radii, spacing } from "../../theme/colors";
+import { typography } from "../../theme/typography";
 
 type Props = BottomTabScreenProps<MainTabParamList, "Watchlist">;
 
@@ -59,15 +60,13 @@ const styles = StyleSheet.create({
     padding: spacing.xl,
   },
   emptyTitle: {
+    ...typography.titleMedium,
     color: colors.text,
-    fontSize: 24,
-    fontWeight: "800",
     marginBottom: spacing.sm,
   },
   emptyBody: {
+    ...typography.body,
     color: colors.textMuted,
-    fontSize: 15,
-    lineHeight: 22,
     marginBottom: spacing.lg,
   },
   entry: {

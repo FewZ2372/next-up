@@ -4,6 +4,7 @@ import { SvgUri } from "react-native-svg";
 import { platformBranding } from "../data/mediaAssets";
 import { PlatformName } from "../types/content";
 import { colors, radii, spacing } from "../theme/colors";
+import { typography } from "../theme/typography";
 
 interface PlatformBadgeProps {
   platform: PlatformName;
@@ -47,8 +48,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 8,
   },
   label: {
+    ...typography.badgeLabel,
     color: colors.text,
-    fontSize: 11,
-    fontWeight: "700",
   },
 });

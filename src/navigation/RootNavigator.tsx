@@ -14,6 +14,7 @@ import { WatchlistScreen } from "../screens/tabs/WatchlistScreen";
 import { useAppStore } from "../store/useAppStore";
 import { colors } from "../theme/colors";
 import { navigationTheme } from "../theme/navigationTheme";
+import { fontFamilies } from "../theme/typography";
 import { MainTabParamList, RootStackParamList } from "./types";
 
 const RootStack = createNativeStackNavigator<RootStackParamList>();
@@ -40,6 +41,9 @@ function MainTabs() {
           height: 76,
           paddingTop: 10,
           paddingBottom: 12,
+        },
+        tabBarLabelStyle: {
+          fontFamily: fontFamilies.medium,
         },
         tabBarIcon: ({ color, size }) => (
           <TabIcon name={tabIcons[route.name]} size={size} color={color} />

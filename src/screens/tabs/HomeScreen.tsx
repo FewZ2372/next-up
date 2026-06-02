@@ -8,6 +8,7 @@ import { newsFeed } from "../../data/news";
 import { MainTabParamList } from "../../navigation/types";
 import { useAppStore } from "../../store/useAppStore";
 import { colors, radii, spacing } from "../../theme/colors";
+import { typography } from "../../theme/typography";
 
 type Props = BottomTabScreenProps<MainTabParamList, "Home">;
 
@@ -62,25 +63,21 @@ const styles = StyleSheet.create({
     marginBottom: spacing.xl,
   },
   heroTitle: {
+    ...typography.titleMedium,
     color: colors.text,
-    fontSize: 24,
-    lineHeight: 28,
-    fontWeight: "800",
     marginBottom: spacing.sm,
   },
   heroBody: {
+    ...typography.body,
     color: colors.textMuted,
-    fontSize: 15,
-    lineHeight: 22,
     marginBottom: spacing.lg,
   },
   heroFooter: {
     gap: spacing.sm,
   },
   heroMeta: {
+    ...typography.captionBold,
     color: colors.accent,
-    fontSize: 13,
-    fontWeight: "700",
   },
   feedCard: {
     borderRadius: radii.md,
@@ -96,25 +93,20 @@ const styles = StyleSheet.create({
     marginBottom: spacing.sm,
   },
   feedCategory: {
+    ...typography.eyebrow,
     color: colors.accent,
-    fontSize: 12,
-    fontWeight: "800",
-    letterSpacing: 1.1,
-    textTransform: "uppercase",
   },
   feedTimestamp: {
+    ...typography.caption,
     color: colors.textMuted,
-    fontSize: 12,
   },
   feedTitle: {
+    ...typography.titleSmall,
     color: colors.text,
-    fontSize: 17,
-    fontWeight: "800",
     marginBottom: spacing.xs,
   },
   feedBody: {
+    ...typography.bodySmall,
     color: colors.textMuted,
-    fontSize: 14,
-    lineHeight: 21,
   },
 });

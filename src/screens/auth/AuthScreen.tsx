@@ -6,6 +6,7 @@ import { Screen } from "../../components/Screen";
 import { SectionHeading } from "../../components/SectionHeading";
 import { useAppStore } from "../../store/useAppStore";
 import { colors, radii, spacing } from "../../theme/colors";
+import { typography } from "../../theme/typography";
 
 export function AuthScreen() {
   const login = useAppStore((state) => state.login);
@@ -49,10 +50,8 @@ const styles = StyleSheet.create({
     marginBottom: spacing.xl,
   },
   brand: {
+    ...typography.brand,
     color: colors.accent,
-    fontSize: 13,
-    fontWeight: "800",
-    letterSpacing: 3,
     marginBottom: spacing.lg,
   },
   panel: {
@@ -64,9 +63,8 @@ const styles = StyleSheet.create({
     marginTop: spacing.lg,
   },
   label: {
+    ...typography.formLabel,
     color: colors.text,
-    fontSize: 15,
-    fontWeight: "700",
     marginBottom: spacing.sm,
   },
   input: {

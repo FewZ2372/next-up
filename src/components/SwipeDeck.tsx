@@ -10,6 +10,7 @@ import {
 
 import { Title } from "../types/content";
 import { colors, radii, spacing } from "../theme/colors";
+import { typography } from "../theme/typography";
 import { AccentButton } from "./AccentButton";
 import { TitleCard } from "./TitleCard";
 
@@ -311,9 +312,8 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(75, 229, 138, 0.14)",
   },
   overlayText: {
+    ...typography.overlayLabel,
     color: colors.text,
-    fontWeight: "800",
-    letterSpacing: 1.2,
   },
   actions: {
     flexDirection: "row",
@@ -333,14 +333,12 @@ const styles = StyleSheet.create({
     padding: spacing.xl,
   },
   emptyTitle: {
+    ...typography.titleMedium,
     color: colors.text,
-    fontSize: 24,
-    fontWeight: "800",
     marginBottom: spacing.sm,
   },
   emptyBody: {
+    ...typography.body,
     color: colors.textMuted,
-    fontSize: 15,
-    lineHeight: 22,
   },
 });

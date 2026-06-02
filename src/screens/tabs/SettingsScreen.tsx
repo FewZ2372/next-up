@@ -5,6 +5,7 @@ import { Screen } from "../../components/Screen";
 import { SectionHeading } from "../../components/SectionHeading";
 import { useAppStore } from "../../store/useAppStore";
 import { colors, radii, spacing } from "../../theme/colors";
+import { typography } from "../../theme/typography";
 
 export function SettingsScreen() {
   const state = useAppStore((store) => store);
@@ -67,19 +68,14 @@ const styles = StyleSheet.create({
     marginBottom: spacing.xl,
   },
   label: {
+    ...typography.eyebrow,
     color: colors.textMuted,
-    fontSize: 12,
-    fontWeight: "800",
-    letterSpacing: 1.1,
-    textTransform: "uppercase",
     marginTop: spacing.md,
     marginBottom: spacing.xs,
   },
   value: {
+    ...typography.value,
     color: colors.text,
-    fontSize: 16,
-    lineHeight: 23,
-    fontWeight: "600",
   },
   buttonStack: {
     gap: spacing.sm,

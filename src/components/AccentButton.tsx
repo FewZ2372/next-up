@@ -1,6 +1,7 @@
 import { Pressable, StyleProp, StyleSheet, Text, ViewStyle } from "react-native";
 
 import { colors, radii, spacing } from "../theme/colors";
+import { typography } from "../theme/typography";
 
 type ButtonVariant = "primary" | "secondary" | "ghost" | "danger";
 
@@ -76,8 +77,7 @@ const styles = StyleSheet.create({
     transform: [{ scale: 0.99 }],
   },
   label: {
-    fontSize: 15,
-    fontWeight: "700",
+    ...typography.buttonLabel,
   },
   labelPrimary: {
     color: "#111111",

@@ -5,6 +5,7 @@ import { Screen } from "../../components/Screen";
 import { SectionHeading } from "../../components/SectionHeading";
 import { notifications } from "../../data/notifications";
 import { colors, radii, spacing } from "../../theme/colors";
+import { typography } from "../../theme/typography";
 
 export function NotificationsScreen() {
   const [expandedId, setExpandedId] = useState<string | null>(notifications[0]?.id ?? null);
@@ -57,25 +58,20 @@ const styles = StyleSheet.create({
     marginBottom: spacing.sm,
   },
   label: {
+    ...typography.eyebrow,
     color: colors.accent,
-    fontSize: 12,
-    fontWeight: "800",
-    textTransform: "uppercase",
-    letterSpacing: 1.1,
   },
   timestamp: {
+    ...typography.caption,
     color: colors.textMuted,
-    fontSize: 12,
   },
   title: {
+    ...typography.titleSmall,
     color: colors.text,
-    fontSize: 17,
-    fontWeight: "800",
   },
   body: {
+    ...typography.bodySmall,
     color: colors.textMuted,
-    fontSize: 14,
-    lineHeight: 21,
     marginTop: spacing.sm,
   },
 });

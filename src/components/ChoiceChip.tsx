@@ -1,6 +1,7 @@
 import { Pressable, StyleSheet, Text } from "react-native";
 
 import { colors, radii, spacing } from "../theme/colors";
+import { typography } from "../theme/typography";
 
 interface ChoiceChipProps {
   label: string;
@@ -41,8 +42,7 @@ const styles = StyleSheet.create({
     borderColor: colors.accent,
   },
   label: {
-    fontSize: 14,
-    fontWeight: "600",
+    ...typography.chipLabel,
   },
   idleLabel: {
     color: colors.textMuted,

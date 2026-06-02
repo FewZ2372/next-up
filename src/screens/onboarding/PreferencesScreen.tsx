@@ -8,6 +8,7 @@ import { SectionHeading } from "../../components/SectionHeading";
 import { ACTOR_OPTIONS, DIRECTOR_OPTIONS, GENRE_OPTIONS, PLATFORM_OPTIONS } from "../../data/catalog";
 import { useAppStore } from "../../store/useAppStore";
 import { colors, radii, spacing } from "../../theme/colors";
+import { typography } from "../../theme/typography";
 import { RootStackParamList } from "../../navigation/types";
 
 type Props = NativeStackScreenProps<RootStackParamList, "Preferences">;
@@ -113,9 +114,9 @@ const styles = StyleSheet.create({
     marginBottom: spacing.lg,
   },
   blockTitle: {
+    ...typography.formLabel,
     color: colors.text,
     fontSize: 16,
-    fontWeight: "700",
     marginBottom: spacing.sm,
   },
   wrap: {
@@ -131,14 +132,12 @@ const styles = StyleSheet.create({
     marginBottom: spacing.lg,
   },
   summaryLabel: {
+    ...typography.captionBold,
     color: colors.textMuted,
-    fontSize: 13,
-    fontWeight: "700",
     marginBottom: spacing.xs,
   },
   summaryValue: {
+    ...typography.summaryValue,
     color: colors.text,
-    fontSize: 18,
-    fontWeight: "800",
   },
 });
