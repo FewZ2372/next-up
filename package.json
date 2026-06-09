@@ -10,7 +10,7 @@
     "build:web": "expo export --platform web",
     "build:web:pages": "cross-env EXPO_PUBLIC_BASE_URL=/next-up expo export --platform web",
     "predeploy": "npm run build:web:pages",
-    "deploy": "gh-pages --nojekyll -d dist"
+    "deploy": "gh-pages --nojekyll -d dist --before-add ./scripts/gh-pages-before-add.js"
   },
   "dependencies": {
     "@expo-google-fonts/inter": "^0.4.2",

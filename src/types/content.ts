@@ -36,6 +36,13 @@ export interface MoodOption {
 
 export type SelectedMoodId = MoodId | null;
 
+export interface EmotionalProfile {
+  energy: number;
+  tone: number;
+  complexity: number;
+  depth: number;
+}
+
 export interface NewsItem {
   id: string;
   category: "Estreno" | "Precio" | "Cambio" | "Renovación";

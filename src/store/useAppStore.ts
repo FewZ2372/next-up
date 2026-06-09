@@ -1,11 +1,11 @@
 import { create } from "zustand";
 
 import { getRecapCandidates } from "../data/catalog";
-import { moods } from "../data/moods";
 import { PlatformName, SelectedMoodId } from "../types/content";
 
 interface AppState {
   userName: string;
+  userEmail: string;
   isAuthenticated: boolean;
   onboardingCompleted: boolean;
   selectedPlatforms: PlatformName[];
@@ -18,7 +18,8 @@ interface AppState {
   dismissedIds: string[];
   watchlistIds: string[];
   currentMood: SelectedMoodId;
-  login: (name: string) => void;
+  login: (name: string, email: string) => void;
+  updateProfile: (payload: { name: string; email: string }) => void;
   logout: () => void;
   togglePlatform: (platform: PlatformName) => void;
   toggleGenre: (genre: string) => void;
@@ -38,6 +39,7 @@ interface AppState {
 
 const initialState = {
   userName: "",
+  userEmail: "",
   isAuthenticated: false,
   onboardingCompleted: false,
   selectedPlatforms: [] as PlatformName[],
@@ -59,10 +61,16 @@ const toggleInArray = <T,>(collection: T[], value: T) =>
 
 export const useAppStore = create<AppState>((set, get) => ({
   ...initialState,
-  login: (name) =>
+  login: (name, email) =>
     set({
       userName: name.trim() || "Invitado",
+      userEmail: email.trim(),
       isAuthenticated: true,
+    }),
+  updateProfile: ({ name, email }) =>
+    set({
+      userName: name.trim() || "Invitado",
+      userEmail: email.trim(),
     }),
   logout: () => set({ ...initialState }),
   togglePlatform: (platform) =>
@@ -117,6 +125,7 @@ export const useAppStore = create<AppState>((set, get) => ({
   markTitleSeen: (id) =>
     set((state) => ({
       seenIds: state.seenIds.includes(id) ? state.seenIds : [...state.seenIds, id],
+      watchlistIds: state.watchlistIds.filter((entry) => entry !== id),
     })),
   dismissTitle: (id) =>
     set((state) => ({

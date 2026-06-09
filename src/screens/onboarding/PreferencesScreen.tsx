@@ -5,35 +5,27 @@ import { AccentButton } from "../../components/AccentButton";
 import { ChoiceChip } from "../../components/ChoiceChip";
 import { Screen } from "../../components/Screen";
 import { SectionHeading } from "../../components/SectionHeading";
-import { ACTOR_OPTIONS, DIRECTOR_OPTIONS, GENRE_OPTIONS, PLATFORM_OPTIONS } from "../../data/catalog";
+import { GENRE_OPTIONS, PLATFORM_OPTIONS } from "../../data/catalog";
+import { RootStackParamList } from "../../navigation/types";
 import { useAppStore } from "../../store/useAppStore";
 import { colors, radii, spacing } from "../../theme/colors";
 import { typography } from "../../theme/typography";
-import { RootStackParamList } from "../../navigation/types";
 
 type Props = NativeStackScreenProps<RootStackParamList, "Preferences">;
 
 export function PreferencesScreen({ navigation }: Props) {
-  const {
-    selectedPlatforms,
-    selectedGenres,
-    selectedDirectors,
-    selectedActors,
-    togglePlatform,
-    toggleGenre,
-    toggleDirector,
-    toggleActor,
-    prepareRecap,
-  } = useAppStore((state) => state);
+  const { selectedPlatforms, selectedGenres, togglePlatform, toggleGenre } = useAppStore(
+    (state) => state,
+  );
 
-  const readySummary = `${selectedPlatforms.length} plataformas / ${selectedGenres.length} géneros / ${selectedDirectors.length} directores / ${selectedActors.length} actores`;
+  const readySummary = `${selectedPlatforms.length} plataformas / ${selectedGenres.length} generos`;
 
   return (
     <Screen>
       <SectionHeading
         eyebrow="Perfil"
-        title="Tu perfil inicial."
-        body="Plataformas suscritas, géneros y referentes para ordenar mejor tus primeras recomendaciones."
+        title="Tus plataformas y tus generos."
+        body="Elegi primero donde podes mirar y que tipos de historias te interesan. Despues afinamos con directores y actores."
       />
 
       <View style={styles.block}>
@@ -51,7 +43,7 @@ export function PreferencesScreen({ navigation }: Props) {
       </View>
 
       <View style={styles.block}>
-        <Text style={styles.blockTitle}>Géneros</Text>
+        <Text style={styles.blockTitle}>Generos</Text>
         <View style={styles.wrap}>
           {GENRE_OPTIONS.map((genre) => (
             <ChoiceChip
@@ -64,46 +56,15 @@ export function PreferencesScreen({ navigation }: Props) {
         </View>
       </View>
 
-      <View style={styles.block}>
-        <Text style={styles.blockTitle}>Directores</Text>
-        <View style={styles.wrap}>
-          {DIRECTOR_OPTIONS.map((director) => (
-            <ChoiceChip
-              key={director}
-              label={director}
-              selected={selectedDirectors.includes(director)}
-              onPress={() => toggleDirector(director)}
-            />
-          ))}
-        </View>
-      </View>
-
-      <View style={styles.block}>
-        <Text style={styles.blockTitle}>Actores y actrices</Text>
-        <View style={styles.wrap}>
-          {ACTOR_OPTIONS.map((actor) => (
-            <ChoiceChip
-              key={actor}
-              label={actor}
-              selected={selectedActors.includes(actor)}
-              onPress={() => toggleActor(actor)}
-            />
-          ))}
-        </View>
-      </View>
-
       <View style={styles.summary}>
-        <Text style={styles.summaryLabel}>Selección actual</Text>
+        <Text style={styles.summaryLabel}>Seleccion actual</Text>
         <Text style={styles.summaryValue}>{readySummary}</Text>
       </View>
 
       <AccentButton
         label="Continuar"
         fullWidth
-        onPress={() => {
-          prepareRecap();
-          navigation.navigate("Recap");
-        }}
+        onPress={() => navigation.navigate("PreferencesPeople")}
       />
     </Screen>
   );

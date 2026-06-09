@@ -3,7 +3,7 @@ import { Pressable, StyleProp, StyleSheet, Text, ViewStyle } from "react-native"
 import { colors, radii, spacing } from "../theme/colors";
 import { typography } from "../theme/typography";
 
-type ButtonVariant = "primary" | "secondary" | "ghost" | "danger";
+type ButtonVariant = "primary" | "secondary" | "ghost" | "danger" | "success";
 
 interface AccentButtonProps {
   label: string;
@@ -35,7 +35,14 @@ export function AccentButton({
         style,
       ]}
     >
-      <Text style={[styles.label, variant === "primary" ? styles.labelPrimary : styles.labelSecondary]}>
+      <Text
+        style={[
+          styles.label,
+          variant === "primary" || variant === "success"
+            ? styles.labelPrimary
+            : styles.labelSecondary,
+        ]}
+      >
         {label}
       </Text>
     </Pressable>
@@ -66,6 +73,10 @@ const styles = StyleSheet.create({
   danger: {
     backgroundColor: "transparent",
     borderColor: colors.danger,
+  },
+  success: {
+    backgroundColor: colors.success,
+    borderColor: colors.success,
   },
   fullWidth: {
     width: "100%",

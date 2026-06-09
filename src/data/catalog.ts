@@ -1,4 +1,4 @@
-import { PlatformName, SelectedMoodId, Title } from "../types/content";
+import { EmotionalProfile, PlatformName, SelectedMoodId, Title } from "../types/content";
 
 export const PLATFORM_OPTIONS: PlatformName[] = [
   "Netflix",
@@ -313,6 +313,17 @@ export const DIRECTOR_OPTIONS = [
   "Ryan Condal",
 ];
 
+export const FEATURED_DIRECTOR_OPTIONS = [
+  "Denis Villeneuve",
+  "Ben Stiller",
+  "Christopher Storer",
+  "Celine Song",
+  "Luca Guadagnino",
+  "George Miller",
+  "Wim Wenders",
+  "Steven Zaillian",
+];
+
 export const ACTOR_OPTIONS = [
   "Zendaya",
   "Timothee Chalamet",
@@ -368,6 +379,17 @@ export const ACTOR_OPTIONS = [
   "Kathryn Hahn",
   "Chase Sui Wonders",
   "Tom Burke",
+];
+
+export const FEATURED_ACTOR_OPTIONS = [
+  "Zendaya",
+  "Timothee Chalamet",
+  "Rebecca Ferguson",
+  "Adam Scott",
+  "Jeremy Allen White",
+  "Ayo Edebiri",
+  "Andrew Scott",
+  "Anya Taylor-Joy",
 ];
 
 const matchesPlatforms = (title: Title, selectedPlatforms: PlatformName[]) =>
@@ -452,6 +474,75 @@ export const getRecommendedTitles = (filters: {
   const fallback = ranked.filter((entry) => !entry.moodMatch).map((entry) => entry.title);
 
   return [...moodMatches, ...fallback];
+};
+
+const emotionalScore = (title: Title, profile: EmotionalProfile) => {
+  const relaxing = (100 - profile.energy) / 100;
+  const exciting = profile.energy / 100;
+  const cheerful = (100 - profile.tone) / 100;
+  const dark = profile.tone / 100;
+  const simple = (100 - profile.complexity) / 100;
+  const complex = profile.complexity / 100;
+  const shallow = (100 - profile.depth) / 100;
+  const moving = profile.depth / 100;
+
+  let score = 0;
+
+  if (title.moods.includes("cozy")) {
+    score += relaxing * 2.6 + cheerful * 0.8 + simple * 1.2 + moving * 0.5;
+  }
+
+  if (title.moods.includes("adrenaline")) {
+    score += exciting * 2.8 + shallow * 0.9 + dark * 0.2;
+  }
+
+  if (title.moods.includes("feel-good")) {
+    score += cheerful * 2.8 + simple * 1 + moving * 0.8;
+  }
+
+  if (title.moods.includes("dark")) {
+    score += dark * 2.8 + exciting * 0.4 + complex * 0.5;
+  }
+
+  if (title.moods.includes("mind-bending")) {
+    score += complex * 3 + dark * 0.5 + moving * 0.3;
+  }
+
+  return score;
+};
+
+export const getEmotionDrivenTitles = (filters: {
+  selectedPlatforms: PlatformName[];
+  selectedGenres: string[];
+  selectedDirectors: string[];
+  selectedActors: string[];
+  hiddenIds: string[];
+  focusGenres: string[];
+  emotionalProfile: EmotionalProfile;
+}) => {
+  const hiddenIds = new Set(filters.hiddenIds);
+
+  return catalog
+    .filter((title) => matchesPlatforms(title, filters.selectedPlatforms))
+    .filter((title) => !hiddenIds.has(title.id))
+    .map((title) => {
+      const baseScore = preferenceScore(
+        title,
+        filters.selectedGenres,
+        filters.selectedDirectors,
+        filters.selectedActors,
+      );
+      const focusGenreScore =
+        title.genres.filter((genre) => filters.focusGenres.includes(genre)).length * 3.5;
+      const profileScore = emotionalScore(title, filters.emotionalProfile);
+
+      return {
+        title,
+        score: baseScore + focusGenreScore + profileScore,
+      };
+    })
+    .sort((a, b) => b.score - a.score)
+    .map((entry) => entry.title);
 };
 
 export const getTitlesByIds = (ids: string[]) =>

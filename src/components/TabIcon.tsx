@@ -1,6 +1,6 @@
 import Svg, { Circle, Path } from "react-native-svg";
 
-type TabIconName = "home" | "watch" | "watchlist" | "alerts" | "settings";
+type TabIconName = "home" | "watchlist" | "profile";
 
 interface TabIconProps {
   name: TabIconName;
@@ -23,19 +23,6 @@ export function TabIcon({ name, color, size = 22 }: TabIconProps) {
         />
       ) : null}
 
-      {name === "watch" ? (
-        <>
-          <Circle cx="12" cy="12" r="8.5" stroke={color} strokeWidth={strokeWidth} />
-          <Path
-            d="M10 8.8 15.2 12 10 15.2V8.8Z"
-            stroke={color}
-            strokeWidth={strokeWidth}
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </>
-      ) : null}
-
       {name === "watchlist" ? (
         <Path
           d="M8 4.5h8a1.5 1.5 0 0 1 1.5 1.5v13l-5.5-3-5.5 3V6A1.5 1.5 0 0 1 8 4.5Z"
@@ -46,33 +33,16 @@ export function TabIcon({ name, color, size = 22 }: TabIconProps) {
         />
       ) : null}
 
-      {name === "alerts" ? (
+      {name === "profile" ? (
         <>
+          <Circle cx="12" cy="8" r="3.2" stroke={color} strokeWidth={strokeWidth} />
           <Path
-            d="M8.2 16.3h7.6l-1-1.2a4.3 4.3 0 0 1-1-2.7v-1.1a3.8 3.8 0 1 0-7.6 0v1.1c0 1-.3 1.9-1 2.7l-1 1.2h4Z"
+            d="M6.5 19c1.2-3 3.1-4.5 5.5-4.5s4.3 1.5 5.5 4.5"
             stroke={color}
             strokeWidth={strokeWidth}
             strokeLinecap="round"
             strokeLinejoin="round"
           />
-          <Path
-            d="M10 18.2a2.2 2.2 0 0 0 4 0"
-            stroke={color}
-            strokeWidth={strokeWidth}
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </>
-      ) : null}
-
-      {name === "settings" ? (
-        <>
-          <Path d="M5 7h14" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" />
-          <Path d="M5 12h14" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" />
-          <Path d="M5 17h14" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" />
-          <Circle cx="9" cy="7" r="1.6" fill={color} />
-          <Circle cx="15" cy="12" r="1.6" fill={color} />
-          <Circle cx="11" cy="17" r="1.6" fill={color} />
         </>
       ) : null}
     </Svg>
