@@ -1,5 +1,5 @@
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 
 import { AccentButton } from "../../components/AccentButton";
 import { Screen } from "../../components/Screen";
@@ -24,12 +24,12 @@ export function RecapScreen({ navigation }: Props) {
 
   if (!currentTitle) {
     return (
-      <Screen scroll={false} contentContainerStyle={styles.doneContainer}>
+      <Screen contentContainerStyle={styles.doneContainer}>
         <View style={styles.doneCard}>
           <SectionHeading
-            eyebrow="Puesta al día"
+            eyebrow="Puesta al dia"
             title="Todo listo para empezar."
-            body="Tu perfil inicial ya quedó actualizado."
+            body="Tu perfil inicial ya quedo actualizado."
           />
           <AccentButton label="Volver" fullWidth onPress={() => navigation.goBack()} />
         </View>
@@ -38,19 +38,19 @@ export function RecapScreen({ navigation }: Props) {
   }
 
   return (
-    <Screen scroll={false} contentContainerStyle={styles.screen}>
+    <Screen contentContainerStyle={styles.screen}>
       <SectionHeading
-        eyebrow="Puesta al día"
+        eyebrow="Puesta al dia"
         title="Historial reciente"
-        body={`${recapCursor + 1} de ${total}. Indicá si ya viste este título para ajustar mejor la selección inicial.`}
+        body={`${recapCursor + 1} de ${total}. Indica si ya viste este titulo para ajustar mejor la seleccion inicial.`}
       />
 
       <View style={styles.deckArea}>
         <SwipeDeck
           cards={recapCards}
           leftAction={{
-            label: "Aún no",
-            overlayLabel: "AÚN NO",
+            label: "Aun no",
+            overlayLabel: "AUN NO",
             variant: "secondary",
             onSwipe: () => classifyRecapTitle(false),
           }}
@@ -59,6 +59,8 @@ export function RecapScreen({ navigation }: Props) {
             overlayLabel: "YA LO VI",
             onSwipe: () => classifyRecapTitle(true),
           }}
+          fillAvailableHeight={false}
+          preferScrollOnVertical
         />
       </View>
     </Screen>
@@ -67,14 +69,14 @@ export function RecapScreen({ navigation }: Props) {
 
 const styles = StyleSheet.create({
   screen: {
-    flex: 1,
+    paddingBottom: spacing.lg,
   },
   deckArea: {
-    flex: 1,
-    minHeight: 0,
+    minHeight: 520,
+    marginTop: spacing.md,
   },
   doneContainer: {
-    flex: 1,
+    flexGrow: 1,
     justifyContent: "center",
   },
   doneCard: {

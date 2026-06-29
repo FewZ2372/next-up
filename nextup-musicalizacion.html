@@ -1,0 +1,509 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Next Up - Musicalizacion</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --background: #050505;
+      --surface: #111111;
+      --surface-raised: #181818;
+      --surface-muted: #202020;
+      --border: #2d2d2d;
+      --text: #f6f7f2;
+      --text-muted: #a3a99d;
+      --accent: #d6ff2f;
+      --warning: #ffbd59;
+      --r-md: 18px;
+      --r-lg: 24px;
+      --r-pill: 999px;
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+      color-adjust: exact;
+    }
+
+    html,
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--text);
+      font-family: "Inter", sans-serif;
+    }
+
+    .page {
+      min-height: 100vh;
+      padding: 32px;
+      background: var(--background);
+    }
+
+    .brand {
+      color: var(--accent);
+      font-size: 13px;
+      letter-spacing: 3px;
+      font-weight: 800;
+      margin: 0 0 10px;
+    }
+
+    h1 {
+      font-size: 30px;
+      line-height: 34px;
+      margin: 0 0 10px;
+      font-weight: 800;
+    }
+
+    .intro {
+      color: var(--text-muted);
+      font-size: 15px;
+      line-height: 22px;
+      max-width: 760px;
+      margin: 0 0 28px;
+    }
+
+    .phone {
+      width: 390px;
+      height: 844px;
+      overflow: hidden;
+      background: var(--background);
+      border: 1px solid var(--border);
+      border-radius: 34px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+    }
+
+    .phone-grid {
+      display: flex;
+      gap: 28px;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+
+    .frame-wrap {
+      width: 390px;
+    }
+
+    .frame-label {
+      color: var(--text-muted);
+      font-size: 12px;
+      line-height: 16px;
+      margin: 0 0 12px;
+    }
+
+    .screen {
+      height: 100%;
+      padding: 12px 24px 32px;
+    }
+
+    .top-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .icon-button {
+      width: 42px;
+      height: 42px;
+      border-radius: var(--r-pill);
+      border: 1px solid var(--border);
+      background: var(--surface-raised);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text);
+      flex: 0 0 auto;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      font-size: 12px;
+      letter-spacing: 1.1px;
+      text-transform: uppercase;
+      font-weight: 800;
+      margin: 0 0 2px;
+    }
+
+    .title-medium {
+      color: var(--text);
+      font-size: 24px;
+      line-height: 28px;
+      font-weight: 800;
+      margin: 0;
+    }
+
+    .body {
+      color: var(--text-muted);
+      font-size: 15px;
+      line-height: 22px;
+      margin: 0;
+    }
+
+    .hero-card,
+    .music-card,
+    .filter-card {
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      background: var(--surface-raised);
+    }
+
+    .hero-card {
+      padding: 18px;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, #202020, #111111);
+    }
+
+    .score-row {
+      display: flex;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .score-pill {
+      min-height: 40px;
+      padding: 0 13px;
+      border-radius: var(--r-pill);
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      display: inline-block;
+    }
+
+    .filter-card {
+      padding: 12px;
+      margin-bottom: 14px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .chip {
+      min-height: 34px;
+      padding: 0 12px;
+      border-radius: var(--r-pill);
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      display: inline-flex;
+      align-items: center;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .chip.selected {
+      color: #111111;
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .music-card {
+      padding: 14px;
+      margin-bottom: 12px;
+      display: grid;
+      grid-template-columns: 74px 1fr;
+      gap: 14px;
+      align-items: stretch;
+    }
+
+    .cover {
+      border-radius: var(--r-md);
+      min-height: 100px;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: flex-end;
+      padding: 10px;
+      overflow: hidden;
+    }
+
+    .cover.one {
+      background: linear-gradient(135deg, #5d432c, #0f0a07);
+    }
+
+    .cover.two {
+      background: linear-gradient(135deg, #4039b8, #0a0820);
+    }
+
+    .cover.three {
+      background: linear-gradient(135deg, #9f2500, #170807);
+    }
+
+    .cover span {
+      color: var(--text);
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .music-content h3 {
+      font-size: 17px;
+      line-height: 21px;
+      font-weight: 800;
+      margin: 0 0 4px;
+      color: var(--text);
+    }
+
+    .meta {
+      color: var(--text-muted);
+      font-size: 12px;
+      margin: 0 0 8px;
+    }
+
+    .genre-tag {
+      min-height: 28px;
+      padding: 0 10px;
+      border-radius: var(--r-pill);
+      background: var(--surface);
+      color: var(--accent);
+      display: inline-flex;
+      align-items: center;
+      font-size: 11px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .reason {
+      color: var(--text);
+      font-size: 13px;
+      line-height: 18px;
+      margin: 0;
+    }
+
+    .detail-card,
+    .score-card,
+    .related-card {
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      background: var(--surface-raised);
+    }
+
+    .detail-card,
+    .related-card {
+      padding: 14px;
+      margin-bottom: 12px;
+    }
+
+    .score-card {
+      overflow: hidden;
+      margin-bottom: 12px;
+    }
+
+    .score-hero {
+      min-height: 150px;
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      background: linear-gradient(135deg, #5d432c, #0f0a07);
+    }
+
+    .score-hero h3 {
+      font-size: 24px;
+      line-height: 28px;
+      font-weight: 800;
+      margin: 0 0 4px;
+      color: var(--text);
+    }
+
+    .score-body {
+      padding: 14px;
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .stat {
+      padding: 10px;
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      background: var(--surface);
+    }
+
+    .stat span {
+      display: block;
+      color: var(--accent);
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .stat strong {
+      color: var(--text);
+      font-size: 12px;
+      line-height: 16px;
+    }
+
+    .related-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 10px;
+    }
+
+    .related-item:last-child {
+      padding-bottom: 0;
+      margin-bottom: 0;
+      border-bottom: 0;
+    }
+
+    .related-copy strong {
+      display: block;
+      color: var(--text);
+      font-size: 13px;
+      line-height: 17px;
+      margin-bottom: 4px;
+    }
+
+    .related-copy span {
+      color: var(--text-muted);
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <p class="brand">NEXT UP</p>
+    <h1>Musicalizacion</h1>
+    <p class="intro">Dos pantallas para prototipo minimo en Figma: listado curado y detalle del titulo seleccionado.</p>
+
+    <section class="phone-grid" aria-label="Musicalizacion mobile">
+      <div class="frame-wrap">
+        <p class="frame-label">Pantalla 1 · Listado</p>
+        <section class="phone">
+          <div class="screen">
+            <div class="top-row">
+              <div class="icon-button">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M15 5 8 12l7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div>
+                <p class="eyebrow">Listas</p>
+                <h2 class="title-medium">Musicalizacion</h2>
+              </div>
+            </div>
+
+            <section class="hero-card">
+              <p class="eyebrow">Seleccion editorial</p>
+              <h2 class="title-medium">Peliculas donde la musica tambien cuenta la historia.</h2>
+              <div class="score-row">
+                <span class="score-pill"><span class="dot"></span> 18 titulos</span>
+                <span class="score-pill"><span class="dot"></span> 6 generos</span>
+              </div>
+            </section>
+
+            <section class="filter-card">
+              <span class="chip selected">Orquestal</span>
+              <span class="chip">Electronica</span>
+              <span class="chip">Jazz</span>
+              <span class="chip">Pop</span>
+              <span class="chip">Rock</span>
+            </section>
+
+            <article class="music-card">
+              <div class="cover one"><span>ORQ</span></div>
+              <div class="music-content">
+                <h3>Dune: Part Two</h3>
+                <p class="meta">Hans Zimmer / Ciencia ficcion</p>
+                <span class="genre-tag">Orquestal experimental</span>
+                <p class="reason">Percusion, voces y textura desertica para sostener escala y ritual.</p>
+              </div>
+            </article>
+
+            <article class="music-card">
+              <div class="cover two"><span>POP</span></div>
+              <div class="music-content">
+                <h3>Across the Spider-Verse</h3>
+                <p class="meta">Daniel Pemberton / Animacion</p>
+                <span class="genre-tag">Hip hop + electronica</span>
+                <p class="reason">Beat, glitch y orquesta se mezclan con el ritmo visual del multiverso.</p>
+              </div>
+            </article>
+
+            <article class="music-card">
+              <div class="cover three"><span>ELE</span></div>
+              <div class="music-content">
+                <h3>Challengers</h3>
+                <p class="meta">Reznor & Ross / Drama</p>
+                <span class="genre-tag">Electronica club</span>
+                <p class="reason">La musica convierte el deseo y la competencia en pura tension fisica.</p>
+              </div>
+            </article>
+          </div>
+        </section>
+      </div>
+
+      <div class="frame-wrap">
+        <p class="frame-label">Pantalla 2 · Detalle</p>
+        <section class="phone">
+          <div class="screen">
+            <div class="top-row">
+              <div class="icon-button">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M15 5 8 12l7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div>
+                <p class="eyebrow">Ficha sonora</p>
+                <h2 class="title-medium">Dune: Part Two</h2>
+              </div>
+            </div>
+
+            <section class="score-card">
+              <div class="score-hero">
+                <span class="genre-tag">Orquestal experimental</span>
+                <h3>Dune: Part Two</h3>
+                <p class="meta">Hans Zimmer / Ciencia ficcion</p>
+              </div>
+              <div class="score-body">
+                <p class="body">Una banda sonora construida para dar escala, ritual y sensacion fisica al mundo.</p>
+                <div class="stat-grid">
+                  <div class="stat"><span>Textura</span><strong>Percusion, voces, drones</strong></div>
+                  <div class="stat"><span>Efecto</span><strong>Tension y grandeza</strong></div>
+                </div>
+              </div>
+            </section>
+
+            <section class="detail-card">
+              <p class="eyebrow">Por que funciona</p>
+              <p class="reason">La musica no acompana solamente la accion: define cultura, escala y amenaza en casi cada escena clave.</p>
+            </section>
+
+            <section class="related-card">
+              <p class="eyebrow">Seguir escuchando</p>
+              <div class="related-item">
+                <div class="related-copy"><strong>Challengers</strong><span>Subir pulso y tension</span></div>
+                <span class="mini-tag">Electronica</span>
+              </div>
+              <div class="related-item">
+                <div class="related-copy"><strong>Spider-Verse</strong><span>Ir a mezcla urbana y energia</span></div>
+                <span class="mini-tag">Hibrido</span>
+              </div>
+            </section>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

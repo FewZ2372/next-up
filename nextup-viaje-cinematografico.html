@@ -1,0 +1,600 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Next Up - Viaje cinematografico</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --background: #050505;
+      --surface: #111111;
+      --surface-raised: #181818;
+      --surface-muted: #202020;
+      --border: #2d2d2d;
+      --text: #f6f7f2;
+      --text-muted: #a3a99d;
+      --accent: #d6ff2f;
+      --accent-soft: #2a3410;
+      --warning: #ffbd59;
+      --r-md: 18px;
+      --r-lg: 24px;
+      --r-pill: 999px;
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+      color-adjust: exact;
+    }
+
+    html,
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--text);
+      font-family: "Inter", sans-serif;
+    }
+
+    .page {
+      min-height: 100vh;
+      padding: 32px;
+      background: var(--background);
+    }
+
+    .brand {
+      color: var(--accent);
+      font-size: 13px;
+      letter-spacing: 3px;
+      font-weight: 800;
+      margin: 0 0 10px;
+    }
+
+    h1 {
+      font-size: 30px;
+      line-height: 34px;
+      margin: 0 0 10px;
+      font-weight: 800;
+    }
+
+    .intro {
+      color: var(--text-muted);
+      font-size: 15px;
+      line-height: 22px;
+      max-width: 740px;
+      margin: 0 0 28px;
+    }
+
+    .phone {
+      width: 390px;
+      height: 844px;
+      overflow: hidden;
+      background: var(--background);
+      border: 1px solid var(--border);
+      border-radius: 34px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+    }
+
+    .phone-grid {
+      display: flex;
+      gap: 28px;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+
+    .frame-wrap {
+      width: 390px;
+    }
+
+    .frame-label {
+      color: var(--text-muted);
+      font-size: 12px;
+      line-height: 16px;
+      margin: 0 0 12px;
+    }
+
+    .screen {
+      height: 100%;
+      padding: 12px 24px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .top-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 0;
+    }
+
+    .icon-button {
+      width: 42px;
+      height: 42px;
+      border-radius: var(--r-pill);
+      border: 1px solid var(--border);
+      background: var(--surface-raised);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text);
+      flex: 0 0 auto;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      font-size: 12px;
+      letter-spacing: 1.1px;
+      text-transform: uppercase;
+      font-weight: 800;
+      margin: 0 0 2px;
+    }
+
+    .title-medium {
+      color: var(--text);
+      font-size: 24px;
+      line-height: 28px;
+      font-weight: 800;
+      margin: 0;
+    }
+
+    .body {
+      color: var(--text-muted);
+      font-size: 14px;
+      line-height: 20px;
+      margin: 0;
+    }
+
+    .map-card,
+    .result-card,
+    .country-card {
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      background: var(--surface-raised);
+    }
+
+    .map-card {
+      padding: 14px;
+    }
+
+    .map-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+
+    .map-head strong {
+      font-size: 13px;
+      color: var(--text);
+    }
+
+    .map-head span {
+      color: var(--text-muted);
+      font-size: 12px;
+    }
+
+    .world-map {
+      height: 178px;
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      background: #0d0d0d;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .map-svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .country-pin {
+      position: absolute;
+      width: 52px;
+      min-height: 52px;
+      border-radius: var(--r-pill);
+      background: var(--accent);
+      color: #111111;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 13px;
+      border: 4px solid #0d0d0d;
+      box-shadow: 0 10px 24px rgba(214, 255, 47, 0.22);
+    }
+
+    .pin-active {
+      left: 216px;
+      top: 58px;
+    }
+
+    .pin-small {
+      width: 30px;
+      height: 30px;
+      min-height: 30px;
+      color: var(--text);
+      border-width: 1px;
+      background: var(--surface-muted);
+      box-shadow: none;
+      font-size: 10px;
+    }
+
+    .pin-fr {
+      left: 160px;
+      top: 50px;
+    }
+
+    .pin-kr {
+      left: 260px;
+      top: 72px;
+    }
+
+    .pin-ar {
+      left: 98px;
+      top: 116px;
+    }
+
+    .country-card {
+      padding: 14px;
+    }
+
+    .country-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+    }
+
+    .chip {
+      min-height: 34px;
+      padding: 0 12px;
+      border-radius: var(--r-pill);
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      display: inline-flex;
+      align-items: center;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .chip.selected {
+      color: #111111;
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .result-card {
+      overflow: hidden;
+    }
+
+    .poster {
+      min-height: 128px;
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      background: linear-gradient(135deg, #4e6b4e, #0b100b);
+    }
+
+    .tag {
+      align-self: flex-start;
+      padding: 4px 10px;
+      border-radius: var(--r-pill);
+      background: rgba(0, 0, 0, 0.35);
+      color: var(--text);
+      font-size: 11px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .poster h2 {
+      font-size: 22px;
+      line-height: 24px;
+      font-weight: 800;
+      margin: 0 0 4px;
+    }
+
+    .meta {
+      color: rgba(246, 247, 242, 0.86);
+      font-size: 12px;
+    }
+
+    .result-body {
+      padding: 14px;
+    }
+
+    .detail-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .detail {
+      border-radius: var(--r-md);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 10px;
+    }
+
+    .detail span {
+      display: block;
+      color: var(--accent);
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .detail strong {
+      color: var(--text);
+      font-size: 12px;
+      line-height: 16px;
+      font-weight: 700;
+    }
+
+    .button-row {
+      display: flex;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .button {
+      min-height: 46px;
+      padding: 0 16px;
+      border-radius: var(--r-pill);
+      border: 1px solid var(--accent);
+      background: var(--accent);
+      color: #111111;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 700;
+      flex: 1;
+    }
+
+    .button.secondary {
+      color: var(--text);
+      background: var(--surface-raised);
+      border-color: var(--border);
+    }
+
+    .selection-card,
+    .route-card,
+    .director-card,
+    .entry-card,
+    .mini-list {
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      background: var(--surface-raised);
+    }
+
+    .selection-card,
+    .route-card,
+    .director-card,
+    .mini-list {
+      padding: 14px;
+    }
+
+    .entry-card {
+      overflow: hidden;
+    }
+
+    .helper-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .helper-row span {
+      color: var(--text-muted);
+      font-size: 12px;
+    }
+
+    .route-metrics {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .metric {
+      padding: 10px;
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      background: var(--surface);
+    }
+
+    .metric span {
+      display: block;
+      color: var(--accent);
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .metric strong {
+      font-size: 12px;
+      line-height: 16px;
+      color: var(--text);
+    }
+
+    .mini-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .mini-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .mini-item:last-child {
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+
+    .mini-copy strong {
+      display: block;
+      color: var(--text);
+      font-size: 13px;
+      line-height: 17px;
+      margin-bottom: 4px;
+    }
+
+    .mini-copy span {
+      color: var(--text-muted);
+      font-size: 12px;
+    }
+
+    .mini-tag {
+      min-height: 28px;
+      padding: 0 10px;
+      border-radius: var(--r-pill);
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--accent);
+      display: inline-flex;
+      align-items: center;
+      font-size: 11px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <p class="brand">NEXT UP</p>
+    <h1>Viaje cinematografico</h1>
+    <p class="intro">Dos pantallas para prototipo minimo en Figma: seleccion de pais y ruta recomendada ya abierta.</p>
+
+    <section class="phone-grid" aria-label="Viaje cinematografico mobile">
+      <div class="frame-wrap">
+        <p class="frame-label">Pantalla 1 · Seleccion</p>
+        <section class="phone">
+          <div class="screen">
+            <div class="top-row">
+              <div class="icon-button">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M15 5 8 12l7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div>
+                <p class="eyebrow">Descubrir</p>
+                <h2 class="title-medium">Viaje cinematografico</h2>
+              </div>
+            </div>
+
+            <section class="map-card">
+              <div class="map-head">
+                <strong>Elegir pais</strong>
+                <span>4 rutas sugeridas</span>
+              </div>
+              <div class="world-map">
+                <svg class="map-svg" viewBox="0 0 310 228" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M36 88C54 62 88 56 110 76C128 93 117 119 142 125C168 132 179 98 205 104C231 110 238 142 263 142C276 142 285 134 294 126V198H16V112C22 104 28 96 36 88Z" fill="#141414"/>
+                  <path d="M30 58C55 36 84 34 105 50C123 63 119 84 140 88C166 93 175 58 205 58C235 58 250 84 276 82" stroke="#2d2d2d" stroke-width="1.5"/>
+                  <path d="M26 144C60 130 91 134 119 153C146 171 177 168 203 151C227 135 260 132 291 154" stroke="#2d2d2d" stroke-width="1.5"/>
+                  <path d="M58 111C79 101 99 103 116 116C134 129 157 127 172 113" stroke="#2d2d2d" stroke-width="1.5"/>
+                  <circle cx="210" cy="108" r="26" fill="#2a3410" stroke="#d6ff2f" stroke-width="1.5"/>
+                </svg>
+                <div class="country-pin pin-active">JP</div>
+                <div class="country-pin pin-small pin-fr">FR</div>
+                <div class="country-pin pin-small pin-kr">KR</div>
+                <div class="country-pin pin-small pin-ar">AR</div>
+              </div>
+            </section>
+
+            <section class="selection-card">
+              <p class="eyebrow">Pais activo</p>
+              <h2 class="title-medium">Japon</h2>
+              <p class="body">Historias contenidas, sensibilidad por lo cotidiano y una relacion muy precisa entre silencio, ciudad y memoria.</p>
+              <div class="country-row">
+                <span class="chip selected">Japon</span>
+                <span class="chip">Francia</span>
+                <span class="chip">Corea</span>
+              </div>
+              <div class="helper-row">
+                <span>Director clave: Kore-eda</span>
+                <span>Entrada suave</span>
+              </div>
+              <div class="button-row">
+                <span class="button secondary">Cambiar pais</span>
+                <span class="button">Ver ruta</span>
+              </div>
+            </section>
+          </div>
+        </section>
+      </div>
+
+      <div class="frame-wrap">
+        <p class="frame-label">Pantalla 2 · Ruta abierta</p>
+        <section class="phone">
+          <div class="screen">
+            <div class="top-row">
+              <div class="icon-button">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M15 5 8 12l7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div>
+                <p class="eyebrow">Ruta activa</p>
+                <h2 class="title-medium">Japon esencial</h2>
+              </div>
+            </div>
+
+            <section class="route-card">
+              <p class="eyebrow">Contexto breve</p>
+              <p class="body">Una cinematografia donde el detalle cotidiano, el paso del tiempo y el silencio suelen pesar tanto como el conflicto.</p>
+              <div class="route-metrics">
+                <div class="metric"><span>Tono</span><strong>Intimo y contemplativo</strong></div>
+                <div class="metric"><span>Puerta de entrada</span><strong>Calida, no academica</strong></div>
+              </div>
+            </section>
+
+            <section class="entry-card">
+              <div class="poster">
+                <span class="tag">Pelicula de entrada</span>
+                <h2>Perfect Days</h2>
+                <span class="meta">2023 / 2 h 4 min</span>
+              </div>
+              <div class="result-body">
+                <p class="body">Una puerta amable para entrar: rutina, observacion y emocion minima sin sentirse hermetica.</p>
+              </div>
+            </section>
+
+            <section class="director-card">
+              <p class="eyebrow">Director clave</p>
+              <h2 class="title-medium">Hirokazu Kore-eda</h2>
+              <p class="body">Ideal para entender la sensibilidad humana y el pulso emocional de esta ruta.</p>
+            </section>
+
+            <section class="mini-list">
+              <div class="mini-item">
+                <div class="mini-copy"><strong>Shoplifters</strong><span>Seguir por drama humano</span></div>
+                <span class="mini-tag">Siguiente</span>
+              </div>
+              <div class="mini-item">
+                <div class="mini-copy"><strong>Drive My Car</strong><span>Subir complejidad</span></div>
+                <span class="mini-tag">Profundizar</span>
+              </div>
+            </section>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

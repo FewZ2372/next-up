@@ -1,6 +1,6 @@
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { useRef, useState } from "react";
-import { Pressable, StyleSheet, Text, View } from "react-native";
+import { PanResponder, Pressable, StyleSheet, Text, View } from "react-native";
 import Svg, { Circle, Path } from "react-native-svg";
 
 import { AccentButton } from "../../components/AccentButton";
@@ -16,8 +16,7 @@ import { EmotionalProfile } from "../../types/content";
 
 type Props = NativeStackScreenProps<HomeStackParamList, "HomeDiscover">;
 
-const ACTION_BAR_HEIGHT = 74;
-const SLIDER_STEPS = 10;
+const SLIDER_THUMB_SIZE = 22;
 const initialProfile: EmotionalProfile = {
   energy: 50,
   tone: 50,
@@ -64,7 +63,33 @@ function AxisSlider({
   value: number;
   onChange: (value: number) => void;
 }) {
-  const activeStep = Math.round(value / 10);
+  const [trackWidth, setTrackWidth] = useState(0);
+  const usableTrackWidth = Math.max(trackWidth - SLIDER_THUMB_SIZE, 0);
+  const thumbOffset = usableTrackWidth * (value / 100);
+  const fillWidth = thumbOffset + SLIDER_THUMB_SIZE / 2;
+
+  const setValueFromPosition = (positionX: number) => {
+    if (trackWidth <= 0) {
+      return;
+    }
+
+    const clamped = Math.min(Math.max(positionX - SLIDER_THUMB_SIZE / 2, 0), usableTrackWidth);
+    const nextValue = Math.round((clamped / Math.max(usableTrackWidth, 1)) * 100);
+    onChange(nextValue);
+  };
+
+  const panResponder = useRef(
+    PanResponder.create({
+      onMoveShouldSetPanResponder: (_, gestureState) =>
+        Math.abs(gestureState.dx) > Math.abs(gestureState.dy) && Math.abs(gestureState.dx) > 2,
+      onPanResponderGrant: (event) => {
+        setValueFromPosition(event.nativeEvent.locationX);
+      },
+      onPanResponderMove: (event) => {
+        setValueFromPosition(event.nativeEvent.locationX);
+      },
+    }),
+  ).current;
 
   return (
     <View style={styles.axisCard}>
@@ -74,22 +99,16 @@ function AxisSlider({
         <Text style={styles.axisLabel}>{labelRight}</Text>
       </View>
 
-      <View style={styles.axisSteps}>
-        {Array.from({ length: SLIDER_STEPS + 1 }, (_, index) => {
-          const isActive = index <= activeStep;
-
-          return (
-            <Pressable
-              key={`${labelLeft}-${labelRight}-${index}`}
-              onPress={() => onChange(index * 10)}
-              style={[
-                styles.axisStep,
-                isActive ? styles.axisStepActive : styles.axisStepIdle,
-              ]}
-            />
-          );
-        })}
-      </View>
+      <Pressable
+        style={styles.axisTrackShell}
+        onLayout={(event) => setTrackWidth(event.nativeEvent.layout.width)}
+        onPressIn={(event) => setValueFromPosition(event.nativeEvent.locationX)}
+        {...panResponder.panHandlers}
+      >
+        <View style={styles.axisTrack} />
+        <View style={[styles.axisTrackFill, { width: fillWidth }]} />
+        <View style={[styles.axisThumb, { left: thumbOffset }]} />
+      </Pressable>
     </View>
   );
 }
@@ -120,7 +139,7 @@ export function HomeDiscoverScreen({ navigation }: Props) {
   };
 
   return (
-    <Screen scroll={false} contentContainerStyle={styles.screen}>
+    <Screen contentContainerStyle={styles.screen}>
       <View style={styles.topArea}>
         <View style={styles.topBar}>
           <Pressable
@@ -220,11 +239,12 @@ export function HomeDiscoverScreen({ navigation }: Props) {
             onSwipe: (title) => state.addToWatchlist(title.id),
           }}
           showActions={false}
-          fillAvailableHeight
+          fillAvailableHeight={false}
+          preferScrollOnVertical
         />
       </View>
 
-      <View style={styles.floatingActions}>
+      <View style={styles.actions}>
         <AccentButton
           label="Pasar"
           variant="secondary"
@@ -249,7 +269,7 @@ export function HomeDiscoverScreen({ navigation }: Props) {
 
 const styles = StyleSheet.create({
   screen: {
-    flex: 1,
+    paddingBottom: spacing.lg,
   },
   topArea: {
     paddingBottom: spacing.md,
@@ -308,22 +328,37 @@ const styles = StyleSheet.create({
     ...typography.caption,
     color: colors.textMuted,
   },
-  axisSteps: {
-    flexDirection: "row",
-    gap: 6,
+  axisTrackShell: {
+    height: SLIDER_THUMB_SIZE,
+    justifyContent: "center",
   },
-  axisStep: {
-    flex: 1,
-    height: 10,
+  axisTrack: {
+    height: 8,
     borderRadius: radii.pill,
-  },
-  axisStepActive: {
-    backgroundColor: colors.accent,
-  },
-  axisStepIdle: {
     backgroundColor: colors.surface,
     borderWidth: 1,
     borderColor: colors.border,
+  },
+  axisTrackFill: {
+    position: "absolute",
+    left: 0,
+    height: 8,
+    borderRadius: radii.pill,
+    backgroundColor: colors.accent,
+  },
+  axisThumb: {
+    position: "absolute",
+    width: SLIDER_THUMB_SIZE,
+    height: SLIDER_THUMB_SIZE,
+    borderRadius: radii.pill,
+    backgroundColor: colors.text,
+    borderWidth: 1,
+    borderColor: colors.border,
+    shadowColor: colors.shadow,
+    shadowOpacity: 0.22,
+    shadowRadius: 10,
+    shadowOffset: { width: 0, height: 4 },
+    elevation: 3,
   },
   genreBlock: {
     gap: spacing.sm,
@@ -371,17 +406,14 @@ const styles = StyleSheet.create({
     color: colors.textMuted,
   },
   deckArea: {
-    flex: 1,
-    minHeight: 0,
-    paddingBottom: ACTION_BAR_HEIGHT,
+    minHeight: 520,
+    marginTop: spacing.md,
   },
-  floatingActions: {
-    position: "absolute",
-    left: spacing.lg,
-    right: spacing.lg,
-    bottom: spacing.sm,
+  actions: {
     flexDirection: "row",
     gap: spacing.sm,
+    marginTop: spacing.lg,
+    paddingBottom: spacing.sm,
   },
   actionButton: {
     flex: 1,

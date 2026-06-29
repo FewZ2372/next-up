@@ -1,0 +1,951 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Capa_1" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1800 3994">
+  <!-- Generator: Adobe Illustrator 29.7.1, SVG Export Plug-In . SVG Version: 2.1.1 Build 8)  -->
+  <defs>
+    <style>
+      .st0, .st1, .st2, .st3, .st4, .st5, .st6, .st7, .st8, .st9, .st10, .st11, .st12, .st13, .st14, .st15 {
+        stroke: #2d2d2d;
+      }
+
+      .st0, .st16 {
+        fill: #ff6767;
+      }
+
+      .st17, .st18, .st19, .st20, .st12 {
+        fill: #111;
+      }
+
+      .st21, .st22, .st23, .st24, .st18, .st25, .st26, .st27, .st19, .st20, .st28, .st29, .st30, .st31, .st32, .st33, .st34, .st35, .st36, .st37, .st38, .st39, .st40, .st41, .st42, .st43, .st44, .st45, .st46 {
+        isolation: isolate;
+      }
+
+      .st21, .st22, .st23, .st24, .st18, .st25, .st26, .st27, .st19, .st20, .st28, .st30, .st31, .st33, .st36, .st39, .st40, .st41, .st42, .st45, .st46 {
+        font-family: Arial-BoldMT, Arial;
+        font-weight: 700;
+      }
+
+      .st21, .st47, .st48, .st11 {
+        fill: #050505;
+      }
+
+      .st21, .st27 {
+        font-size: 17px;
+      }
+
+      .st1 {
+        fill: #202020;
+      }
+
+      .st49 {
+        fill-opacity: .1;
+      }
+
+      .st49, .st50, .st51, .st52 {
+        stroke: #d6ff2f;
+      }
+
+      .st49, .st23, .st25, .st30, .st31, .st6, .st53, .st52, .st46 {
+        fill: #d6ff2f;
+      }
+
+      .st49, .st16 {
+        stroke-width: 2px;
+      }
+
+      .st22, .st24, .st26, .st27, .st54, .st29, .st36, .st37, .st10, .st39, .st41, .st42, .st44 {
+        fill: #f6f7f2;
+      }
+
+      .st22, .st25, .st40 {
+        font-size: 11px;
+      }
+
+      .st50, .st4 {
+        fill: #2a3410;
+      }
+
+      .st23, .st54, .st28, .st29, .st32, .st46 {
+        font-size: 12px;
+      }
+
+      .st24 {
+        letter-spacing: 0em;
+      }
+
+      .st24, .st31, .st42, .st44, .st45 {
+        font-size: 13px;
+      }
+
+      .st47 {
+        fill-opacity: .8;
+      }
+
+      .st18 {
+        font-size: 10px;
+      }
+
+      .st55, .st51, .st56, .st8, .st57, .st58 {
+        fill: none;
+      }
+
+      .st55, .st51, .st58 {
+        stroke-width: 1.9px;
+      }
+
+      .st55, .st59, .st56, .st58 {
+        stroke: #a3a99d;
+      }
+
+      .st2, .st60 {
+        fill: #4be58a;
+      }
+
+      .st26 {
+        font-size: 30px;
+      }
+
+      .st3 {
+        fill: #8aa600;
+      }
+
+      .st19 {
+        font-size: 8px;
+      }
+
+      .st54, .st29, .st32, .st34, .st37, .st38, .st43, .st44 {
+        font-family: ArialMT, Arial;
+      }
+
+      .st61 {
+        fill: #fff;
+      }
+
+      .st20, .st36, .st38 {
+        font-size: 15px;
+      }
+
+      .st5 {
+        fill: #ffbd59;
+      }
+
+      .st28, .st32, .st33, .st34, .st38, .st40, .st43, .st14, .st45 {
+        fill: #a3a99d;
+      }
+
+      .st51, .st59, .st57, .st58 {
+        stroke-linecap: round;
+      }
+
+      .st51, .st57, .st58 {
+        stroke-linejoin: round;
+      }
+
+      .st30, .st33, .st34, .st37 {
+        font-size: 14px;
+      }
+
+      .st31 {
+        letter-spacing: .2em;
+      }
+
+      .st59, .st56, .st57 {
+        stroke-width: 1.8px;
+      }
+
+      .st7, .st62 {
+        fill-opacity: 0;
+      }
+
+      .st16 {
+        fill-opacity: .1;
+      }
+
+      .st16, .st62 {
+        stroke: #ff6767;
+      }
+
+      .st60 {
+        stroke: #4be58a;
+      }
+
+      .st57 {
+        stroke: #f6f7f2;
+      }
+
+      .st63 {
+        fill: url(#Degradado_sin_nombre);
+      }
+
+      .st64 {
+        fill-opacity: .3;
+      }
+
+      .st13 {
+        fill: #181818;
+      }
+
+      .st39 {
+        font-size: 24px;
+      }
+
+      .st41 {
+        font-size: 20px;
+      }
+
+      .st65 {
+        opacity: .4;
+      }
+
+      .st43 {
+        font-size: 16px;
+      }
+
+      .st46 {
+        letter-spacing: 0em;
+      }
+
+      .st15 {
+        fill: #2d2d2d;
+      }
+    </style>
+    <linearGradient id="Degradado_sin_nombre" data-name="Degradado sin nombre" x1="-58.8" y1="2546.7" x2="-57.8" y2="2545.7" gradientTransform="translate(21245 385417) scale(360 -150)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#5d432c"/>
+      <stop offset="1" stop-color="#0f0a07"/>
+    </linearGradient>
+  </defs>
+  <rect class="st48" width="1800" height="3994"/>
+  <g id="document-title">
+    <text class="st31" transform="translate(64 58)"><tspan x="0" y="0">NEXT UP</tspan></text>
+    <text class="st26" transform="translate(64 104)"><tspan x="0" y="0">UI Kit editable para Illustrator</tspan></text>
+    <text class="st38" transform="translate(64 136)"><tspan x="0" y="0">Elementos vectoriales nativos: rect, text, path, circle y grupos con id.</tspan></text>
+  </g>
+  <g id="section-color-tokens">
+    <line class="st8" x1="64" y1="168" x2="1736" y2="168"/>
+    <text class="st46" transform="translate(64 190)"><tspan x="0" y="0">COLOR TOKENS</tspan></text>
+  </g>
+  <g id="color-background">
+    <rect class="st11" x="64" y="224" width="180" height="76" rx="18" ry="18"/>
+    <text class="st45" transform="translate(64 330)"><tspan x="0" y="0">background</tspan></text>
+    <text class="st32" transform="translate(64 350)"><tspan x="0" y="0">#050505</tspan></text>
+  </g>
+  <g id="color-surface">
+    <rect class="st12" x="300" y="224" width="180" height="76" rx="18" ry="18"/>
+    <text class="st45" transform="translate(300 330)"><tspan x="0" y="0">surface</tspan></text>
+    <text class="st32" transform="translate(300 350)"><tspan x="0" y="0">#111111</tspan></text>
+  </g>
+  <g id="color-surfaceraised">
+    <rect class="st13" x="536" y="224" width="180" height="76" rx="18" ry="18"/>
+    <text class="st45" transform="translate(536 330)"><tspan x="0" y="0">surfaceRaised</tspan></text>
+    <text class="st32" transform="translate(536 350)"><tspan x="0" y="0">#181818</tspan></text>
+  </g>
+  <g id="color-surfacemuted">
+    <rect class="st1" x="772" y="224" width="180" height="76" rx="18" ry="18"/>
+    <text class="st45" transform="translate(772 330)"><tspan x="0" y="0">surfaceMuted</tspan></text>
+    <text class="st32" transform="translate(772 350)"><tspan x="0" y="0">#202020</tspan></text>
+  </g>
+  <g id="color-border">
+    <rect class="st15" x="1008" y="224" width="180" height="76" rx="18" ry="18"/>
+    <text class="st45" transform="translate(1008 330)"><tspan x="0" y="0">border</tspan></text>
+    <text class="st32" transform="translate(1008 350)"><tspan x="0" y="0">#2D2D2D</tspan></text>
+  </g>
+  <g id="color-text">
+    <rect class="st10" x="1244" y="224" width="180" height="76" rx="18" ry="18"/>
+    <text class="st45" transform="translate(1244 330)"><tspan x="0" y="0">text</tspan></text>
+    <text class="st32" transform="translate(1244 350)"><tspan x="0" y="0">#F6F7F2</tspan></text>
+  </g>
+  <g id="color-textmuted">
+    <rect class="st14" x="1480" y="224" width="180" height="76" rx="18" ry="18"/>
+    <text class="st45" transform="translate(1480 330)"><tspan x="0" y="0">textMuted</tspan></text>
+    <text class="st32" transform="translate(1480 350)"><tspan x="0" y="0">#A3A99D</tspan></text>
+  </g>
+  <g id="color-accent">
+    <rect class="st6" x="64" y="402" width="180" height="76" rx="18" ry="18"/>
+    <text class="st45" transform="translate(64 508)"><tspan x="0" y="0">accent</tspan></text>
+    <text class="st32" transform="translate(64 528)"><tspan x="0" y="0">#D6FF2F</tspan></text>
+  </g>
+  <g id="color-accentdeep">
+    <rect class="st3" x="300" y="402" width="180" height="76" rx="18" ry="18"/>
+    <text class="st45" transform="translate(300 508)"><tspan x="0" y="0">accentDeep</tspan></text>
+    <text class="st32" transform="translate(300 528)"><tspan x="0" y="0">#8AA600</tspan></text>
+  </g>
+  <g id="color-accentsoft">
+    <rect class="st4" x="536" y="402" width="180" height="76" rx="18" ry="18"/>
+    <text class="st45" transform="translate(536 508)"><tspan x="0" y="0">accentSoft</tspan></text>
+    <text class="st32" transform="translate(536 528)"><tspan x="0" y="0">#2A3410</tspan></text>
+  </g>
+  <g id="color-danger">
+    <rect class="st0" x="772" y="402" width="180" height="76" rx="18" ry="18"/>
+    <text class="st45" transform="translate(772 508)"><tspan x="0" y="0">danger</tspan></text>
+    <text class="st32" transform="translate(772 528)"><tspan x="0" y="0">#FF6767</tspan></text>
+  </g>
+  <g id="color-success">
+    <rect class="st2" x="1008" y="402" width="180" height="76" rx="18" ry="18"/>
+    <text class="st45" transform="translate(1008 508)"><tspan x="0" y="0">success</tspan></text>
+    <text class="st32" transform="translate(1008 528)"><tspan x="0" y="0">#4BE58A</tspan></text>
+  </g>
+  <g id="color-warning">
+    <rect class="st5" x="1244" y="402" width="180" height="76" rx="18" ry="18"/>
+    <text class="st45" transform="translate(1244 508)"><tspan x="0" y="0">warning</tspan></text>
+    <text class="st32" transform="translate(1244 528)"><tspan x="0" y="0">#FFBD59</tspan></text>
+  </g>
+  <g id="color-shadow">
+    <rect class="st9" x="1480" y="402" width="180" height="76" rx="18" ry="18"/>
+    <text class="st45" transform="translate(1480 508)"><tspan x="0" y="0">shadow</tspan></text>
+    <text class="st32" transform="translate(1480 528)"><tspan x="0" y="0">#000000</tspan></text>
+  </g>
+  <g id="section-textos-y-estilos-tipograficos">
+    <line class="st8" x1="64" y1="588" x2="1736" y2="588"/>
+    <text class="st46" transform="translate(64 610)"><tspan x="0" y="0">TEXTOS Y ESTILOS TIPOGRAFICOS</tspan></text>
+  </g>
+  <g id="item-brand">
+    <text class="st32" transform="translate(64 644)"><tspan x="0" y="0">brand</tspan></text>
+    <g id="type-brand-next-up">
+      <text class="st31" transform="translate(64 679)"><tspan x="0" y="0">NEXT UP</tspan></text>
+    </g>
+  </g>
+  <g id="item-sectioneyebrow-inicio">
+    <text class="st32" transform="translate(460 644)"><tspan x="0" y="0">sectionEyebrow / Inicio</tspan></text>
+    <g id="type-eyebrow-inicio">
+      <text class="st46" transform="translate(460 678)"><tspan x="0" y="0">Inicio</tspan></text>
+    </g>
+  </g>
+  <g id="item-sectioneyebrow-perfil">
+    <text class="st32" transform="translate(856 644)"><tspan x="0" y="0">sectionEyebrow / Perfil</tspan></text>
+    <g id="type-eyebrow-perfil">
+      <text class="st46" transform="translate(856 678)"><tspan x="0" y="0">Perfil</tspan></text>
+    </g>
+  </g>
+  <g id="item-titlelarge">
+    <text class="st32" transform="translate(1252 644)"><tspan x="0" y="0">titleLarge</tspan></text>
+    <g id="type-titlelarge-resumen-de-hoy-invitado">
+      <text class="st26" transform="translate(1252 696)"><tspan x="0" y="0">Resumen de hoy, Invitado.</tspan></text>
+    </g>
+  </g>
+  <g id="item-titlelarge1" data-name="item-titlelarge">
+    <text class="st32" transform="translate(64 752)"><tspan x="0" y="0">titleLarge</tspan></text>
+    <g id="type-titlelarge-tus-plataformas-y-tus-generos">
+      <text class="st26" transform="translate(64 804)"><tspan x="0" y="0">Tus plataformas y tus generos.</tspan></text>
+    </g>
+  </g>
+  <g id="item-titlemedium">
+    <text class="st32" transform="translate(460 752)"><tspan x="0" y="0">titleMedium</tspan></text>
+    <g id="type-titlemedium-tu-proxima-eleccion">
+      <text class="st39" transform="translate(460 798)"><tspan x="0" y="0">Tu proxima eleccion</tspan></text>
+    </g>
+  </g>
+  <g id="item-titlesmall">
+    <text class="st32" transform="translate(856 752)"><tspan x="0" y="0">titleSmall</tspan></text>
+    <g id="type-titlesmall-actividad-reciente">
+      <text class="st27" transform="translate(856 791)"><tspan x="0" y="0">Actividad reciente</tspan></text>
+    </g>
+  </g>
+  <g id="item-body">
+    <text class="st32" transform="translate(1252 752)"><tspan x="0" y="0">body</tspan></text>
+    <g id="type-body-peliculas-series-y-novedades-de-catalogo-reunidas-en-un-solo-lugar">
+      <text class="st38" transform="translate(1252 789)"><tspan x="0" y="0">Peliculas, series y novedades de catalogo reunidas en un solo lugar.</tspan></text>
+    </g>
+  </g>
+  <g id="item-bodysmall">
+    <text class="st32" transform="translate(64 860)"><tspan x="0" y="0">bodySmall</tspan></text>
+    <g id="type-bodysmall-la-pelicula-quedo-disponible-esta-semana">
+      <text class="st34" transform="translate(64 896)"><tspan x="0" y="0">La pelicula quedo disponible esta semana.</tspan></text>
+    </g>
+  </g>
+  <g id="item-caption">
+    <text class="st32" transform="translate(460 860)"><tspan x="0" y="0">caption</tspan></text>
+    <g id="type-caption-27-abr">
+      <text class="st32" transform="translate(460 894)"><tspan x="0" y="0">27 abr</tspan></text>
+    </g>
+  </g>
+  <g id="item-captionbold">
+    <text class="st32" transform="translate(856 860)"><tspan x="0" y="0">captionBold</tspan></text>
+    <g id="type-captionbold-2-titulos-guardados">
+      <text class="st45" transform="translate(856 895)"><tspan x="0" y="0">2 titulos guardados</tspan></text>
+    </g>
+  </g>
+  <g id="section-botones-individuales">
+    <line class="st8" x1="64" y1="974" x2="1736" y2="974"/>
+    <text class="st46" transform="translate(64 996)"><tspan x="0" y="0">BOTONES INDIVIDUALES</tspan></text>
+  </g>
+  <g id="item-primary-ingresar">
+    <text class="st32" transform="translate(64 1030)"><tspan x="0" y="0">primary / Ingresar</tspan></text>
+    <g id="button-primary-ingresar">
+      <path class="st52" d="M90,1052h60c14.4,0,26,11.6,26,26h0c0,14.4-11.6,26-26,26h-60c-14.4,0-26-11.6-26-26h0c0-14.4,11.6-26,26-26Z"/>
+      <text class="st20" transform="translate(90.4 1084)"><tspan x="0" y="0">Ingresar</tspan></text>
+    </g>
+  </g>
+  <g id="item-primary-continuar">
+    <text class="st32" transform="translate(360 1030)"><tspan x="0" y="0">primary / Continuar</tspan></text>
+    <g id="button-primary-continuar">
+      <path class="st52" d="M386,1052h68c14.4,0,26,11.6,26,26h0c0,14.4-11.6,26-26,26h-68c-14.4,0-26-11.6-26-26h0c0-14.4,11.6-26,26-26Z"/>
+      <text class="st20" transform="translate(384.6 1084)"><tspan x="0" y="0">Continuar</tspan></text>
+    </g>
+  </g>
+  <g id="item-primary-que-ver-hoy">
+    <text class="st32" transform="translate(656 1030)"><tspan x="0" y="0">primary / Que ver hoy?</tspan></text>
+    <g id="button-primary-que-ver-hoy">
+      <path class="st52" d="M682,1052h92c14.4,0,26,11.6,26,26h0c0,14.4-11.6,26-26,26h-92c-14.4,0-26-11.6-26-26h0c0-14.4,11.6-26,26-26Z"/>
+      <text class="st20" transform="translate(680.1 1084)"><tspan x="0" y="0">Que ver hoy?</tspan></text>
+    </g>
+  </g>
+  <g id="item-primary-guardar">
+    <text class="st32" transform="translate(952 1030)"><tspan x="0" y="0">primary / Guardar</tspan></text>
+    <g id="button-primary-guardar">
+      <path class="st52" d="M978,1052h52c14.4,0,26,11.6,26,26h0c0,14.4-11.6,26-26,26h-52c-14.4,0-26-11.6-26-26h0c0-14.4,11.6-26,26-26Z"/>
+      <text class="st20" transform="translate(974.8 1084)"><tspan x="0" y="0">Guardar</tspan></text>
+    </g>
+  </g>
+  <g id="item-primary-ya-lo-vi">
+    <text class="st32" transform="translate(1248 1030)"><tspan x="0" y="0">primary / Ya lo vi</tspan></text>
+    <g id="button-primary-ya-lo-vi">
+      <path class="st52" d="M1274,1052h60c14.4,0,26,11.6,26,26h0c0,14.4-11.6,26-26,26h-60c-14.4,0-26-11.6-26-26h0c0-14.4,11.6-26,26-26Z"/>
+      <text class="st20" transform="translate(1278.2 1084)"><tspan x="0" y="0">Ya lo vi</tspan></text>
+    </g>
+  </g>
+  <g id="item-primary-abrir-recomendaciones">
+    <text class="st32" transform="translate(64 1146)"><tspan x="0" y="0">primary / Abrir recomendaciones</tspan></text>
+    <g id="button-primary-abrir-recomendaciones">
+      <path class="st52" d="M90,1168h164c14.4,0,26,11.6,26,26h0c0,14.4-11.6,26-26,26H90c-14.4,0-26-11.6-26-26h0c0-14.4,11.6-26,26-26Z"/>
+      <text class="st20" transform="translate(88.2 1200)"><tspan x="0" y="0">Abrir recomendaciones</tspan></text>
+    </g>
+  </g>
+  <g id="item-secondary-volver">
+    <text class="st32" transform="translate(360 1146)"><tspan x="0" y="0">secondary / Volver</tspan></text>
+    <g id="button-secondary-volver">
+      <path class="st13" d="M386,1168h52c14.4,0,26,11.6,26,26h0c0,14.4-11.6,26-26,26h-52c-14.4,0-26-11.6-26-26h0c0-14.4,11.6-26,26-26Z"/>
+      <text class="st36" transform="translate(389.6 1200)"><tspan x="0" y="0">Volver</tspan></text>
+    </g>
+  </g>
+  <g id="item-secondary-ya-vistas">
+    <text class="st32" transform="translate(656 1146)"><tspan x="0" y="0">secondary / Ya vistas</tspan></text>
+    <g id="button-secondary-ya-vistas">
+      <path class="st13" d="M682,1168h68c14.4,0,26,11.6,26,26h0c0,14.4-11.6,26-26,26h-68c-14.4,0-26-11.6-26-26h0c0-14.4,11.6-26,26-26Z"/>
+      <text class="st36" transform="translate(683.9 1200)"><tspan x="0" y="0">Ya vistas</tspan></text>
+    </g>
+  </g>
+  <g id="item-secondary-pasar">
+    <text class="st32" transform="translate(952 1146)"><tspan x="0" y="0">secondary / Pasar</tspan></text>
+    <g id="button-secondary-pasar">
+      <path class="st13" d="M978,1168h52c14.4,0,26,11.6,26,26h0c0,14.4-11.6,26-26,26h-52c-14.4,0-26-11.6-26-26h0c0-14.4,11.6-26,26-26Z"/>
+      <text class="st36" transform="translate(983.6 1200)"><tspan x="0" y="0">Pasar</tspan></text>
+    </g>
+  </g>
+  <g id="item-secondary-aun-no">
+    <text class="st32" transform="translate(1248 1146)"><tspan x="0" y="0">secondary / Aun no</tspan></text>
+    <g id="button-secondary-aun-no">
+      <path class="st13" d="M1274,1168h52c14.4,0,26,11.6,26,26h0c0,14.4-11.6,26-26,26h-52c-14.4,0-26-11.6-26-26h0c0-14.4,11.6-26,26-26Z"/>
+      <text class="st36" transform="translate(1274.2 1200)"><tspan x="0" y="0">Aun no</tspan></text>
+    </g>
+  </g>
+  <g id="item-secondary-quitar">
+    <text class="st32" transform="translate(64 1262)"><tspan x="0" y="0">secondary / Quitar</tspan></text>
+    <g id="button-secondary-quitar">
+      <path class="st13" d="M90,1284h52c14.4,0,26,11.6,26,26h0c0,14.4-11.6,26-26,26h-52c-14.4,0-26-11.6-26-26h0c0-14.4,11.6-26,26-26Z"/>
+      <text class="st36" transform="translate(93.9 1316)"><tspan x="0" y="0">Quitar</tspan></text>
+    </g>
+  </g>
+  <g id="item-secondary-editar-perfil">
+    <text class="st32" transform="translate(360 1262)"><tspan x="0" y="0">secondary / Editar perfil</tspan></text>
+    <g id="button-secondary-editar-perfil">
+      <path class="st13" d="M386,1284h100c14.4,0,26,11.6,26,26h0c0,14.4-11.6,26-26,26h-100c-14.4,0-26-11.6-26-26h0c0-14.4,11.6-26,26-26Z"/>
+      <text class="st36" transform="translate(394.3 1316)"><tspan x="0" y="0">Editar perfil</tspan></text>
+    </g>
+  </g>
+  <g id="item-secondary-restablecer-descartes">
+    <text class="st32" transform="translate(656 1262)"><tspan x="0" y="0">secondary / Restablecer descartes</tspan></text>
+    <g id="button-secondary-restablecer-descartes">
+      <path class="st13" d="M682,1284h164c14.4,0,26,11.6,26,26h0c0,14.4-11.6,26-26,26h-164c-14.4,0-26-11.6-26-26h0c0-14.4,11.6-26,26-26Z"/>
+      <text class="st36" transform="translate(684.4 1316)"><tspan x="0" y="0">Restablecer descartes</tspan></text>
+    </g>
+  </g>
+  <g id="item-secondary-vaciar-mi-lista">
+    <text class="st32" transform="translate(952 1262)"><tspan x="0" y="0">secondary / Vaciar mi lista</tspan></text>
+    <g id="button-secondary-vaciar-mi-lista">
+      <path class="st13" d="M978,1284h116c14.4,0,26,11.6,26,26h0c0,14.4-11.6,26-26,26h-116c-14.4,0-26-11.6-26-26h0c0-14.4,11.6-26,26-26Z"/>
+      <text class="st36" transform="translate(986 1316)"><tspan x="0" y="0">Vaciar mi lista</tspan></text>
+    </g>
+  </g>
+  <g id="item-ghost-ya-la-vi">
+    <text class="st32" transform="translate(1248 1262)"><tspan x="0" y="0">ghost / Ya la vi</tspan></text>
+    <g id="button-ghost-ya-la-vi">
+      <path class="st7" d="M1274,1284h60c14.4,0,26,11.6,26,26h0c0,14.4-11.6,26-26,26h-60c-14.4,0-26-11.6-26-26h0c0-14.4,11.6-26,26-26Z"/>
+      <text class="st36" transform="translate(1278.6 1316)"><tspan x="0" y="0">Ya la vi</tspan></text>
+    </g>
+  </g>
+  <g id="item-ghost-reconfigurar-onboarding">
+    <text class="st32" transform="translate(64 1378)"><tspan x="0" y="0">ghost / Reconfigurar onboarding</tspan></text>
+    <g id="button-ghost-reconfigurar-onboarding">
+      <path class="st7" d="M90,1400h180c14.4,0,26,11.6,26,26h0c0,14.4-11.6,26-26,26H90c-14.4,0-26-11.6-26-26h0c0-14.4,11.6-26,26-26Z"/>
+      <text class="st36" transform="translate(90 1432)"><tspan x="0" y="0">Reconfigurar onboarding</tspan></text>
+    </g>
+  </g>
+  <g id="item-danger-cerrar-sesion">
+    <text class="st32" transform="translate(360 1378)"><tspan x="0" y="0">danger / Cerrar sesion</tspan></text>
+    <g id="button-danger-cerrar-sesion">
+      <path class="st62" d="M386,1400h100c14.4,0,26,11.6,26,26h0c0,14.4-11.6,26-26,26h-100c-14.4,0-26-11.6-26-26h0c0-14.4,11.6-26,26-26Z"/>
+      <text class="st36" transform="translate(387.6 1432)"><tspan x="0" y="0">Cerrar sesion</tspan></text>
+    </g>
+  </g>
+  <g id="item-success-ya-la-vi">
+    <text class="st32" transform="translate(656 1378)"><tspan x="0" y="0">success / Ya la vi</tspan></text>
+    <g id="button-success-ya-la-vi">
+      <path class="st60" d="M682,1400h60c14.4,0,26,11.6,26,26h0c0,14.4-11.6,26-26,26h-60c-14.4,0-26-11.6-26-26h0c0-14.4,11.6-26,26-26Z"/>
+      <text class="st20" transform="translate(686.6 1432)"><tspan x="0" y="0">Ya la vi</tspan></text>
+    </g>
+  </g>
+  <g id="item-primary-ingresar-disabled">
+    <text class="st32" transform="translate(952 1378)"><tspan x="0" y="0">primary / Ingresar disabled</tspan></text>
+    <g class="st65">
+      <g id="button-primary-ingresar1" data-name="button-primary-ingresar">
+        <path class="st52" d="M978,1400h60c14.4,0,26,11.6,26,26h0c0,14.4-11.6,26-26,26h-60c-14.4,0-26-11.6-26-26h0c0-14.4,11.6-26,26-26Z"/>
+        <text class="st20" transform="translate(978.4 1432)"><tspan x="0" y="0">Ingresar</tspan></text>
+      </g>
+    </g>
+  </g>
+  <g id="section-chips-y-pills-individuales">
+    <line class="st8" x1="64" y1="1504" x2="1736" y2="1504"/>
+    <text class="st46" transform="translate(64 1526)"><tspan x="0" y="0">CHIPS Y PILLS INDIVIDUALES</tspan></text>
+  </g>
+  <g id="item-choicechip-netflix">
+    <text class="st32" transform="translate(64 1560)"><tspan x="0" y="0">ChoiceChip / Netflix</tspan></text>
+    <g id="chip-selected-netflix">
+      <path class="st50" d="M85,1582h41.8c11.6,0,21,9.4,21,21h0c0,11.6-9.4,21-21,21h-41.8c-11.6,0-21-9.4-21-21h0c0-11.6,9.4-21,21-21Z"/>
+      <text class="st30" transform="translate(84.5 1609)"><tspan x="0" y="0">Netflix</tspan></text>
+    </g>
+  </g>
+  <g id="item-choicechip-max">
+    <text class="st32" transform="translate(360 1560)"><tspan x="0" y="0">ChoiceChip / Max</tspan></text>
+    <g id="chip-idle-max">
+      <path class="st12" d="M381,1582h30c11.6,0,21,9.4,21,21h0c0,11.6-9.4,21-21,21h-30c-11.6,0-21-9.4-21-21h0c0-11.6,9.4-21,21-21Z"/>
+      <text class="st33" transform="translate(382.4 1609)"><tspan x="0" y="0">Max</tspan></text>
+    </g>
+  </g>
+  <g id="item-choicechip-prime-video">
+    <text class="st32" transform="translate(656 1560)"><tspan x="0" y="0">ChoiceChip / Prime Video</tspan></text>
+    <g id="chip-idle-prime-video">
+      <path class="st12" d="M677,1582h71.4c11.6,0,21,9.4,21,21h0c0,11.6-9.4,21-21,21h-71.4c-11.6,0-21-9.4-21-21h0c0-11.6,9.4-21,21-21Z"/>
+      <text class="st33" transform="translate(672.4 1609)"><tspan x="0" y="0">Prime Video</tspan></text>
+    </g>
+  </g>
+  <g id="item-choicechip-disney">
+    <text class="st32" transform="translate(952 1560)"><tspan x="0" y="0">ChoiceChip / Disney+</tspan></text>
+    <g id="chip-idle-disney">
+      <path class="st12" d="M973,1582h41.8c11.6,0,21,9.4,21,21h0c0,11.6-9.4,21-21,21h-41.8c-11.6,0-21-9.4-21-21h0c0-11.6,9.4-21,21-21Z"/>
+      <text class="st33" transform="translate(966.9 1609)"><tspan x="0" y="0">Disney+</tspan></text>
+    </g>
+  </g>
+  <g id="item-choicechip-apple-tv">
+    <text class="st32" transform="translate(1248 1560)"><tspan x="0" y="0">ChoiceChip / Apple TV+</tspan></text>
+    <g id="chip-idle-apple-tv">
+      <path class="st12" d="M1269,1582h56.6c11.6,0,21,9.4,21,21h0c0,11.6-9.4,21-21,21h-56.6c-11.6,0-21-9.4-21-21h0c0-11.6,9.4-21,21-21Z"/>
+      <text class="st33" transform="translate(1262.9 1609)"><tspan x="0" y="0">Apple TV+</tspan></text>
+    </g>
+  </g>
+  <g id="item-choicechip-mubi">
+    <text class="st32" transform="translate(64 1666)"><tspan x="0" y="0">ChoiceChip / MUBI</tspan></text>
+    <g id="chip-idle-mubi">
+      <path class="st12" d="M85,1688h30c11.6,0,21,9.4,21,21h0c0,11.6-9.4,21-21,21h-30c-11.6,0-21-9.4-21-21h0c0-11.6,9.4-21,21-21Z"/>
+      <text class="st33" transform="translate(82.1 1715)"><tspan x="0" y="0">MUBI</tspan></text>
+    </g>
+  </g>
+  <g id="item-choicechip-ciencia-ficcion">
+    <text class="st32" transform="translate(360 1666)"><tspan x="0" y="0">ChoiceChip / Ciencia ficcion</tspan></text>
+    <g id="chip-idle-ciencia-ficcion">
+      <path class="st12" d="M381,1688h101c11.6,0,21,9.4,21,21h0c0,11.6-9.4,21-21,21h-101c-11.6,0-21-9.4-21-21h0c0-11.6,9.4-21,21-21Z"/>
+      <text class="st33" transform="translate(382.1 1715)"><tspan x="0" y="0">Ciencia ficcion</tspan></text>
+    </g>
+  </g>
+  <g id="item-choicechip-drama">
+    <text class="st32" transform="translate(656 1666)"><tspan x="0" y="0">ChoiceChip / Drama</tspan></text>
+    <g id="chip-selected-drama">
+      <path class="st50" d="M677,1688h30c11.6,0,21,9.4,21,21h0c0,11.6-9.4,21-21,21h-30c-11.6,0-21-9.4-21-21h0c0-11.6,9.4-21,21-21Z"/>
+      <text class="st30" transform="translate(670.2 1715)"><tspan x="0" y="0">Drama</tspan></text>
+    </g>
+  </g>
+  <g id="item-choicechip-suspenso">
+    <text class="st32" transform="translate(952 1666)"><tspan x="0" y="0">ChoiceChip / Suspenso</tspan></text>
+    <g id="chip-idle-suspenso">
+      <path class="st12" d="M973,1688h49.2c11.6,0,21,9.4,21,21h0c0,11.6-9.4,21-21,21h-49.2c-11.6,0-21-9.4-21-21h0c0-11.6,9.4-21,21-21Z"/>
+      <text class="st33" transform="translate(964.1 1715)"><tspan x="0" y="0">Suspenso</tspan></text>
+    </g>
+  </g>
+  <g id="item-choicechip-comedia">
+    <text class="st32" transform="translate(1248 1666)"><tspan x="0" y="0">ChoiceChip / Comedia</tspan></text>
+    <g id="chip-idle-comedia">
+      <path class="st12" d="M1269,1688h41.8c11.6,0,21,9.4,21,21h0c0,11.6-9.4,21-21,21h-41.8c-11.6,0-21-9.4-21-21h0c0-11.6,9.4-21,21-21Z"/>
+      <text class="st33" transform="translate(1260.3 1715)"><tspan x="0" y="0">Comedia</tspan></text>
+    </g>
+  </g>
+  <g id="item-choicechip-accion">
+    <text class="st32" transform="translate(64 1772)"><tspan x="0" y="0">ChoiceChip / Accion</tspan></text>
+    <g id="chip-selected-accion">
+      <path class="st50" d="M85,1794h34.4c11.6,0,21,9.4,21,21h0c0,11.6-9.4,21-21,21h-34.4c-11.6,0-21-9.4-21-21h0c0-11.6,9.4-21,21-21Z"/>
+      <text class="st30" transform="translate(78.9 1821)"><tspan x="0" y="0">Accion</tspan></text>
+    </g>
+  </g>
+  <g id="item-choicechip-animacion">
+    <text class="st32" transform="translate(360 1772)"><tspan x="0" y="0">ChoiceChip / Animacion</tspan></text>
+    <g id="chip-idle-animacion">
+      <path class="st12" d="M381,1794h56.6c11.6,0,21,9.4,21,21h0c0,11.6-9.4,21-21,21h-56.6c-11.6,0-21-9.4-21-21h0c0-11.6,9.4-21,21-21Z"/>
+      <text class="st33" transform="translate(373.5 1821)"><tspan x="0" y="0">Animacion</tspan></text>
+    </g>
+  </g>
+  <g id="item-choicechip-denis-villeneuve">
+    <text class="st32" transform="translate(656 1772)"><tspan x="0" y="0">ChoiceChip / Denis Villeneuve</tspan></text>
+    <g id="chip-selected-denis-villeneuve">
+      <path class="st50" d="M677,1794h108.4c11.6,0,21,9.4,21,21h0c0,11.6-9.4,21-21,21h-108.4c-11.6,0-21-9.4-21-21h0c0-11.6,9.4-21,21-21Z"/>
+      <text class="st30" transform="translate(675.7 1821)"><tspan x="0" y="0">Denis Villeneuve</tspan></text>
+    </g>
+  </g>
+  <g id="item-choicechip-zendaya">
+    <text class="st32" transform="translate(952 1772)"><tspan x="0" y="0">ChoiceChip / Zendaya</tspan></text>
+    <g id="chip-selected-zendaya">
+      <path class="st50" d="M973,1794h41.8c11.6,0,21,9.4,21,21h0c0,11.6-9.4,21-21,21h-41.8c-11.6,0-21-9.4-21-21h0c0-11.6,9.4-21,21-21Z"/>
+      <text class="st30" transform="translate(965.5 1821)"><tspan x="0" y="0">Zendaya</tspan></text>
+    </g>
+  </g>
+  <g id="item-genre-pill-drama">
+    <text class="st32" transform="translate(64 1886)"><tspan x="0" y="0">Genre pill / Drama</tspan></text>
+    <g id="pill-drama">
+      <path class="st17" d="M78,1908h26c7.7,0,14,6.3,14,14h0c0,7.7-6.3,14-14,14h-26c-7.7,0-14-6.3-14-14h0c0-7.7,6.3-14,14-14Z"/>
+      <text class="st40" transform="translate(73.9 1926)"><tspan x="0" y="0">Drama</tspan></text>
+    </g>
+  </g>
+  <g id="item-genre-pill-accion">
+    <text class="st32" transform="translate(360 1886)"><tspan x="0" y="0">Genre pill / Accion</tspan></text>
+    <g id="pill-accion">
+      <path class="st17" d="M374,1908h32.8c7.7,0,14,6.3,14,14h0c0,7.7-6.3,14-14,14h-32.8c-7.7,0-14-6.3-14-14h0c0-7.7,6.3-14,14-14Z"/>
+      <text class="st40" transform="translate(372.1 1926)"><tspan x="0" y="0">Accion</tspan></text>
+    </g>
+  </g>
+  <g id="item-genre-pill-ciencia-ficcion">
+    <text class="st32" transform="translate(656 1886)"><tspan x="0" y="0">Genre pill / Ciencia ficcion</tspan></text>
+    <g id="pill-ciencia-ficcion">
+      <path class="st17" d="M670,1908h94c7.7,0,14,6.3,14,14h0c0,7.7-6.3,14-14,14h-94c-7.7,0-14-6.3-14-14h0c0-7.7,6.3-14,14-14Z"/>
+      <text class="st40" transform="translate(678.2 1926)"><tspan x="0" y="0">Ciencia ficcion</tspan></text>
+    </g>
+  </g>
+  <g id="section-campos-individuales">
+    <line class="st8" x1="64" y1="1988" x2="1736" y2="1988"/>
+    <text class="st46" transform="translate(64 2010)"><tspan x="0" y="0">CAMPOS INDIVIDUALES</tspan></text>
+  </g>
+  <g id="item-input-nombre">
+    <text class="st32" transform="translate(64 2044)"><tspan x="0" y="0">Input / Nombre</tspan></text>
+    <g id="field-nombre-tu-nombre">
+      <text class="st36" transform="translate(64 2066)"><tspan x="0" y="0">Nombre</tspan></text>
+      <rect class="st12" x="64" y="2078" width="280" height="56" rx="18" ry="18"/>
+      <text class="st43" transform="translate(80 2113)"><tspan x="0" y="0">Tu nombre</tspan></text>
+    </g>
+  </g>
+  <g id="item-input-mail">
+    <text class="st32" transform="translate(400 2044)"><tspan x="0" y="0">Input / Mail</tspan></text>
+    <g id="field-mail-tu-email-com">
+      <text class="st36" transform="translate(400 2066)"><tspan x="0" y="0">Mail</tspan></text>
+      <rect class="st12" x="400" y="2078" width="280" height="56" rx="18" ry="18"/>
+      <text class="st43" transform="translate(416 2113)"><tspan x="0" y="0">tu@email.com</tspan></text>
+    </g>
+  </g>
+  <g id="item-search-buscar-director">
+    <text class="st32" transform="translate(736 2044)"><tspan x="0" y="0">Search / Buscar director</tspan></text>
+    <g id="field-buscar-director">
+      <rect class="st12" x="736" y="2066" width="280" height="56" rx="18" ry="18"/>
+      <g id="icon-search">
+        <circle class="st56" cx="761" cy="2092" r="6.5"/>
+        <path class="st59" d="M766,2097l4,4"/>
+      </g>
+      <text class="st43" transform="translate(780 2101)"><tspan x="0" y="0">Buscar director</tspan></text>
+    </g>
+  </g>
+  <g id="item-search-buscar-actor-o-actriz">
+    <text class="st32" transform="translate(1072 2044)"><tspan x="0" y="0">Search / Buscar actor o actriz</tspan></text>
+    <g id="field-buscar-actor-o-actriz">
+      <rect class="st12" x="1072" y="2066" width="280" height="56" rx="18" ry="18"/>
+      <g id="icon-search1" data-name="icon-search">
+        <circle class="st56" cx="1097" cy="2092" r="6.5"/>
+        <path class="st59" d="M1102,2097l4,4"/>
+      </g>
+      <text class="st43" transform="translate(1116 2101)"><tspan x="0" y="0">Buscar actor o actriz</tspan></text>
+    </g>
+  </g>
+  <g id="section-elementos-de-contenido-individuales">
+    <line class="st8" x1="64" y1="2194" x2="1736" y2="2194"/>
+    <text class="st46" transform="translate(64 2216)"><tspan x="0" y="0">ELEMENTOS DE CONTENIDO INDIVIDUALES</tspan></text>
+  </g>
+  <g id="item-card-container-raised">
+    <text class="st32" transform="translate(64 2250)"><tspan x="0" y="0">Card container / raised</tspan></text>
+    <g id="panel-container">
+      <rect class="st13" x="64" y="2272" width="260" height="120" rx="24" ry="24"/>
+    </g>
+  </g>
+  <g id="item-card-container-surface">
+    <text class="st32" transform="translate(360 2250)"><tspan x="0" y="0">Card container / surface</tspan></text>
+    <g id="surface-container">
+      <rect class="st12" x="360" y="2272" width="260" height="120" rx="18" ry="18"/>
+    </g>
+  </g>
+  <g id="item-avatar">
+    <text class="st32" transform="translate(656 2250)"><tspan x="0" y="0">Avatar</tspan></text>
+    <g id="avatar-i">
+      <circle class="st53" cx="684" cy="2300" r="28"/>
+      <text class="st21" transform="translate(681.6 2306)"><tspan x="0" y="0">I</tspan></text>
+    </g>
+  </g>
+  <g id="item-hero-tag">
+    <text class="st32" transform="translate(952 2250)"><tspan x="0" y="0">Hero tag</tspan></text>
+    <g id="hero-tag-pelicula">
+      <path class="st64" d="M964,2272h60c6.6,0,12,5.4,12,12h0c0,6.6-5.4,12-12,12h-60c-6.6,0-12-5.4-12-12h0c0-6.6,5.4-12,12-12Z"/>
+      <text class="st22" transform="translate(973.2 2288)"><tspan x="0" y="0">Pelicula</tspan></text>
+    </g>
+  </g>
+  <g id="item-overlay-pasar">
+    <text class="st32" transform="translate(1248 2250)"><tspan x="0" y="0">Overlay / PASAR</tspan></text>
+    <g id="overlay-pasar">
+      <path class="st16" d="M1267,2272h56c10.5,0,19,8.5,19,19h0c0,10.5-8.5,19-19,19h-56c-10.5,0-19-8.5-19-19h0c0-10.5,8.5-19,19-19Z"/>
+      <text class="st24" transform="translate(1269.7 2297)"><tspan x="0" y="0">PASAR</tspan></text>
+    </g>
+  </g>
+  <g id="item-overlay-guardar">
+    <text class="st32" transform="translate(64 2434)"><tspan x="0" y="0">Overlay / GUARDAR</tspan></text>
+    <g id="overlay-guardar">
+      <path class="st49" d="M83,2456h80c10.5,0,19,8.5,19,19h0c0,10.5-8.5,19-19,19h-80c-10.5,0-19-8.5-19-19h0c0-10.5,8.5-19,19-19Z"/>
+      <text class="st24" transform="translate(85.6 2481)"><tspan x="0" y="0">GUARDAR</tspan></text>
+    </g>
+  </g>
+  <g id="item-news-title">
+    <text class="st32" transform="translate(360 2434)"><tspan x="0" y="0">News title</tspan></text>
+    <text class="st27" transform="translate(360 2476)"><tspan x="0" y="0">Furiosa ya se incorporo al catalogo de Max</tspan></text>
+  </g>
+  <g id="item-news-summary">
+    <text class="st32" transform="translate(776 2434)"><tspan x="0" y="0">News summary</tspan></text>
+    <text class="st34" transform="translate(776 2474)"><tspan x="0" y="0">La pelicula quedo disponible esta semana y volvio a empujar las busquedas.</tspan></text>
+  </g>
+  <g id="section-logos-y-badges-individuales">
+    <line class="st8" x1="64" y1="2550" x2="1736" y2="2550"/>
+    <text class="st46" transform="translate(64 2572)"><tspan x="0" y="0">LOGOS Y BADGES INDIVIDUALES</tspan></text>
+  </g>
+  <g id="item-platformbadge-netflix">
+    <text class="st32" transform="translate(64 2606)"><tspan x="0" y="0">PlatformBadge / Netflix</tspan></text>
+    <g id="platform-badge-netflix">
+      <path class="st12" d="M81,2628h119c9.4,0,17,7.6,17,17h0c0,9.4-7.6,17-17,17h-119c-9.4,0-17-7.6-17-17h0c0-9.4,7.6-17,17-17Z"/>
+      <path class="st61" d="M81,2633h38c6.6,0,12,5.4,12,12h0c0,6.6-5.4,12-12,12h-38c-6.6,0-12-5.4-12-12h0c0-6.6,5.4-12,12-12Z"/>
+      <text class="st18" transform="translate(79.2 2649)"><tspan x="0" y="0">NETFLIX</tspan></text>
+      <text class="st22" transform="translate(140 2650)"><tspan x="0" y="0">Netflix</tspan></text>
+    </g>
+  </g>
+  <g id="item-platformbadge-max">
+    <text class="st32" transform="translate(360 2606)"><tspan x="0" y="0">PlatformBadge / Max</tspan></text>
+    <text class="st32" transform="translate(357.6 2704.6)"><tspan x="0" y="0">PlatformLogo</tspan></text>
+    <g id="platform-badge-max">
+      <path class="st12" d="M377,2628h91c9.4,0,17,7.6,17,17h0c0,9.4-7.6,17-17,17h-91c-9.4,0-17-7.6-17-17h0c0-9.4,7.6-17,17-17Z"/>
+      <path class="st61" d="M377,2633h38c6.6,0,12,5.4,12,12h0c0,6.6-5.4,12-12,12h-38c-6.6,0-12-5.4-12-12h0c0-6.6,5.4-12,12-12Z"/>
+      <text class="st18" transform="translate(384.9 2649)"><tspan x="0" y="0">MAX</tspan></text>
+      <path class="st61" d="M372,2731h38c6.6,0,12,5.4,12,12h0c0,6.6-5.4,12-12,12h-38c-6.6,0-12-5.4-12-12h0c0-6.6,5.4-12,12-12Z"/>
+      <text class="st18" transform="translate(376.9 2747)"><tspan x="0" y="0">LOGO</tspan></text>
+      <text class="st22" transform="translate(436 2650)"><tspan x="0" y="0">Max</tspan></text>
+    </g>
+  </g>
+  <g id="item-platformbadge-prime-video">
+    <text class="st32" transform="translate(656 2606)"><tspan x="0" y="0">PlatformBadge / Prime Video</tspan></text>
+    <g id="platform-badge-prime-video">
+      <path class="st12" d="M673,2628h147c9.4,0,17,7.6,17,17h0c0,9.4-7.6,17-17,17h-147c-9.4,0-17-7.6-17-17h0c0-9.4,7.6-17,17-17Z"/>
+      <path class="st61" d="M673,2633h38c6.6,0,12,5.4,12,12h0c0,6.6-5.4,12-12,12h-38c-6.6,0-12-5.4-12-12h0c0-6.6,5.4-12,12-12Z"/>
+      <text class="st18" transform="translate(676.2 2649)"><tspan x="0" y="0">PRIME</tspan></text>
+      <text class="st22" transform="translate(732 2650)"><tspan x="0" y="0">Prime Video</tspan></text>
+    </g>
+  </g>
+  <g id="item-platformbadge-disney">
+    <text class="st32" transform="translate(952 2606)"><tspan x="0" y="0">PlatformBadge / Disney+</tspan></text>
+    <g id="platform-badge-disney">
+      <path class="st12" d="M969,2628h119c9.4,0,17,7.6,17,17h0c0,9.4-7.6,17-17,17h-119c-9.4,0-17-7.6-17-17h0c0-9.4,7.6-17,17-17Z"/>
+      <path class="st61" d="M969,2633h38c6.6,0,12,5.4,12,12h0c0,6.6-5.4,12-12,12h-38c-6.6,0-12-5.4-12-12h0c0-6.6,5.4-12,12-12Z"/>
+      <text class="st18" transform="translate(966.5 2649)"><tspan x="0" y="0">DISNEY+</tspan></text>
+      <text class="st22" transform="translate(1028 2650)"><tspan x="0" y="0">Disney+</tspan></text>
+    </g>
+  </g>
+  <g id="item-platformbadge-apple-tv">
+    <text class="st32" transform="translate(1248 2606)"><tspan x="0" y="0">PlatformBadge / Apple TV+</tspan></text>
+    <g id="platform-badge-apple-tv">
+      <path class="st12" d="M1265,2628h133c9.4,0,17,7.6,17,17h0c0,9.4-7.6,17-17,17h-133c-9.4,0-17-7.6-17-17h0c0-9.4,7.6-17,17-17Z"/>
+      <path class="st61" d="M1265,2633h38c6.6,0,12,5.4,12,12h0c0,6.6-5.4,12-12,12h-38c-6.6,0-12-5.4-12-12h0c0-6.6,5.4-12,12-12Z"/>
+      <text class="st19" transform="translate(1262.1 2649)"><tspan x="0" y="0">APPLE TV+</tspan></text>
+      <text class="st22" transform="translate(1324 2650)"><tspan x="0" y="0">Apple TV+</tspan></text>
+    </g>
+  </g>
+  <g id="item-platformbadge-mubi">
+    <text class="st32" transform="translate(64 2704)"><tspan x="0" y="0">PlatformBadge / MUBI</tspan></text>
+    <g id="platform-badge-mubi">
+      <path class="st12" d="M81,2726h98c9.4,0,17,7.6,17,17h0c0,9.4-7.6,17-17,17h-98c-9.4,0-17-7.6-17-17h0c0-9.4,7.6-17,17-17Z"/>
+      <path class="st61" d="M81,2731h38c6.6,0,12,5.4,12,12h0c0,6.6-5.4,12-12,12h-38c-6.6,0-12-5.4-12-12h0c0-6.6,5.4-12,12-12Z"/>
+      <text class="st18" transform="translate(87.2 2747)"><tspan x="0" y="0">MUBI</tspan></text>
+      <text class="st22" transform="translate(140 2748)"><tspan x="0" y="0">MUBI</tspan></text>
+    </g>
+  </g>
+  <g id="section-controles-e-iconos-individuales">
+    <line class="st8" x1="64" y1="2812" x2="1736" y2="2812"/>
+    <text class="st46" transform="translate(64 2834)"><tspan x="0" y="0">CONTROLES E ICONOS INDIVIDUALES</tspan></text>
+  </g>
+  <g id="item-axisslider">
+    <text class="st32" transform="translate(64 2868)"><tspan x="0" y="0">AxisSlider</tspan></text>
+    <g id="axis-slider-relajante-emocionante">
+      <text class="st42" transform="translate(64 2903)"><tspan x="0" y="0">Relajante</tspan></text>
+      <text class="st32" transform="translate(245 2903)"><tspan x="0" y="0">50% / 50%</tspan></text>
+      <text class="st42" transform="translate(402.4 2903)"><tspan x="0" y="0">Emocionante</tspan></text>
+      <path class="st12" d="M68,2924h412c2.2,0,4,1.8,4,4h0c0,2.2-1.8,4-4,4H68c-2.2,0-4-1.8-4-4h0c0-2.2,1.8-4,4-4Z"/>
+      <path class="st53" d="M68,2924h202c2.2,0,4,1.8,4,4h0c0,2.2-1.8,4-4,4H68c-2.2,0-4-1.8-4-4h0c0-2.2,1.8-4,4-4Z"/>
+      <circle class="st10" cx="274" cy="2928" r="11"/>
+    </g>
+  </g>
+  <g id="item-dropdown-trigger">
+    <text class="st32" transform="translate(520 2868)"><tspan x="0" y="0">Dropdown trigger</tspan></text>
+    <g id="dropdown-generos">
+      <rect class="st12" x="520" y="2890" width="342" height="56" rx="18" ry="18"/>
+      <text class="st45" transform="translate(536 2911)"><tspan x="0" y="0">Generos</tspan></text>
+      <text class="st37" transform="translate(536 2932)"><tspan x="0" y="0">Seleccion multiple</tspan></text>
+      <g id="icon-chevron-down-dropdown">
+        <path class="st57" d="M832,2916l6,6,6-6"/>
+      </g>
+    </g>
+  </g>
+  <g id="item-back-icon-button">
+    <text class="st32" transform="translate(898 2868)"><tspan x="0" y="0">Back icon button</tspan></text>
+    <g id="back-icon-button">
+      <path class="st13" d="M919,2890h0c11.6,0,21,9.4,21,21h0c0,11.6-9.4,21-21,21h0c-11.6,0-21-9.4-21-21h0c0-11.6,9.4-21,21-21Z"/>
+      <g id="icon-back">
+        <path class="st57" d="M925,2904l-7,7,7,7"/>
+      </g>
+    </g>
+  </g>
+  <g id="item-search-icon">
+    <text class="st32" transform="translate(1194 2868)"><tspan x="0" y="0">Search icon</tspan></text>
+    <g id="icon-search2" data-name="icon-search">
+      <circle class="st56" cx="1201" cy="2897" r="6.5"/>
+      <path class="st59" d="M1206,2902l4,4"/>
+    </g>
+  </g>
+  <g id="item-chevron-down">
+    <text class="st32" transform="translate(64 3008)"><tspan x="0" y="0">Chevron down</tspan></text>
+    <g id="icon-chevron-down">
+      <path class="st57" d="M70,3040l6,6,6-6"/>
+    </g>
+  </g>
+  <g id="item-chevron-up">
+    <text class="st32" transform="translate(360 3008)"><tspan x="0" y="0">Chevron up</tspan></text>
+    <g id="icon-chevron-up">
+      <path class="st57" d="M366,3044l6-6,6,6"/>
+    </g>
+  </g>
+  <g id="item-tab-icon-home">
+    <text class="st32" transform="translate(656 3008)"><tspan x="0" y="0">Tab icon home</tspan></text>
+    <g id="icon-tab-home">
+      <path class="st51" d="M668,3033.5l1.9,4.6,4.6,1.9-4.6,1.9-1.9,4.6-1.9-4.6-4.6-1.9,4.6-1.9,1.9-4.6Z"/>
+    </g>
+  </g>
+  <g id="item-tab-icon-watchlist">
+    <text class="st32" transform="translate(952 3008)"><tspan x="0" y="0">Tab icon watchlist</tspan></text>
+  </g>
+  <g id="item-tab-icon-profile">
+    <text class="st32" transform="translate(1248 3008)"><tspan x="0" y="0">Tab icon profile</tspan></text>
+    <g id="icon-tab-profile">
+      <circle class="st55" cx="1260" cy="3038" r="3.2"/>
+      <path class="st58" d="M1254.5,3049c1.2-3,3.1-4.5,5.5-4.5s4.3,1.5,5.5,4.5"/>
+    </g>
+  </g>
+  <g id="section-navegacion-individual">
+    <line class="st8" x1="64" y1="3126" x2="1736" y2="3126"/>
+    <text class="st46" transform="translate(64 3148)"><tspan x="0" y="0">NAVEGACION INDIVIDUAL</tspan></text>
+  </g>
+  <g id="item-tab-item-inicio-active">
+    <text class="st32" transform="translate(64 3182)"><tspan x="0" y="0">Tab item / Inicio active</tspan></text>
+    <g id="tab-item-inicio">
+      <g id="icon-tab-home1" data-name="icon-tab-home">
+        <path class="st51" d="M113,3207.5l1.9,4.6,4.6,1.9-4.6,1.9-1.9,4.6-1.9-4.6-4.6-1.9,4.6-1.9,1.9-4.6Z"/>
+      </g>
+      <text class="st23" transform="translate(96.3 3246)"><tspan x="0" y="0">Inicio</tspan></text>
+    </g>
+  </g>
+  <g id="item-tab-item-mi-lista-idle">
+    <text class="st32" transform="translate(360 3182)"><tspan x="0" y="0">Tab item / Mi lista idle</tspan></text>
+    <g id="tab-item-mi-lista">
+      <text class="st28" transform="translate(387.7 3246)"><tspan x="0" y="0">Mi lista</tspan></text>
+    </g>
+  </g>
+  <g id="item-tab-item-perfil-idle">
+    <text class="st32" transform="translate(656 3182)"><tspan x="0" y="0">Tab item / Perfil idle</tspan></text>
+    <g id="tab-item-perfil">
+      <g id="icon-tab-profile1" data-name="icon-tab-profile">
+        <circle class="st55" cx="705" cy="3212" r="3.2"/>
+        <path class="st58" d="M699.5,3223c1.2-3,3.1-4.5,5.5-4.5s4.3,1.5,5.5,4.5"/>
+      </g>
+      <text class="st28" transform="translate(689 3246)"><tspan x="0" y="0">Perfil</tspan></text>
+    </g>
+  </g>
+  <g id="item-bottom-tab-bar">
+    <text class="st32" transform="translate(952 3182)"><tspan x="0" y="0">Bottom tab bar</tspan></text>
+    <g id="bottom-tab-bar">
+      <rect class="st12" x="952" y="3204" width="390" height="76"/>
+      <g id="tab-item-inicio1" data-name="tab-item-inicio">
+        <g id="icon-tab-home2" data-name="icon-tab-home">
+          <path class="st51" d="M1019,3217.5l1.9,4.6,4.6,1.9-4.6,1.9-1.9,4.6-1.9-4.6-4.6-1.9,4.6-1.9,1.9-4.6Z"/>
+        </g>
+        <text class="st23" transform="translate(1002.3 3256)"><tspan x="0" y="0">Inicio</tspan></text>
+      </g>
+      <g id="tab-item-mi-lista1" data-name="tab-item-mi-lista">
+        <text class="st28" transform="translate(1126.7 3256)"><tspan x="0" y="0">Mi lista</tspan></text>
+      </g>
+      <g id="tab-item-perfil1" data-name="tab-item-perfil">
+        <g id="icon-tab-profile2" data-name="icon-tab-profile">
+          <circle class="st55" cx="1277" cy="3222" r="3.2"/>
+          <path class="st58" d="M1271.5,3233c1.2-3,3.1-4.5,5.5-4.5s4.3,1.5,5.5,4.5"/>
+        </g>
+        <text class="st28" transform="translate(1261 3256)"><tspan x="0" y="0">Perfil</tspan></text>
+      </g>
+    </g>
+  </g>
+  <g id="section-componentes-compuestos-unicos">
+    <line class="st8" x1="64" y1="3332" x2="1736" y2="3332"/>
+    <text class="st46" transform="translate(64 3354)"><tspan x="0" y="0">COMPONENTES COMPUESTOS UNICOS</tspan></text>
+  </g>
+  <g id="item-titlecard-dune-part-two">
+    <text class="st32" transform="translate(64 3388)"><tspan x="0" y="0">TitleCard / Dune Part Two</tspan></text>
+    <g id="title-card-dune-part-two">
+      <rect class="st13" x="64" y="3410" width="360" height="430" rx="24" ry="24"/>
+      <rect class="st63" x="64" y="3410" width="360" height="150" rx="24" ry="24"/>
+      <rect class="st47" x="64" y="3528" width="360" height="32"/>
+      <path class="st64" d="M92,3470h48c6.6,0,12,5.4,12,12h0c0,6.6-5.4,12-12,12h-48c-6.6,0-12-5.4-12-12h0c0-6.6,5.4-12,12-12Z"/>
+      <text class="st22" transform="translate(95.2 3486)"><tspan x="0" y="0">Pelicula</tspan></text>
+      <text class="st41" transform="translate(80 3526)"><tspan x="0" y="0">Dune: Part Two</tspan></text>
+      <g class="st35">
+        <text class="st54" transform="translate(80 3548)"><tspan x="0" y="0">2024 / 2 h 46 min</tspan></text>
+      </g>
+      <text class="st44" transform="translate(80 3592)"><tspan x="0" y="0">Una tormenta de arena de profecia, guerra y</tspan></text>
+      <text class="st44" transform="translate(80 3610)"><tspan x="0" y="0">presencia cinematografica descomunal.</tspan></text>
+      <g id="pill-ciencia-ficcion1" data-name="pill-ciencia-ficcion">
+        <path class="st17" d="M94,3634h94c7.7,0,14,6.3,14,14h0c0,7.7-6.3,14-14,14h-94c-7.7,0-14-6.3-14-14h0c0-7.7,6.3-14,14-14Z"/>
+        <text class="st40" transform="translate(102.2 3652)"><tspan x="0" y="0">Ciencia ficcion</tspan></text>
+      </g>
+      <g id="pill-drama1" data-name="pill-drama">
+        <path class="st17" d="M224,3634h26c7.7,0,14,6.3,14,14h0c0,7.7-6.3,14-14,14h-26c-7.7,0-14-6.3-14-14h0c0-7.7,6.3-14,14-14Z"/>
+        <text class="st40" transform="translate(219.9 3652)"><tspan x="0" y="0">Drama</tspan></text>
+      </g>
+      <g id="pill-accion1" data-name="pill-accion">
+        <path class="st17" d="M294,3634h32.8c7.7,0,14,6.3,14,14h0c0,7.7-6.3,14-14,14h-32.8c-7.7,0-14-6.3-14-14h0c0-7.7,6.3-14,14-14Z"/>
+        <text class="st40" transform="translate(292.1 3652)"><tspan x="0" y="0">Accion</tspan></text>
+      </g>
+      <text class="st29" transform="translate(80 3688)"><tspan x="0" y="0">Dir. Denis Villeneuve</tspan></text>
+      <text class="st29" transform="translate(80 3710)"><tspan x="0" y="0">Con Timothee Chalamet, Zendaya, Rebecca Ferguson</tspan></text>
+      <text class="st25" transform="translate(80 3746)"><tspan x="0" y="0">Disponible en</tspan></text>
+      <g id="platform-badge-max1" data-name="platform-badge-max">
+        <path class="st12" d="M97,3764h91c9.4,0,17,7.6,17,17h0c0,9.4-7.6,17-17,17h-91c-9.4,0-17-7.6-17-17h0c0-9.4,7.6-17,17-17Z"/>
+        <path class="st61" d="M97,3769h38c6.6,0,12,5.4,12,12h0c0,6.6-5.4,12-12,12h-38c-6.6,0-12-5.4-12-12h0c0-6.6,5.4-12,12-12Z"/>
+        <text class="st18" transform="translate(104.9 3785)"><tspan x="0" y="0">MAX</tspan></text>
+        <text class="st22" transform="translate(156 3786)"><tspan x="0" y="0">Max</tspan></text>
+      </g>
+      <g id="platform-badge-prime-video1" data-name="platform-badge-prime-video">
+        <path class="st12" d="M245,3764h147c9.4,0,17,7.6,17,17h0c0,9.4-7.6,17-17,17h-147c-9.4,0-17-7.6-17-17h0c0-9.4,7.6-17,17-17Z"/>
+        <path class="st61" d="M245,3769h38c6.6,0,12,5.4,12,12h0c0,6.6-5.4,12-12,12h-38c-6.6,0-12-5.4-12-12h0c0-6.6,5.4-12,12-12Z"/>
+        <text class="st18" transform="translate(248.2 3785)"><tspan x="0" y="0">PRIME</tspan></text>
+        <text class="st22" transform="translate(304 3786)"><tspan x="0" y="0">Prime Video</tspan></text>
+      </g>
+    </g>
+  </g>
+</svg>

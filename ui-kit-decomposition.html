@@ -1,0 +1,1453 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Next Up UI Kit - Descomposicion por pantalla</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --background: #050505;
+      --surface: #111111;
+      --surface-raised: #181818;
+      --surface-muted: #202020;
+      --border: #2d2d2d;
+      --text: #f6f7f2;
+      --text-muted: #a3a99d;
+      --accent: #d6ff2f;
+      --accent-deep: #8aa600;
+      --accent-soft: #2a3410;
+      --danger: #ff6767;
+      --success: #4be58a;
+      --warning: #ffbd59;
+      --shadow: #000000;
+      --xs: 8px;
+      --sm: 12px;
+      --md: 16px;
+      --lg: 24px;
+      --xl: 32px;
+      --r-sm: 12px;
+      --r-md: 18px;
+      --r-lg: 24px;
+      --r-pill: 999px;
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+      color-adjust: exact;
+    }
+
+    html {
+      background: var(--background);
+    }
+
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--text);
+      font-family: "Inter", sans-serif;
+    }
+
+    .print-page-bg {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .document-header {
+      padding: 32px 32px 18px;
+      border-bottom: 1px solid var(--border);
+      background: #080808;
+      position: sticky;
+      left: 0;
+      z-index: 5;
+    }
+
+    .brand {
+      color: var(--accent);
+      font-size: 13px;
+      letter-spacing: 3px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-size: 30px;
+      line-height: 34px;
+      margin: 0 0 10px;
+      font-weight: 800;
+    }
+
+    .intro {
+      max-width: 1120px;
+      color: var(--text-muted);
+      font-size: 15px;
+      line-height: 22px;
+      margin: 0;
+    }
+
+    .screen-rail {
+      display: flex;
+      flex-direction: column;
+      gap: 44px;
+      padding: 28px 32px 64px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .screen-column {
+      border-top: 1px solid var(--border);
+      padding-top: 28px;
+    }
+
+    .screen-label {
+      margin: 0 0 12px;
+      color: var(--accent);
+      font-size: 12px;
+      letter-spacing: 1.1px;
+      text-transform: uppercase;
+      font-weight: 800;
+    }
+
+    .decomposition-pane {
+      min-width: 0;
+    }
+
+    .flow-header {
+      display: grid;
+      grid-template-columns: 300px 360px 430px 430px;
+      gap: 14px;
+      margin-bottom: 12px;
+      color: var(--text-muted);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .flow-header span {
+      border: 1px solid var(--border);
+      border-radius: var(--r-pill);
+      padding: 8px 12px;
+      background: #080808;
+    }
+
+    .phone {
+      width: 390px;
+      height: 844px;
+      overflow: hidden;
+      background: var(--background);
+      border: 1px solid var(--border);
+      border-radius: 34px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+      position: relative;
+    }
+
+    .phone-scroll {
+      height: 100%;
+      overflow: hidden;
+      padding: 12px 24px 32px;
+    }
+
+    .phone.has-tab .phone-scroll {
+      padding-bottom: 106px;
+    }
+
+    .section-heading {
+      margin-bottom: var(--lg);
+    }
+
+    .eyebrow,
+    .section-eyebrow {
+      color: var(--accent);
+      font-size: 12px;
+      letter-spacing: 1.1px;
+      text-transform: uppercase;
+      font-weight: 800;
+      margin: 0 0 var(--xs);
+    }
+
+    .section-title {
+      color: var(--text);
+      font-size: 30px;
+      line-height: 34px;
+      font-weight: 800;
+      margin: 0;
+    }
+
+    .section-body {
+      color: var(--text-muted);
+      font-size: 15px;
+      line-height: 22px;
+      margin: var(--sm) 0 0;
+    }
+
+    .title-medium {
+      font-size: 24px;
+      line-height: 28px;
+      font-weight: 800;
+      margin: 0;
+    }
+
+    .title-small {
+      font-size: 17px;
+      font-weight: 800;
+      margin: 0;
+    }
+
+    .body {
+      font-size: 15px;
+      line-height: 22px;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    .body-small {
+      font-size: 14px;
+      line-height: 21px;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    .caption,
+    .caption-bold {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    .caption-bold {
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .accent-button {
+      min-height: 52px;
+      padding: 0 24px;
+      border-radius: var(--r-pill);
+      border: 1px solid var(--accent);
+      background: var(--accent);
+      color: #111;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .accent-button.full {
+      width: 100%;
+    }
+
+    .accent-button.secondary {
+      color: var(--text);
+      background: var(--surface-raised);
+      border-color: var(--border);
+    }
+
+    .accent-button.ghost {
+      color: var(--text);
+      background: transparent;
+      border-color: var(--border);
+    }
+
+    .accent-button.danger {
+      color: var(--text);
+      background: transparent;
+      border-color: var(--danger);
+    }
+
+    .accent-button.success {
+      color: #111;
+      background: var(--success);
+      border-color: var(--success);
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      border-radius: var(--r-pill);
+      border: 1px solid var(--border);
+      padding: 11px 16px;
+      margin: 0 var(--sm) var(--sm) 0;
+      background: var(--surface);
+      color: var(--text-muted);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .chip.selected {
+      background: var(--accent-soft);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .panel,
+    .card,
+    .block-card {
+      border: 1px solid var(--border);
+      background: var(--surface-raised);
+      border-radius: var(--r-lg);
+      padding: var(--lg);
+    }
+
+    .card.md {
+      border-radius: var(--r-md);
+    }
+
+    .surface-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      padding: var(--lg);
+    }
+
+    .stack {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sm);
+    }
+
+    .gap-md {
+      gap: var(--md);
+    }
+
+    .gap-lg {
+      gap: var(--lg);
+    }
+
+    .wrap {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .row {
+      display: flex;
+      gap: var(--sm);
+      align-items: center;
+    }
+
+    .row-between {
+      display: flex;
+      justify-content: space-between;
+      gap: var(--sm);
+      align-items: center;
+    }
+
+    .input-label {
+      color: var(--text);
+      font-size: 15px;
+      font-weight: 700;
+      margin: 0 0 var(--sm);
+    }
+
+    .input {
+      min-height: 56px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      border-radius: var(--r-md);
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      padding: 0 var(--md);
+      font-size: 16px;
+      margin-bottom: var(--lg);
+    }
+
+    .search {
+      min-height: 54px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      border-radius: var(--r-md);
+      padding: 0 var(--md);
+      display: flex;
+      align-items: center;
+      gap: var(--sm);
+      color: var(--text-muted);
+      margin-top: var(--md);
+      font-size: 15px;
+    }
+
+    .top-bar {
+      display: flex;
+      align-items: center;
+      gap: var(--md);
+      margin-bottom: var(--xl);
+    }
+
+    .icon-button {
+      width: 42px;
+      height: 42px;
+      border-radius: var(--r-pill);
+      border: 1px solid var(--border);
+      background: var(--surface-raised);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text);
+      flex: 0 0 auto;
+    }
+
+    .filters-card {
+      border-radius: var(--r-lg);
+      border: 1px solid var(--border);
+      background: var(--surface-raised);
+      padding: var(--lg);
+      display: flex;
+      flex-direction: column;
+      gap: var(--md);
+    }
+
+    .axis-card {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sm);
+    }
+
+    .axis-header {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: var(--sm);
+      align-items: center;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .axis-header span:nth-child(2) {
+      color: var(--text-muted);
+      font-size: 12px;
+      font-weight: 400;
+    }
+
+    .axis-header span:last-child {
+      text-align: right;
+    }
+
+    .axis-track-shell {
+      height: 22px;
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .axis-track {
+      width: 100%;
+      height: 8px;
+      border-radius: var(--r-pill);
+      border: 1px solid var(--border);
+      background: var(--surface);
+    }
+
+    .axis-fill {
+      position: absolute;
+      left: 0;
+      width: 50%;
+      height: 8px;
+      border-radius: var(--r-pill);
+      background: var(--accent);
+    }
+
+    .axis-thumb {
+      position: absolute;
+      left: calc(50% - 11px);
+      width: 22px;
+      height: 22px;
+      border-radius: var(--r-pill);
+      border: 1px solid var(--border);
+      background: var(--text);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.22);
+    }
+
+    .title-card {
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      background: var(--surface-raised);
+      border: 1px solid var(--border);
+    }
+
+    .title-card-hero {
+      min-height: 150px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: var(--md);
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .title-card-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(rgba(5, 5, 5, 0.08), rgba(5, 5, 5, 0.48), rgba(5, 5, 5, 0.94));
+    }
+
+    .title-card-hero > * {
+      position: relative;
+    }
+
+    .hero-tag {
+      align-self: flex-start;
+      padding: 4px 10px;
+      border-radius: var(--r-pill);
+      background: rgba(0, 0, 0, 0.35);
+      color: var(--text);
+      font-size: 11px;
+      font-weight: 700;
+      margin-bottom: var(--sm);
+    }
+
+    .title-card-name {
+      color: var(--text);
+      font-size: 20px;
+      line-height: 23px;
+      font-weight: 800;
+      margin: 0;
+    }
+
+    .title-card-meta {
+      color: rgba(246, 247, 242, 0.86);
+      font-size: 12px;
+      margin-top: 6px;
+    }
+
+    .title-card-body {
+      padding: var(--md);
+    }
+
+    .pill {
+      display: inline-flex;
+      padding: 5px 10px;
+      border-radius: var(--r-pill);
+      background: var(--surface);
+      color: var(--text-muted);
+      font-size: 11px;
+      font-weight: 700;
+      margin: 0 8px 8px 0;
+    }
+
+    .platform-row {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .platform-badge {
+      display: inline-flex;
+      align-items: center;
+      border-radius: var(--r-pill);
+      border: 1px solid var(--border);
+      background: var(--surface);
+      padding: 4px 10px 4px 5px;
+      margin: 0 8px 8px 0;
+      gap: 8px;
+      color: var(--text);
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .logo-slot {
+      min-width: 62px;
+      height: 24px;
+      border-radius: var(--r-pill);
+      background: #fff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 8px;
+    }
+
+    .logo-slot img {
+      max-width: 70px;
+      max-height: 13px;
+    }
+
+    .deck {
+      min-height: 520px;
+      margin-top: var(--md);
+      position: relative;
+    }
+
+    .deck .back-card {
+      opacity: 0.55;
+      transform: scale(0.97);
+      margin-top: 18px;
+    }
+
+    .deck .front-card {
+      position: absolute;
+      inset: 0 0 auto;
+    }
+
+    .overlay-label {
+      position: absolute;
+      top: 18px;
+      z-index: 2;
+      border-radius: var(--r-pill);
+      border: 2px solid var(--accent);
+      background: rgba(214, 255, 47, 0.14);
+      padding: 8px 16px;
+      color: var(--text);
+      font-weight: 800;
+      letter-spacing: 1.2px;
+    }
+
+    .overlay-label.left {
+      left: 18px;
+      border-color: var(--danger);
+      background: rgba(255, 103, 103, 0.12);
+    }
+
+    .overlay-label.right {
+      right: 18px;
+    }
+
+    .tab-bar {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 76px;
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      padding: 10px 0 12px;
+    }
+
+    .tab-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      color: var(--text-muted);
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .tab-item.active {
+      color: var(--accent);
+    }
+
+    .avatar {
+      width: 56px;
+      height: 56px;
+      border-radius: var(--r-pill);
+      background: var(--accent);
+      color: var(--background);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 17px;
+      font-weight: 800;
+      flex: 0 0 auto;
+    }
+
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--sm);
+    }
+
+    .stat-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      padding: var(--md);
+    }
+
+    .stat-value {
+      color: var(--text);
+      font-size: 24px;
+      line-height: 28px;
+      font-weight: 800;
+      margin: 0 0 4px;
+    }
+
+    .breakdown {
+      display: grid;
+      grid-template-columns: 300px 360px 430px 430px;
+      gap: 14px;
+      align-items: start;
+      overflow-x: auto;
+      padding-bottom: 8px;
+    }
+
+    .layer {
+      border: 1px solid var(--border);
+      background: #0b0b0b;
+      border-radius: var(--r-md);
+      padding: 12px;
+      min-width: 0;
+    }
+
+    .layer-title {
+      color: var(--accent);
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-weight: 800;
+      margin: 0 0 10px;
+    }
+
+    .layer-grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .decomposition-pane .phone {
+      width: 304px;
+      height: 658px;
+      border-radius: 28px;
+      box-shadow: none;
+    }
+
+    .decomposition-pane .phone-scroll {
+      padding: 10px 18px 28px;
+    }
+
+    .decomposition-pane .phone.has-tab .phone-scroll {
+      padding-bottom: 90px;
+    }
+
+    .decomposition-pane .tab-bar {
+      height: 68px;
+      padding: 8px 0 10px;
+    }
+
+    .decomposition-pane .section-title {
+      font-size: 24px;
+      line-height: 28px;
+    }
+
+    .decomposition-pane .title-medium {
+      font-size: 20px;
+      line-height: 24px;
+    }
+
+    .layer-screen {
+      background: transparent;
+      border-color: var(--border);
+      padding: 0;
+    }
+
+    .layer-screen .layer-title {
+      margin-left: 12px;
+    }
+
+    .layer-screen .layer-grid {
+      padding: 0 12px 12px;
+    }
+
+    .layer-screen .phone {
+      width: 390px;
+      height: 844px;
+      border-radius: 34px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+    }
+
+    .layer-screen .phone-scroll {
+      padding: 12px 24px 32px;
+    }
+
+    .layer-screen .phone.has-tab .phone-scroll {
+      padding-bottom: 106px;
+    }
+
+    .layer-screen .tab-bar {
+      height: 76px;
+      padding: 10px 0 12px;
+    }
+
+    .layer-screen .section-title {
+      font-size: 30px;
+      line-height: 34px;
+    }
+
+    .layer-screen .title-medium {
+      font-size: 24px;
+      line-height: 28px;
+    }
+
+    .mini {
+      transform-origin: top left;
+    }
+
+    .mini .section-title {
+      font-size: 22px;
+      line-height: 26px;
+    }
+
+    .mini .section-body,
+    .mini .body {
+      font-size: 13px;
+      line-height: 19px;
+    }
+
+    .mini .title-card-hero {
+      min-height: 118px;
+    }
+
+    .micro-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px 18px;
+      align-items: flex-start;
+    }
+
+    .micro-box {
+      border: 0;
+      border-radius: 0;
+      padding: 0;
+      background: transparent;
+      max-width: 100%;
+    }
+
+    .micro-box .accent-button.full,
+    .micro-box .input,
+    .micro-box .search,
+    .micro-box .panel,
+    .micro-box .surface-card,
+    .micro-box .card,
+    .micro-box .card.md,
+    .micro-box .title-card,
+    .micro-box .filters-card {
+      width: 342px;
+      max-width: 100%;
+    }
+
+    .micro-box .tab-bar {
+      position: static;
+      width: 390px;
+      height: 76px;
+      padding: 10px 0 12px;
+      max-width: 100%;
+    }
+
+    .atom-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px 16px;
+      align-items: flex-start;
+    }
+
+    .atom {
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      padding: 0;
+      min-width: 112px;
+      max-width: 342px;
+    }
+
+    .atom-label {
+      color: var(--text-muted);
+      font-size: 10px;
+      line-height: 14px;
+      margin: 0 0 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.7px;
+      font-weight: 800;
+    }
+
+    .atom-value {
+      color: var(--text);
+      font-size: 13px;
+      line-height: 18px;
+      margin: 0;
+    }
+
+    .atom-value.muted {
+      color: var(--text-muted);
+    }
+
+    .atom-value.accent {
+      color: var(--accent);
+      font-weight: 800;
+    }
+
+    .atom-value.bold,
+    .atom-value.title,
+    .atom-value.button,
+    .atom-value.overlay,
+    .atom-value.label {
+      font-weight: 800;
+    }
+
+    .atom-value.eyebrow,
+    .atom-value.overlay,
+    .atom-value.label {
+      text-transform: uppercase;
+      letter-spacing: 1.1px;
+    }
+
+    .atom-value.eyebrow {
+      color: var(--accent);
+      font-weight: 800;
+      font-size: 12px;
+    }
+
+    .atom-value.title {
+      font-size: 17px;
+      line-height: 21px;
+    }
+
+    .atom-value.button {
+      font-size: 15px;
+    }
+
+    .atom-value.overlay {
+      letter-spacing: 1.2px;
+    }
+
+    .atom-logo {
+      height: 20px;
+      max-width: 96px;
+      display: block;
+      background: #fff;
+      border-radius: 5px;
+      padding: 4px 7px;
+    }
+
+    @media print {
+      @page {
+        background: #050505;
+      }
+
+      html,
+      body {
+        background: #050505 !important;
+      }
+
+      * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        color-adjust: exact !important;
+      }
+
+      .print-page-bg {
+        display: block;
+        position: fixed;
+        inset: 0;
+        width: 100vw;
+        height: 100vh;
+      }
+
+      .document-header {
+        position: static;
+        z-index: 1;
+      }
+
+      .screen-rail {
+        gap: 28px;
+      }
+
+      .screen-column {
+        break-inside: avoid;
+      }
+
+      .breakdown {
+        overflow: visible;
+        grid-template-columns: 300px 360px 430px 430px;
+      }
+    }
+
+    @media (max-width: 1100px) {
+      .breakdown,
+      .flow-header {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <svg class="print-page-bg" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <rect width="100%" height="100%" fill="#050505"></rect>
+  </svg>
+  <header class="document-header">
+    <div class="brand">NEXT UP</div>
+    <h1>Descomposicion pantalla por pantalla</h1>
+    <p class="intro">Cada fila abre una pantalla de izquierda a derecha en orden ascendente: atomos, moleculas, organismos y pantalla completa. La ultima columna conserva el frame mobile original para comparar contra el producto.</p>
+  </header>
+
+  <main id="screenRail" class="screen-rail"></main>
+
+  <script>
+    const posterUrls = {
+      "dune-2": "https://m.media-amazon.com/images/M/MV5BNTc0YmQxMjEtODI5MC00NjFiLTlkMWUtOGQ5NjFmYWUyZGJhXkEyXkFqcGc@._V1_QL75_UX380_CR0,0,380,562_.jpg",
+      severance: "https://m.media-amazon.com/images/M/MV5BZDI5YzJhODQtMzQyNy00YWNmLWIxMjUtNDBjNjA5YWRjMzExXkEyXkFqcGc@._V1_QL75_UX380_CR0,4,380,562_.jpg",
+      "the-bear": "https://m.media-amazon.com/images/M/MV5BYWZhNDZiMzAtZmZlYS00MWFmLWE2MWEtNDAxZTZiN2U4Y2U2XkEyXkFqcGc@._V1_SX300.jpg",
+      "past-lives": "https://m.media-amazon.com/images/M/MV5BYjQyMTNhNjUtN2VmYy00NWRhLTkwOTctMGVmNTBmNDIxYjZhXkEyXkFqcGc@._V1_QL75_UX380_CR0,0,380,562_.jpg",
+      furiosa: "https://m.media-amazon.com/images/M/MV5BNTcwYWE1NTYtOWNiYy00NzY3LWIwY2MtNjJmZDkxNDNmOWE1XkEyXkFqcGc@._V1_SX300.jpg"
+    };
+
+    const platformBranding = {
+      Netflix: ["https://upload.wikimedia.org/wikipedia/commons/6/69/Netflix_logo.svg", 54],
+      Max: ["https://upload.wikimedia.org/wikipedia/commons/c/ce/Max_logo.svg", 42],
+      "Prime Video": ["https://upload.wikimedia.org/wikipedia/commons/9/90/Prime_Video_logo_%282024%29.svg", 68],
+      "Disney+": ["https://upload.wikimedia.org/wikipedia/commons/3/3e/Disney%2B_logo.svg", 66],
+      "Apple TV+": ["https://upload.wikimedia.org/wikipedia/commons/2/28/Apple_TV_Plus_Logo.svg", 70],
+      MUBI: ["https://upload.wikimedia.org/wikipedia/commons/5/51/Mubi_logo.svg", 42]
+    };
+
+    const titles = [
+      {
+        id: "dune-2",
+        name: "Dune: Part Two",
+        format: "Pelicula",
+        year: 2024,
+        duration: "2 h 46 min",
+        genres: ["Ciencia ficcion", "Drama", "Accion"],
+        platforms: ["Max", "Prime Video"],
+        director: "Denis Villeneuve",
+        cast: ["Timothee Chalamet", "Zendaya", "Rebecca Ferguson"],
+        blurb: "Una tormenta de arena de profecia, guerra y presencia cinematografica descomunal.",
+        gradient: ["#5D432C", "#0F0A07"]
+      },
+      {
+        id: "severance",
+        name: "Severance",
+        format: "Serie",
+        year: 2022,
+        duration: "2 temporadas",
+        genres: ["Ciencia ficcion", "Suspenso", "Drama"],
+        platforms: ["Apple TV+"],
+        director: "Ben Stiller",
+        cast: ["Adam Scott", "Britt Lower", "John Turturro"],
+        blurb: "La vida de oficina dividida en dos conciencias con una incomodidad impecable.",
+        gradient: ["#70A6B8", "#0A1114"]
+      },
+      {
+        id: "the-bear",
+        name: "The Bear",
+        format: "Serie",
+        year: 2022,
+        duration: "3 temporadas",
+        genres: ["Drama", "Comedia"],
+        platforms: ["Disney+"],
+        director: "Christopher Storer",
+        cast: ["Jeremy Allen White", "Ayo Edebiri", "Ebon Moss-Bachrach"],
+        blurb: "Caos de cocina, nervios a flor de piel y una cantidad inesperada de corazon.",
+        gradient: ["#8B4800", "#160D05"]
+      },
+      {
+        id: "past-lives",
+        name: "Past Lives",
+        format: "Pelicula",
+        year: 2023,
+        duration: "1 h 46 min",
+        genres: ["Drama", "Romance"],
+        platforms: ["MUBI", "Prime Video"],
+        director: "Celine Song",
+        cast: ["Greta Lee", "Teo Yoo", "John Magaro"],
+        blurb: "Anhelo silencioso, romance adulto y una delicadeza devastadora.",
+        gradient: ["#B25F73", "#13090D"]
+      },
+      {
+        id: "furiosa",
+        name: "Furiosa",
+        format: "Pelicula",
+        year: 2024,
+        duration: "2 h 28 min",
+        genres: ["Accion", "Drama"],
+        platforms: ["Max"],
+        director: "George Miller",
+        cast: ["Anya Taylor-Joy", "Chris Hemsworth", "Tom Burke"],
+        blurb: "Accion mitica en el desierto, construida con una confianza total.",
+        gradient: ["#924F1A", "#120A05"]
+      }
+    ];
+
+    const platformOptions = ["Netflix", "Max", "Prime Video", "Disney+", "Apple TV+", "MUBI"];
+    const genreOptions = ["Ciencia ficcion", "Drama", "Suspenso", "Comedia", "Accion", "Animacion", "Crimen", "Romance", "Fantasia", "Documental"];
+    const directorOptions = ["Denis Villeneuve", "Ben Stiller", "Christopher Storer", "Celine Song", "Luca Guadagnino", "George Miller", "Wim Wenders", "Steven Zaillian"];
+    const actorOptions = ["Zendaya", "Timothee Chalamet", "Rebecca Ferguson", "Adam Scott", "Jeremy Allen White", "Ayo Edebiri", "Andrew Scott", "Anya Taylor-Joy"];
+    const newsFeed = [
+      ["Estreno", "Furiosa ya se incorporo al catalogo de Max", "La pelicula quedo disponible esta semana y volvio a empujar las busquedas de accion dentro de la plataforma.", "27 abr"],
+      ["Renovacion", "The Bear volvio a ganar impulso entre las series mas vistas", "Disney+ la reposiciono entre sus destacados y la serie volvio a meterse entre las opciones mas elegidas de la semana.", "26 abr"],
+      ["Cambio", "Past Lives concentra su disponibilidad en MUBI", "La pelicula dejo de figurar entre los destacados generales y paso a una ventana mas curada dentro de la plataforma.", "25 abr"]
+    ];
+    const notifications = [
+      ["Catalogo", "Past Lives sale de Prime Video el 1 de mayo", "La pelicula seguira disponible en MUBI despues de esa fecha.", "Hoy / 18:10"],
+      ["Estreno", "Furiosa ya figura disponible en Max", "La pelicula se incorporo al catalogo y quedo visible entre los destacados de accion.", "Hoy / 15:20"],
+      ["Serie", "The Bear volvio a aparecer entre lo mas visto", "La serie escalo entre los destacados de Disney+ y recupero lugar entre las recomendaciones de la semana.", "Ayer / 20:30"]
+    ];
+
+    const icon = {
+      back: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M15 5 8 12l7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+      search: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="6.5" stroke="#a3a99d" stroke-width="1.8"/><path d="M16 16 20 20" stroke="#a3a99d" stroke-width="1.8" stroke-linecap="round"/></svg>',
+      chevron: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="m6 10 6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+      tabHome: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 3.5 13.9 8.1 18.5 10 13.9 11.9 12 16.5 10.1 11.9 5.5 10 10.1 8.1 12 3.5Z" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+      tabWatch: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M8 4.5h8a1.5 1.5 0 0 1 1.5 1.5v13l-5.5-3-5.5 3V6A1.5 1.5 0 0 1 8 4.5Z" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+      tabProfile: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="3.2" stroke="currentColor" stroke-width="1.9"/><path d="M6.5 19c1.2-3 3.1-4.5 5.5-4.5s4.3 1.5 5.5 4.5" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+    };
+
+    const h = String.raw;
+    const button = (label, variant = "primary", full = false) => `<span class="accent-button ${variant} ${full ? "full" : ""}">${label}</span>`;
+    const chip = (label, selected = false) => `<span class="chip ${selected ? "selected" : ""}">${label}</span>`;
+    const input = (label, value) => `<div><p class="input-label">${label}</p><div class="input">${value}</div></div>`;
+    const heading = (eyebrow, title, body) => h`<section class="section-heading"><p class="section-eyebrow">${eyebrow}</p><h2 class="section-title">${title}</h2>${body ? `<p class="section-body">${body}</p>` : ""}</section>`;
+    const platformBadge = (platform) => {
+      const [src, width] = platformBranding[platform];
+      return h`<span class="platform-badge"><span class="logo-slot"><img src="${src}" style="width:${width * 0.82}px" /></span>${platform}</span>`;
+    };
+    const titleCard = (title) => {
+      const image = posterUrls[title.id];
+      const heroBg = image ? `background-image:url('${image}')` : `background:linear-gradient(135deg, ${title.gradient[0]}, ${title.gradient[1]})`;
+      return h`<article class="title-card">
+        <div class="title-card-hero" style="${heroBg}">
+          <span class="hero-tag">${title.format}</span>
+          <h3 class="title-card-name">${title.name}</h3>
+          <div class="title-card-meta">${title.year} / ${title.duration}</div>
+        </div>
+        <div class="title-card-body">
+          <p class="body-small" style="color:var(--text);margin-bottom:12px">${title.blurb}</p>
+          <div>${title.genres.map((entry) => `<span class="pill">${entry}</span>`).join("")}</div>
+          <p class="body-small" style="color:var(--text);margin-bottom:4px">Dir. ${title.director}</p>
+          <p class="body-small" style="color:var(--text);margin-bottom:8px">Con ${title.cast.join(", ")}</p>
+          <p class="caption-bold" style="color:var(--accent);margin-bottom:8px">Disponible en</p>
+          <div class="platform-row">${title.platforms.map(platformBadge).join("")}</div>
+        </div>
+      </article>`;
+    };
+    const axis = (left, right) => h`<div class="axis-card"><div class="axis-header"><span>${left}</span><span>50% / 50%</span><span>${right}</span></div><div class="axis-track-shell"><div class="axis-track"></div><div class="axis-fill"></div><div class="axis-thumb"></div></div></div>`;
+    const topBar = (eyebrow, title) => h`<div class="top-bar"><span class="icon-button">${icon.back}</span><div><p class="section-eyebrow" style="margin-bottom:2px">${eyebrow}</p><h2 class="title-medium">${title}</h2></div></div>`;
+    const tabBar = (active) => h`<nav class="tab-bar"><div class="tab-item ${active === "home" ? "active" : ""}">${icon.tabHome}<span>Inicio</span></div><div class="tab-item ${active === "watch" ? "active" : ""}">${icon.tabWatch}<span>Mi lista</span></div><div class="tab-item ${active === "profile" ? "active" : ""}">${icon.tabProfile}<span>Perfil</span></div></nav>`;
+    const layer = (title, content) => {
+      const layerClass = title.includes("Pantalla completa") ? "layer layer-screen" : "layer";
+      return h`<section class="${layerClass}"><p class="layer-title">${title}</p><div class="layer-grid">${content}</div></section>`;
+    };
+    const micro = (content) => `<div class="micro-box">${content}</div>`;
+    const atom = (label, value, tone = "") => {
+      const style = label.toLowerCase();
+      const inferred =
+        style.includes("eyebrow") ? "eyebrow" :
+        style.includes("titulo") || style.includes("title") || style.includes("nombre") || style.includes("card titulo") || style.includes("empty title") ? "title" :
+        style.includes("texto boton") ? "button" :
+        style.includes("overlay") ? "overlay" :
+        style.includes("label") || style.includes("card label") || style.includes("summary label") || style.includes("dropdown label") || style.includes("stat label") ? "label" :
+        "";
+      return h`<div class="atom"><p class="atom-label">${label}</p><p class="atom-value ${tone} ${inferred}">${value}</p></div>`;
+    };
+    const atomHtml = (label, content) => h`<div class="atom"><p class="atom-label">${label}</p>${content}</div>`;
+    const atomGrid = (items) => `<div class="atom-grid">${items.join("")}</div>`;
+    const logoAtom = (platform) => {
+      const [src, width] = platformBranding[platform];
+      return atomHtml(`Logo ${platform}`, `<img class="atom-logo" src="${src}" style="width:${width}px" />`);
+    };
+    const phone = (content, tab) => h`<div class="phone ${tab ? "has-tab" : ""}"><div class="phone-scroll">${content}</div>${tab ? tabBar(tab) : ""}</div>`;
+
+    function authScreen() {
+      const header = h`<div style="min-height:72px;display:flex;align-items:center;justify-content:center"><div class="brand">NEXT UP</div></div>`;
+      const hero = heading("Bienvenido", "Peliculas y series mejor ordenadas para cada momento.", "Una seleccion mas precisa segun tus gustos, tus plataformas y el tipo de historia que te interesa ver hoy.");
+      const panel = h`<div class="panel">${input("Nombre", "Tu nombre")}${input("Mail", "tu@email.com")}${button("Ingresar", "primary", true)}</div>`;
+      const content = header + h`<div style="padding-top:32px">${hero}<div style="margin-top:24px">${panel}</div></div>`;
+      return column("AuthScreen", phone(content), [
+        layer("03 Organismos", `<div class="mini">${header}</div><div class="mini">${hero}</div><div class="mini">${panel}</div>`),
+        layer("02 Moleculas", `<div class="micro-grid">${micro(`<div class="brand">NEXT UP</div>`)}${micro(heading("Bienvenido", "Peliculas y series mejor ordenadas para cada momento.", "Una seleccion mas precisa segun tus gustos, tus plataformas y el tipo de historia que te interesa ver hoy."))}${micro(input("Nombre", "Tu nombre"))}${micro(input("Mail", "tu@email.com"))}${micro(button("Ingresar", "primary", true))}</div>`),
+        layer("01 Atomos", atomGrid([
+          atom("Brand", "NEXT UP", "accent"),
+          atom("Eyebrow", "BIENVENIDO", "accent"),
+          atom("Titulo", "Peliculas y series mejor ordenadas para cada momento."),
+          atom("Descripcion", "Una seleccion mas precisa segun tus gustos, tus plataformas y el tipo de historia que te interesa ver hoy.", "muted"),
+          atom("Label input", "Nombre"),
+          atom("Placeholder", "Tu nombre", "muted"),
+          atom("Label input", "Mail"),
+          atom("Placeholder", "tu@email.com", "muted"),
+          atom("Texto boton", "Ingresar")
+        ]))
+      ]);
+    }
+
+    function preferencesScreen() {
+      const hero = heading("Perfil", "Tus plataformas y tus generos.", "Elegi primero donde podes mirar y que tipos de historias te interesan. Despues afinamos con directores y actores.");
+      const platforms = h`<div style="margin-bottom:24px"><p class="input-label" style="font-size:16px">Plataformas suscritas</p><div class="wrap">${platformOptions.map((p, i) => chip(p, i < 2)).join("")}</div></div>`;
+      const genres = h`<div style="margin-bottom:24px"><p class="input-label" style="font-size:16px">Generos</p><div class="wrap">${genreOptions.map((g, i) => chip(g, i === 1 || i === 4)).join("")}</div></div>`;
+      const summary = h`<div class="card md" style="margin-bottom:24px"><p class="caption-bold" style="margin-bottom:8px">Seleccion actual</p><p class="title-small">2 plataformas / 2 generos</p></div>`;
+      const action = button("Continuar", "primary", true);
+      const content = hero + platforms + genres + summary + action;
+      return column("PreferencesScreen", phone(content), [
+        layer("03 Organismos", `<div class="mini">${hero}</div><div class="mini">${platforms}</div><div class="mini">${genres}</div><div class="mini">${summary}${action}</div>`),
+        layer("02 Moleculas", `<div class="micro-grid">${micro(heading("Perfil", "Tus plataformas y tus generos.", "Elegi primero donde podes mirar y que tipos de historias te interesan. Despues afinamos con directores y actores."))}${micro(chip("Netflix", true))}${micro(chip("Disney+", false))}${micro(summary)}${micro(action)}</div>`),
+        layer("01 Atomos", atomGrid([
+          atom("Eyebrow", "PERFIL", "accent"),
+          atom("Titulo", "Tus plataformas y tus generos."),
+          atom("Descripcion", "Elegi primero donde podes mirar y que tipos de historias te interesan. Despues afinamos con directores y actores.", "muted"),
+          atom("Titulo bloque", "Plataformas suscritas"),
+          atom("Chip texto", "Netflix"),
+          atom("Chip texto", "Disney+"),
+          atom("Titulo bloque", "Generos"),
+          atom("Chip texto", "Drama"),
+          atom("Chip texto", "Accion"),
+          atom("Summary label", "Seleccion actual", "muted"),
+          atom("Summary value", "2 plataformas / 2 generos"),
+          atom("Texto boton", "Continuar")
+        ]))
+      ]);
+    }
+
+    function peopleScreen() {
+      const hero = heading("Referentes", "Directores y actores.", "Marca algunos nombres clave y usa la busqueda si queres sumar referentes que no aparecen entre los tags iniciales.");
+      const directors = h`<div style="margin-bottom:32px"><p class="input-label" style="font-size:16px">Directores</p><div class="wrap">${directorOptions.map((d, i) => chip(d, i < 2)).join("")}</div><div class="search">${icon.search}<span>Buscar director</span></div></div>`;
+      const actors = h`<div style="margin-bottom:32px"><p class="input-label" style="font-size:16px">Actores</p><div class="wrap">${actorOptions.map((a, i) => chip(a, i === 0 || i === 5)).join("")}</div><div class="search">${icon.search}<span>Buscar actor o actriz</span></div></div>`;
+      const summary = h`<div class="card md" style="margin-bottom:24px"><p class="caption-bold" style="margin-bottom:8px">Seleccion actual</p><p class="title-small">2 directores / 2 actores</p></div>`;
+      const actions = h`<div class="stack">${button("Volver", "secondary", true)}${button("Continuar", "primary", true)}</div>`;
+      const content = hero + directors + actors + summary + actions;
+      return column("PreferencesPeopleScreen", phone(content), [
+        layer("03 Organismos", `<div class="mini">${hero}</div><div class="mini">${directors}</div><div class="mini">${actors}</div><div class="mini">${summary}${actions}</div>`),
+        layer("02 Moleculas", `<div class="micro-grid">${micro(chip("Denis Villeneuve", true))}${micro(`<div class="search">${icon.search}<span>Buscar director</span></div>`)}${micro(summary)}${micro(button("Volver", "secondary", true))}${micro(button("Continuar", "primary", true))}</div>`),
+        layer("01 Atomos", atomGrid([
+          atom("Eyebrow", "REFERENTES", "accent"),
+          atom("Titulo", "Directores y actores."),
+          atom("Descripcion", "Marca algunos nombres clave y usa la busqueda si queres sumar referentes que no aparecen entre los tags iniciales.", "muted"),
+          atom("Titulo bloque", "Directores"),
+          atom("Chip texto", "Denis Villeneuve"),
+          atom("Icono", "Search"),
+          atom("Placeholder", "Buscar director", "muted"),
+          atom("Titulo bloque", "Actores"),
+          atom("Chip texto", "Zendaya"),
+          atom("Placeholder", "Buscar actor o actriz", "muted"),
+          atom("Summary value", "2 directores / 2 actores"),
+          atom("Texto boton", "Volver"),
+          atom("Texto boton", "Continuar")
+        ]))
+      ]);
+    }
+
+    function recapScreen() {
+      const hero = heading("Puesta al dia", "Historial reciente", "1 de 12. Indica si ya viste este titulo para ajustar mejor la seleccion inicial.");
+      const deck = h`<div class="deck"><div class="back-card">${titleCard(titles[1])}</div><div class="front-card"><span class="overlay-label left">AUN NO</span><span class="overlay-label right">YA LO VI</span>${titleCard(titles[0])}</div></div>`;
+      const content = hero + deck + h`<div class="row" style="margin-top:24px">${button("Aun no", "secondary", false)}${button("Ya lo vi", "primary", false)}</div>`;
+      return column("RecapScreen", phone(content), [
+        layer("03 Organismos", `<div class="mini">${hero}</div><div class="mini">${deck}</div>`),
+        layer("02 Moleculas", `<div class="micro-grid">${micro(titleCard(titles[0]))}${micro(`<span class="overlay-label left" style="position:static;display:inline-flex">AUN NO</span>`)}${micro(`<span class="overlay-label right" style="position:static;display:inline-flex">YA LO VI</span>`)}${micro(button("Aun no", "secondary"))}${micro(button("Ya lo vi"))}</div>`),
+        layer("01 Atomos", atomGrid([
+          atom("Eyebrow", "PUESTA AL DIA", "accent"),
+          atom("Titulo", "Historial reciente"),
+          atom("Descripcion", "1 de 12. Indica si ya viste este titulo para ajustar mejor la seleccion inicial.", "muted"),
+          atom("Card tag", titles[0].format),
+          atom("Card titulo", titles[0].name),
+          atom("Card meta", `${titles[0].year} / ${titles[0].duration}`, "muted"),
+          atom("Card blurb", titles[0].blurb, "muted"),
+          atom("Pill genero", titles[0].genres[0]),
+          atom("Director", `Dir. ${titles[0].director}`),
+          atom("Cast", `Con ${titles[0].cast.join(", ")}`, "muted"),
+          atom("Overlay", "AUN NO"),
+          atom("Overlay", "YA LO VI"),
+          atom("Texto boton", "Aun no"),
+          atom("Texto boton", "Ya lo vi"),
+          logoAtom("Max"),
+          logoAtom("Prime Video")
+        ]))
+      ]);
+    }
+
+    function homeScreen() {
+      const heroHeading = heading("Inicio", "Resumen de hoy, Invitado.", "Peliculas, series y novedades de catalogo reunidas en un solo lugar.");
+      const hero = h`<div class="panel" style="margin-bottom:32px"><h3 class="title-medium" style="margin-bottom:12px">Tu proxima eleccion</h3><p class="body" style="margin-bottom:24px">Una seleccion afinada para ver ahora, guardar o retomar despues.</p><div class="stack">${button("Que ver hoy?")}<p class="caption-bold" style="color:var(--accent)">2 titulos guardados</p></div></div>`;
+      const newsHeading = heading("Novedades", "Lo mas relevante del dia", "Estrenos, movimientos de catalogo y actualizaciones recientes en tus plataformas.");
+      const newsCards = newsFeed.map(([cat, title, body, time]) => h`<article class="surface-card" style="margin-bottom:16px"><div class="row-between" style="margin-bottom:12px"><p class="eyebrow">${cat}</p><p class="caption">${time}</p></div><h3 class="title-small" style="margin-bottom:8px">${title}</h3><p class="body-small">${body}</p></article>`).join("");
+      const content = heroHeading + hero + newsHeading + newsCards;
+      return column("HomeScreen", phone(content, "home"), [
+        layer("03 Organismos", `<div class="mini">${heroHeading}</div><div class="mini">${hero}</div><div class="mini">${newsHeading}</div><div class="mini">${newsCards}</div>`),
+        layer("02 Moleculas", `<div class="micro-grid">${micro(button("Que ver hoy?"))}${micro(`<p class="caption-bold" style="color:var(--accent)">2 titulos guardados</p>`)}${micro(newsCards.split("</article>")[0] + "</article>")}${micro(tabBar("home"))}</div>`),
+        layer("01 Atomos", atomGrid([
+          atom("Eyebrow", "INICIO", "accent"),
+          atom("Titulo", "Resumen de hoy, Invitado."),
+          atom("Descripcion", "Peliculas, series y novedades de catalogo reunidas en un solo lugar.", "muted"),
+          atom("Hero titulo", "Tu proxima eleccion"),
+          atom("Hero body", "Una seleccion afinada para ver ahora, guardar o retomar despues.", "muted"),
+          atom("Texto boton", "Que ver hoy?"),
+          atom("Meta", "2 titulos guardados", "accent"),
+          atom("News eyebrow", newsFeed[0][0].toUpperCase(), "accent"),
+          atom("News timestamp", newsFeed[0][3], "muted"),
+          atom("News titulo", newsFeed[0][1]),
+          atom("News descripcion", newsFeed[0][2], "muted"),
+          atom("Tab label", "Inicio"),
+          atom("Tab label", "Mi lista", "muted"),
+          atom("Tab label", "Perfil", "muted")
+        ]))
+      ]);
+    }
+
+    function discoverScreen() {
+      const bar = h`<div style="margin-bottom:16px">${topBar("Inicio", "Que ver hoy")}</div>`;
+      const filters = h`<div class="filters-card">${axis("Relajante", "Emocionante")}${axis("Alegre", "Oscuro")}${axis("Sencilla", "Compleja")}${axis("Superficiales", "Conmovedoras")}<div><div class="surface-card row-between" style="min-height:56px;padding:12px 16px"><div><p class="caption-bold" style="margin-bottom:2px">Generos</p><p class="body-small" style="color:var(--text)">Seleccion multiple</p></div>${icon.chevron}</div></div><div class="row-between"><p class="caption-bold">17 opciones disponibles</p><p class="caption-bold">2 guardados</p></div></div>`;
+      const deck = h`<div class="deck"><div class="back-card">${titleCard(titles[2])}</div><div class="front-card">${titleCard(titles[0])}</div></div>`;
+      const actions = h`<div class="row" style="margin-top:24px">${button("Pasar", "secondary")} ${button("Ya la vi", "ghost")} ${button("Guardar")}</div>`;
+      const content = bar + filters + deck + actions;
+      return column("HomeDiscoverScreen", phone(content), [
+        layer("03 Organismos", `<div class="mini">${bar}</div><div class="mini">${filters}</div><div class="mini">${deck}</div><div class="mini">${actions}</div>`),
+        layer("02 Moleculas", `<div class="micro-grid">${micro(`<span class="icon-button">${icon.back}</span>`)}${micro(axis("Relajante", "Emocionante"))}${micro(`<div class="surface-card row-between" style="min-height:56px;padding:12px 16px"><div><p class="caption-bold" style="margin-bottom:2px">Generos</p><p class="body-small" style="color:var(--text)">Seleccion multiple</p></div>${icon.chevron}</div>`)}${micro(titleCard(titles[0]))}${micro(button("Pasar", "secondary"))}${micro(button("Ya la vi", "ghost"))}${micro(button("Guardar"))}</div>`),
+        layer("01 Atomos", atomGrid([
+          atom("Icono", "Back"),
+          atom("Eyebrow", "INICIO", "accent"),
+          atom("Titulo", "Que ver hoy"),
+          atom("Slider label", "Relajante"),
+          atom("Slider value", "50% / 50%", "muted"),
+          atom("Slider label", "Emocionante"),
+          atom("Slider label", "Alegre"),
+          atom("Slider label", "Oscuro"),
+          atom("Dropdown label", "Generos", "muted"),
+          atom("Dropdown value", "Seleccion multiple"),
+          atom("Meta", "17 opciones disponibles", "muted"),
+          atom("Meta", "2 guardados", "muted"),
+          atom("Card titulo", titles[0].name),
+          atom("Texto boton", "Pasar"),
+          atom("Texto boton", "Ya la vi"),
+          atom("Texto boton", "Guardar")
+        ]))
+      ]);
+    }
+
+    function watchlistScreen() {
+      const hero = heading("Mi lista", "Tus titulos guardados.", "Peliculas y series listas para volver sobre ellas cuando quieras.");
+      const headerActions = h`<div class="stack" style="margin-bottom:32px">${button("Ya vistas", "secondary", true)}<p class="caption-bold">1 titulos vistos</p></div>`;
+      const entry = h`<div style="margin-bottom:32px">${titleCard(titles[3])}<div class="row" style="margin-top:16px">${button("Quitar", "secondary")} ${button("Ya la vi", "success")}</div></div>`;
+      const empty = h`<div class="panel"><h3 class="title-medium" style="margin-bottom:12px">Aun no hay titulos guardados.</h3><p class="body" style="margin-bottom:24px">Los titulos que guardes apareceran en esta lista.</p>${button("Abrir recomendaciones")}</div>`;
+      const content = hero + headerActions + entry;
+      return column("WatchlistScreen", phone(content, "watch"), [
+        layer("03 Organismos", `<div class="mini">${hero}</div><div class="mini">${headerActions}</div><div class="mini">${entry}</div><div class="mini">${empty}</div>`),
+        layer("02 Moleculas", `<div class="micro-grid">${micro(button("Ya vistas", "secondary", true))}${micro(titleCard(titles[3]))}${micro(button("Quitar", "secondary"))}${micro(button("Ya la vi", "success"))}${micro(empty)}${micro(tabBar("watch"))}</div>`),
+        layer("01 Atomos", atomGrid([
+          atom("Eyebrow", "MI LISTA", "accent"),
+          atom("Titulo", "Tus titulos guardados."),
+          atom("Descripcion", "Peliculas y series listas para volver sobre ellas cuando quieras.", "muted"),
+          atom("Texto boton", "Ya vistas"),
+          atom("Meta", "1 titulos vistos", "muted"),
+          atom("Card tag", titles[3].format),
+          atom("Card titulo", titles[3].name),
+          atom("Card blurb", titles[3].blurb, "muted"),
+          atom("Pill genero", titles[3].genres[0]),
+          atom("Texto boton", "Quitar"),
+          atom("Texto boton", "Ya la vi"),
+          atom("Empty title", "Aun no hay titulos guardados."),
+          atom("Empty body", "Los titulos que guardes apareceran en esta lista.", "muted"),
+          atom("Texto boton", "Abrir recomendaciones"),
+          atom("Tab label", "Mi lista", "accent")
+        ]))
+      ]);
+    }
+
+    function seenScreen() {
+      const bar = topBar("Mi lista", "Ya vistas");
+      const empty = h`<div class="panel"><h3 class="title-medium" style="margin-bottom:12px">Todavia no marcaste titulos como vistos.</h3><p class="body">Cuando uses el boton "Ya la vi", esos titulos apareceran aca.</p></div>`;
+      const entry = h`<div style="margin-bottom:32px">${titleCard(titles[4])}</div>`;
+      const content = bar + entry + empty;
+      return column("WatchlistSeenScreen", phone(content), [
+        layer("03 Organismos", `<div class="mini">${bar}</div><div class="mini">${entry}</div><div class="mini">${empty}</div>`),
+        layer("02 Moleculas", `<div class="micro-grid">${micro(`<span class="icon-button">${icon.back}</span>`)}${micro(titleCard(titles[4]))}${micro(empty)}</div>`),
+        layer("01 Atomos", atomGrid([
+          atom("Icono", "Back"),
+          atom("Eyebrow", "MI LISTA", "accent"),
+          atom("Titulo", "Ya vistas"),
+          atom("Card tag", titles[4].format),
+          atom("Card titulo", titles[4].name),
+          atom("Card meta", `${titles[4].year} / ${titles[4].duration}`, "muted"),
+          atom("Card blurb", titles[4].blurb, "muted"),
+          atom("Empty title", "Todavia no marcaste titulos como vistos."),
+          atom("Empty body", "Cuando uses el boton \"Ya la vi\", esos titulos apareceran aca.", "muted")
+        ]))
+      ]);
+    }
+
+    function settingsScreen() {
+      const hero = heading("Perfil", "Tu cuenta y tus preferencias.", "Edita tus datos, revisa tu actividad y ajusta tus gustos desde un solo lugar.");
+      const profile = h`<div class="panel" style="margin-bottom:24px"><div class="row" style="gap:16px;margin-bottom:24px"><div class="avatar">I</div><div><h3 class="title-small">Invitado</h3><p class="body-small">sin@mail.com</p></div></div>${button("Editar perfil", "secondary", true)}</div>`;
+      const stats = h`<div class="stats-row" style="margin-bottom:24px"><div class="stat-card"><p class="stat-value">2</p><p class="caption-bold">Guardados</p></div><div class="stat-card"><p class="stat-value">1</p><p class="caption-bold">Vistos</p></div><div class="stat-card"><p class="stat-value">0</p><p class="caption-bold">Descartados</p></div></div>`;
+      const prefs = h`<div class="panel" style="margin-bottom:32px"><h3 class="title-small" style="margin-bottom:12px">Preferencias activas</h3><p class="eyebrow" style="color:var(--text-muted);margin-top:16px">Plataformas</p><p class="body" style="color:var(--text)">Netflix / Max</p><p class="eyebrow" style="color:var(--text-muted);margin-top:16px">Generos</p><p class="body" style="color:var(--text)">Drama / Accion</p><p class="eyebrow" style="color:var(--text-muted);margin-top:16px">Directores</p><p class="body" style="color:var(--text)">Denis Villeneuve</p><p class="eyebrow" style="color:var(--text-muted);margin-top:16px">Actores</p><p class="body" style="color:var(--text)">Zendaya</p></div>`;
+      const actions = h`<div class="stack">${button("Restablecer descartes", "secondary", true)}${button("Vaciar mi lista", "secondary", true)}${button("Reconfigurar onboarding", "ghost", true)}${button("Cerrar sesion", "danger", true)}</div>`;
+      const content = hero + profile + stats + prefs + actions;
+      return column("SettingsScreen", phone(content, "profile"), [
+        layer("03 Organismos", `<div class="mini">${hero}</div><div class="mini">${profile}</div><div class="mini">${stats}</div><div class="mini">${prefs}</div><div class="mini">${actions}</div>`),
+        layer("02 Moleculas", `<div class="micro-grid">${micro(`<div class="avatar">I</div>`)}${micro(button("Editar perfil", "secondary", true))}${micro(`<div class="stat-card"><p class="stat-value">2</p><p class="caption-bold">Guardados</p></div>`)}${micro(button("Reconfigurar onboarding", "ghost", true))}${micro(button("Cerrar sesion", "danger", true))}${micro(tabBar("profile"))}</div>`),
+        layer("01 Atomos", atomGrid([
+          atom("Eyebrow", "PERFIL", "accent"),
+          atom("Titulo", "Tu cuenta y tus preferencias."),
+          atom("Descripcion", "Edita tus datos, revisa tu actividad y ajusta tus gustos desde un solo lugar.", "muted"),
+          atom("Avatar inicial", "I"),
+          atom("Nombre", "Invitado"),
+          atom("Email", "sin@mail.com", "muted"),
+          atom("Texto boton", "Editar perfil"),
+          atom("Stat value", "2"),
+          atom("Stat label", "Guardados", "muted"),
+          atom("Card title", "Preferencias activas"),
+          atom("Label", "Plataformas", "muted"),
+          atom("Value", "Netflix / Max"),
+          atom("Label", "Generos", "muted"),
+          atom("Value", "Drama / Accion"),
+          atom("Texto boton", "Restablecer descartes"),
+          atom("Texto boton", "Vaciar mi lista"),
+          atom("Texto boton", "Reconfigurar onboarding"),
+          atom("Texto boton", "Cerrar sesion")
+        ]))
+      ]);
+    }
+
+    function notificationsScreen() {
+      const hero = heading("Alertas", "Actividad reciente", "Cambios de catalogo, estrenos y movimientos relevantes dentro de tus plataformas.");
+      const cards = notifications.map(([label, title, body, time], index) => h`<article class="card md" style="margin-bottom:16px"><div class="row-between" style="margin-bottom:12px"><p class="eyebrow">${label}</p><p class="caption">${time}</p></div><h3 class="title-small">${title}</h3>${index === 0 ? `<p class="body-small" style="margin-top:12px">${body}</p>` : ""}</article>`).join("");
+      const content = hero + cards;
+      return column("NotificationsScreen", phone(content), [
+        layer("03 Organismos", `<div class="mini">${hero}</div><div class="mini">${cards}</div>`),
+        layer("02 Moleculas", `<div class="micro-grid">${micro(cards.split("</article>")[0] + "</article>")}${micro(cards.split("</article>")[1] + "</article>")}</div>`),
+        layer("01 Atomos", atomGrid([
+          atom("Eyebrow", "ALERTAS", "accent"),
+          atom("Titulo", "Actividad reciente"),
+          atom("Descripcion", "Cambios de catalogo, estrenos y movimientos relevantes dentro de tus plataformas.", "muted"),
+          atom("Card label", notifications[0][0].toUpperCase(), "accent"),
+          atom("Timestamp", notifications[0][3], "muted"),
+          atom("Card titulo", notifications[0][1]),
+          atom("Card body", notifications[0][2], "muted"),
+          atom("Card label", notifications[1][0].toUpperCase(), "accent"),
+          atom("Timestamp", notifications[1][3], "muted"),
+          atom("Card titulo", notifications[1][1])
+        ]))
+      ]);
+    }
+
+    function column(name, preview, layers) {
+      const orderedLayers = [
+        layers[2],
+        layers[1],
+        layers[0],
+        layer("04 Pantalla completa", preview),
+      ];
+
+      return h`<section class="screen-column">
+        <p class="screen-label">${name}</p>
+        <div class="decomposition-pane">
+          <div class="flow-header">
+            <span>01 Atomos</span>
+            <span>02 Moleculas</span>
+            <span>03 Organismos</span>
+            <span>04 Pantalla completa</span>
+          </div>
+          <div class="breakdown">${orderedLayers.join("")}</div>
+        </div>
+      </section>`;
+    }
+
+    document.getElementById("screenRail").innerHTML = [
+      authScreen(),
+      preferencesScreen(),
+      peopleScreen(),
+      recapScreen(),
+      homeScreen(),
+      discoverScreen(),
+      watchlistScreen(),
+      seenScreen(),
+      settingsScreen(),
+      notificationsScreen()
+    ].join("");
+  </script>
+</body>
+</html>
+
